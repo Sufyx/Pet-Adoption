@@ -1,0 +1,131 @@
+/**
+ * ITC Full-Stack Bootcamp
+ * Pet Adoption Project
+ * 10/08/2022
+ * Asaf Gilboa
+*/
+
+* {
+  box-sizing: border-box;
+}
+#root {
+  height: 90%;
+}
+html, body, .searchPageContainer, .App {
+  height: 100%;
+  padding: 0;
+  font-family: 'Lora', serif;
+  /* background: rgba(57, 164, 164, 0.2); */
+}
+
+.chakra-ui-light {
+  background-image: url("https://img.freepik.com/premium-photo/texture-natural-long-haired-white-fur_121867-174.jpg?w=2000");
+  background-size: cover;
+  background-position: center-bottom;
+  height: 100%;
+}
+
+.navBarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1vh 0;
+  background: rgba(67, 155, 173, 0.7);
+  /* background: linear-gradient(90deg, rgba(67,155,173,1) 0%, rgba(45,187,217,1) 50%, rgba(67,155,173,1) 100%); */
+}
+
+.homePageContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.searchPageContainer {
+  display: flex;
+  height: 99%;
+}
+
+.homePageImage {
+  box-shadow: -3px 0 4px 2px rgb(116, 185, 178);
+}
+
+.homeFont {
+  font-family: 'Lora', serif;
+}
+
+.loginErrorMessage {
+  color: red;
+  font-size: 1.1vw;
+}
+
+.petPageContainer {
+  display: flex;
+}
+
+.petPageDetails {
+  font-size: 1.4vw;
+  margin: 5% 0;
+  font-weight: 600;
+}
+
+.petCardLink {
+  text-align: center;
+}
+
+.petDisplay {
+  display: flex;
+  align-items: flex-start;
+  /* background-image: url("https://cdn.wallpapersafari.com/57/69/X0s3Dm.jpg"); */
+  background-image: url("https://media.istockphoto.com/photos/pastel-blue-and-white-concrete-stone-texture-for-background-in-s-picture-id1276900703?k=20&m=1276900703&s=612x612&w=0&h=FemCpwrXUs_BIfCi8DIWA9-cT61Hd3w01WDToDcPgYg=");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px inset rgb(57, 164, 164);
+  border-radius: 10px;
+  width: 75%;
+  margin: auto;
+  margin-top: 2%;
+}
+
+.userPetsContainer, .userSettingsContainer, .petSettingsContainer {
+  font-family: 'Lora', serif;
+  margin: auto;
+  margin-top: 2%;
+  padding: 1%;
+  width: 95%;
+  min-height: 90%;
+  max-height: fit-content;
+  /* box-shadow: 0 0 3px 3px rgba(57, 164, 164, 0.2); */
+  /* background: rgba(57, 164, 164, 0.1); */
+  border-radius: 6px;
+}
+
+.petSettingsContainer {
+  width: 60%;
+}
+
+.userSettingsContainer {
+  width: 50%;
+  margin-top: 0.2%;
+}
+
+.userProfileContainer {
+  height: 90%;
+}
+
+.petFormLabel {
+  margin-top: 1%;
+  margin-bottom: 0;
+  font-size: 1vw;
+}
+
+#imgInput {
+  display: none;
+}
+.imgInputLabel {
+  width: 5%;
+  text-align: center;
+}
+
+.cursorPointer {
+  cursor: pointer;
+}
