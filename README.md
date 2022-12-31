@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+### Pet Adoption Full Stack Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Full-stack web project, fully developed by me.
+A mock website for browsing through a large selection of different pets, and adopting/fostering them.
+##
 
-## Available Scripts
+### Implementation
 
-In the project directory, you can run:
+#### Back End
+- The database is stored online on a MongoDB Atlas cluster.
+- Server is written in Node express, with Object Data Modeling done in Mongoose.
+- Routes include authentication and validation using Jason web tokens.
+- User passwords are encrypted.
 
-### `npm start`
+#### Front End
+- The client side is done in React and designed with Chakra-UI.
+- Page access and actions are restricted depending on user (guest / registered / admin).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+##
+### Description
+##### Home Page
+![signin_screen](Description/signin_screen) \
+Simple home page and welcome message. \
+Login/Sign-up and navigation menu on the nav-bar. \
+Basic validation in place for login/sign-up. \
+![side_screen](Description/side_menu) \
+The options on the navigation menu will be limited according to the user's access level.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+##### Pets Browse
+![pet_search](Description/pet_search) \
+Search for a pet from the database. \
+Several parameters available to search by, advanced search available only to logged-in users. \
+Search results will be displayed in the form of small pet cards. \
+Cards will link to full pet page card.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+##### Pet Card
+![pet_card_available](Description/pet_card_available)
+![pet_card_taken](Description/pet_card_taken) \
+Card page for a specific pet from the database. \
+Contains general details, as well as buttons for actions available to the users relating to the pet, ie: save/adopt/foster. \
+The available actions vary depending on the pet's adoption status, and their relation to the user. \
+For example: \
+"Adopt"/"Foster" will only be available if the pet was not adopted/fostered by another user. \
+"Return" will only be available if the pet was adopted/fostered specifically by the current user.
+"Edit" pet will only be available for admins.
 
-### `npm run build`
+##### User Profile
+![user_profile](Description/user_profile) \
+Profile page for registered users. \
+Contains the option to add a short bio, and links to the lists of pets the user has saved/adopted/fostered.
+![pets_page_saved](Description/pets_page_saved)
+![user_details_edit](Description/user_details_edit)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+##### Admin Dashboard
+Administrator exclusive page, which contains:
+- A detailed list of all registered users. Links to their profile and pets lists, and an option to edit their details and make them an admin.
+- A detailed list of all pets in the database, including the pet's adoption availability and owner (if they have one). 
+- Option to add a new pet.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![dashboard_pets](Description/dashboard_pets)
+![dashboard_users](Description/dashboard_users)
 
-### `npm run eject`
+![add_edit_pet](Description/add_edit_pet)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+##
+##### General features
+- Users that didn't log out will remain logged in on next session, thanks to local storage of jwt.
+- Users will only have access to certain pages and actions based on their access level.
+- User access levels:
+  -  Guest (not logged in): Home screen and basic search only.
+  -  Registered (logged in): Home, profile page, advanced search, pet cards with ability to adopt/foster/save pets.
+  -  Administrator: All registered user access, plus: Able to add/edit/delete pets, view/edit other users profiles.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

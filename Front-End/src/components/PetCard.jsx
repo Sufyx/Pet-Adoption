@@ -9,6 +9,7 @@ import { React } from 'react';
 import { Image, Flex, Button, Text } from '@chakra-ui/react';
 import { NavLink } from 'react-router-dom';
 
+
 export default function PetCard({ pet }) {
 
   const seeMore =

@@ -140,7 +140,6 @@ async function getPetsByUserIdModel(userId) {
 }
 
 
-
 function addPetModel(petToAdd) {
     try {
         const newPet = new Pet(petToAdd);

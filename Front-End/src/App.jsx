@@ -21,13 +21,13 @@ import UsersContext from './context/UsersContext';
 
 
 function App() {
+  
   const navigate = useNavigate();
-
   const [userLogged, setUserLogged] = useState('');
-
+  
   useEffect(() => {
     navigate("/home");
-    const data = JSON.parse(localStorage.getItem('loggedUser'));
+    JSON.parse(localStorage.getItem('loggedUser'));
   }, []);
 
   function updateUser(user) {
@@ -37,6 +37,8 @@ function App() {
       setUserLogged(false);
     }
   }
+
+
 
   return (
     <div className="App">

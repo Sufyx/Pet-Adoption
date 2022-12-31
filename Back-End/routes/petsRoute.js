@@ -6,7 +6,7 @@
 */
 
 const express = require("express");
-const router = express.Router()
+const router = express.Router();
 const PetsController = require("../controllers/petsController");
 
 const { newPetSchema, updatePetSchema } = require("../schemas/allSchemas");

@@ -1,0 +1,2933 @@
+[{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c5f"
+  },
+  "type": "Dog",
+  "name": "Bradley",
+  "adoptionStatus": "Adopted",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662307795/v4e5rk1pmnthcrkvvhcj.jpg",
+  "height": 24,
+  "weight": 75,
+  "color": "White / Mocha",
+  "bio": "Somewhat smart and can be taught with some patience. He is not very clean. He loves to play and can entertain himself. He's very vocal and likes to make a lot of noise.",
+  "hypoallergenic": false,
+  "dietary": [
+    "Allergic to dairy",
+    "Sensitive to candy"
+  ],
+  "breed": "Pit Bull Mix",
+  "owner": "6302940afe68c57d7dc6f8f2",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c60"
+  },
+  "type": "Cat",
+  "name": "Rajah",
+  "adoptionStatus": "Adopted",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662055875/nivsodar70m6ibpeqqzo.jpg",
+  "height": 22,
+  "weight": 65,
+  "color": "Brown Tabby",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Domestic Shorthair Mix",
+  "owner": "63033be6de2a67e187be27cd",
+  "savedAtUsers": [
+    "6318a7c7aa96a64e1e3c5f27"
+  ]
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c61"
+  },
+  "type": "Cat",
+  "name": "Phobols",
+  "adoptionStatus": "Fostered",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662310726/kedtomc4msphdffgnk4n.jpg",
+  "height": 54,
+  "weight": 46,
+  "color": "Calico",
+  "bio": "Was found stuck on an office building roof.\r\nLooking for a loving home.",
+  "hypoallergenic": true,
+  "dietary": [
+    "Sensitive to tomatoes"
+  ],
+  "breed": "Maine Coon",
+  "owner": "6303c7a1367312913635044d",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c62"
+  },
+  "type": "Dog",
+  "name": "Johnjohn",
+  "adoptionStatus": "Available",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662307959/ovg7egbmkyga8vs5t73e.jpg",
+  "height": 66,
+  "weight": 88,
+  "color": "Off-white",
+  "bio": "Will eat any food he gets access to. His favourite dog food flavour is meat and he likes to eat uncooked pasta. He also likes to eat foil.",
+  "hypoallergenic": true,
+  "dietary": [
+    "Don't let it near tin-foil"
+  ],
+  "breed": "Labradoodle",
+  "owner": "",
+  "savedAtUsers": [
+    "631491c87d7fc97094a918fb"
+  ]
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c63"
+  },
+  "type": "Cat",
+  "name": "Miso",
+  "adoptionStatus": "Adopted",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662060111/mf21cpc89tmhys5pcx5z.jpg",
+  "height": 27,
+  "weight": 8,
+  "color": "Brown Tabby/White",
+  "bio": "bibidi babidi boo",
+  "hypoallergenic": false,
+  "dietary": [
+    "item-1",
+    "item-2"
+  ],
+  "breed": "Devon Rex",
+  "owner": "6302940afe68c57d7dc6f8f3",
+  "savedAtUsers": [
+    "63032494ad5642825260f8fd"
+  ]
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c64"
+  },
+  "type": "Cat",
+  "name": "Slugathor",
+  "adoptionStatus": "Available",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662310931/n0uhg36s1gotzvocw1ba.jpg",
+  "height": 10,
+  "weight": 17,
+  "color": "Orange Tabby",
+  "bio": "Summoned from the depth of hell by a satanic cult.\r\nLooking for human souls.",
+  "hypoallergenic": true,
+  "dietary": [
+    "Weak to holy water"
+  ],
+  "breed": "Abyssinian",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c65"
+  },
+  "type": "Dog",
+  "name": "Blegatron",
+  "adoptionStatus": "Adopted",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662308059/lvkei07fdordjteigw3f.jpg",
+  "height": 44,
+  "weight": 19,
+  "color": "Light brown / white",
+  "bio": "Was given up after his previous owner had to move and wasn't allowed to bring him. He had to have a limb removed after being in a terrible accident",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Spaniel-Brittany",
+  "owner": "63032494ad5642825260f8fd",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c66"
+  },
+  "type": "Dog",
+  "name": "Moomoo",
+  "adoptionStatus": "Adopted",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662059466/jsweob2ytrng0iduroc7.jpg",
+  "height": 98,
+  "weight": 96,
+  "color": "White/Black",
+  "bio": "bio bio bio",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "French Bulldog/Pit Bull",
+  "owner": "63037c8298a23a6f295ce68b",
+  "savedAtUsers": [
+    "63032494ad5642825260f8fd"
+  ]
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c67"
+  },
+  "type": "Dog",
+  "name": "Lindi",
+  "adoptionStatus": "Adopted",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662213349/c6tla2zoszk64hxlkhsw.jpg",
+  "height": 94,
+  "weight": 67,
+  "color": "Dark gray",
+  "bio": "A medium-sized dog with a plush, two-layer coat of silver and black fur with a ruff and a curled tail.",
+  "hypoallergenic": true,
+  "dietary": [
+    "Chips",
+    "Bagles"
+  ],
+  "breed": "Keeshond",
+  "owner": "6302940afe68c57d7dc6f8f7",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c68"
+  },
+  "type": "Dog",
+  "name": "Churchill",
+  "adoptionStatus": "Available",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662308202/wrv9lbnj1aynf16eqoii.jpg",
+  "height": 87,
+  "weight": 29,
+  "color": "White fluff",
+  "bio": "Quite bright and likes to figure things out. He acts as though he's going to drown any time he's given a bath.",
+  "hypoallergenic": true,
+  "dietary": [
+    "Doesn't like dry food"
+  ],
+  "breed": "Pyrenees",
+  "owner": "",
+  "savedAtUsers": [
+    "6302940afe68c57d7dc6f8f4"
+  ]
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c69"
+  },
+  "type": "Cat",
+  "name": "Huncho",
+  "adoptionStatus": "Adopted",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662057354/xdqpp1pyih2mx6terg7e.jpg",
+  "height": 86,
+  "weight": 48,
+  "color": "Brown/White Tabby",
+  "bio": "bla bla bla",
+  "hypoallergenic": true,
+  "dietary": [
+    "one",
+    "two"
+  ],
+  "breed": "Persian",
+  "owner": "6302940afe68c57d7dc6f8f8",
+  "savedAtUsers": [
+    "63032494ad5642825260f8fd",
+    "631491c87d7fc97094a918fb"
+  ]
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c6a"
+  },
+  "type": "Dog",
+  "name": "Calvin",
+  "adoptionStatus": "Available",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662060421/n0amjocjvdhkacw1tp3l.jpg",
+  "height": 40,
+  "weight": 90,
+  "color": "Tan/White",
+  "bio": "a very good boy",
+  "hypoallergenic": true,
+  "dietary": [
+    "allergic to shrimp"
+  ],
+  "breed": "Border Terrier Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c6b"
+  },
+  "type": "Cat",
+  "name": "Shands",
+  "adoptionStatus": "Adopted",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662311078/l6vz36w8rhre4zkf8ljz.jpg",
+  "height": 12,
+  "weight": 16,
+  "color": "Torbie/White",
+  "bio": "Spends most of its time in tiny spaces.",
+  "hypoallergenic": false,
+  "dietary": [
+    "Allergic to beef"
+  ],
+  "breed": "Ragdoll",
+  "owner": "6314c81cb725424222ca1121",
+  "savedAtUsers": [
+    "6302940afe68c57d7dc6f8f4"
+  ]
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c6c"
+  },
+  "type": "Cat",
+  "name": "Bun Jovi",
+  "adoptionStatus": "Adopted",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662289848/jlvsirnohy58dkav4mnj.jpg",
+  "height": 48,
+  "weight": 31,
+  "color": "White",
+  "bio": "Fondly referred to as the house leopard, Bun Jovi has a friendly, outgoing personality that is in direct contrast to its wild appearance.",
+  "hypoallergenic": true,
+  "dietary": [
+    "item1",
+    "item2"
+  ],
+  "breed": "California Spangled",
+  "owner": "631491c87d7fc97094a918fb"
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c6e"
+  },
+  "type": "Cat",
+  "name": "Frida",
+  "adoptionStatus": "Fostered",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662237672/b8yegtdevvc5qhy9ogk8.jpg",
+  "height": 28,
+  "weight": 36,
+  "color": "Black",
+  "bio": "A mysterious and strange creature",
+  "hypoallergenic": true,
+  "dietary": [
+    "Milk",
+    "ahh",
+    "hmm?"
+  ],
+  "breed": "Bombay",
+  "owner": "63032494ad5642825260f8fd",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c6f"
+  },
+  "type": "Cat",
+  "name": "Ozymandias",
+  "adoptionStatus": "Available",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662311174/wzjuq6dilhwzqrooxrub.jpg",
+  "height": 43,
+  "weight": 61,
+  "color": "Blue Tabby/White",
+  "bio": "Smartest cat on earth.",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Domestic Medium Hair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c70"
+  },
+  "type": "Cat",
+  "name": "Finnegan",
+  "adoptionStatus": "Adopted",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662311563/bbo0p6yylcvurdndjn0l.jpg",
+  "height": 37,
+  "weight": 70,
+  "color": "Flame Point",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Siamese Mix",
+  "owner": "6302940afe68c57d7dc6f8f6",
+  "savedAtUsers": [
+    "6302940afe68c57d7dc6f8f4"
+  ]
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c71"
+  },
+  "type": "Dog",
+  "name": "Spikerz",
+  "adoptionStatus": "Fostered",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662308471/adct9co9omilzjx6dpcz.jpg",
+  "height": 56,
+  "weight": 86,
+  "color": "Black/White",
+  "bio": "Extremely playful and can entertain himself for hours on end with a stuffed toy",
+  "hypoallergenic": true,
+  "dietary": [
+    "Sensitive stomach",
+    " give dog food only."
+  ],
+  "breed": "Terrier-Fox",
+  "owner": "63037c8298a23a6f295ce68b",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c72"
+  },
+  "type": "Dog",
+  "name": "Kooshkash",
+  "adoptionStatus": "Fostered",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662308628/l5hro0fa8iyako8rdswb.jpg",
+  "height": 57,
+  "weight": 68,
+  "color": "Dark-gray",
+  "bio": "Loves going on walks. He is OK in the garden, but is not used to being on the street.",
+  "hypoallergenic": false,
+  "dietary": [
+    "Will chew plastic if allowed to"
+  ],
+  "breed": "Wolfhound-Irish",
+  "owner": "631491c87d7fc97094a918fb",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c73"
+  },
+  "type": "Dog",
+  "name": "Cheyenne",
+  "adoptionStatus": "Adopted",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662308752/hzffzdyqgpwh9yimv7bd.jpg",
+  "height": 34,
+  "weight": 75,
+  "color": "Black/White",
+  "bio": "Loves to nap in seemingly uncomfortable places",
+  "hypoallergenic": false,
+  "dietary": [
+    "Sensitive to fish"
+  ],
+  "breed": "Dalmatian",
+  "owner": "63032494ad5642825260f8fd",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c74"
+  },
+  "type": "Cat",
+  "name": "Floy mcJorjor",
+  "adoptionStatus": "Available",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662311695/idkbfnchzcyrmdcruzlc.jpg",
+  "height": 52,
+  "weight": 46,
+  "color": "Black/White",
+  "bio": "Very lazy cat.",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Domestic Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": [
+    "631491c87d7fc97094a918fb"
+  ]
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c75"
+  },
+  "type": "Dog",
+  "name": "Sassy",
+  "adoptionStatus": "Fostered",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662308897/ttoltjzwmoruuacpv1y9.jpg",
+  "height": 44,
+  "weight": 29,
+  "color": "Brown/Black",
+  "bio": "Does not pay any attention to strangers, and he dislikes other animals.",
+  "hypoallergenic": true,
+  "dietary": [
+    "Allergic to pork"
+  ],
+  "breed": "Belgian Malinois",
+  "owner": "6302940afe68c57d7dc6f8f5",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c76"
+  },
+  "type": "Cat",
+  "name": "Gretchius",
+  "adoptionStatus": "Adopted",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662311862/nwov0ypet29uqmm7qusd.jpg",
+  "height": 38,
+  "weight": 21,
+  "color": "Tortie",
+  "bio": "Will jump on your keyboard whenever possible",
+  "hypoallergenic": false,
+  "dietary": [
+    "Sensitive to shrimp"
+  ],
+  "breed": "Domestic Shorthair",
+  "owner": "6302940afe68c57d7dc6f8f2",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c77"
+  },
+  "type": "Dog",
+  "name": "Floplop",
+  "adoptionStatus": "Available",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662309105/y9ubfmlkrtrtnt701nwz.jpg",
+  "height": 90,
+  "weight": 68,
+  "color": "White/Brown",
+  "bio": "Slightly smart and knows many basic commands and tricks",
+  "hypoallergenic": true,
+  "dietary": [
+    "Sensitive to fruit"
+  ],
+  "breed": "Spaniel-Brittany",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c79"
+  },
+  "type": "Cat",
+  "name": "Frex",
+  "adoptionStatus": "Adopted",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662312095/fy50vauwb0f7p7ngdipo.jpg",
+  "height": 25,
+  "weight": 60,
+  "color": "Light-brown/black",
+  "bio": "Surprisingly friendly obedient",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Devon Rex",
+  "owner": "6302940afe68c57d7dc6f8f8",
+  "savedAtUsers": [
+    "6302940afe68c57d7dc6f8fa"
+  ]
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c7a"
+  },
+  "type": "Dog",
+  "name": "Merlin",
+  "adoptionStatus": "Fostered",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662309276/ubatgocfkbwapweczugm.jpg",
+  "height": 65,
+  "weight": 22,
+  "color": "Soptted gray",
+  "bio": "Will walk calmly and will not pull the lead during walks",
+  "hypoallergenic": false,
+  "dietary": [
+    "No chocolate"
+  ],
+  "breed": "Terrier-Tibetan",
+  "owner": "6302940afe68c57d7dc6f8f9",
+  "savedAtUsers": [
+    "63032494ad5642825260f8fd"
+  ]
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c7b"
+  },
+  "type": "Dog",
+  "name": "Shadow",
+  "adoptionStatus": "Available",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662309407/rwjlmovjz9wvm9fg7p5v.jpg",
+  "height": 53,
+  "weight": 19,
+  "color": "White/dotted-brown",
+  "bio": "Used to being on the streets and likes to go outside.",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Pointer-German",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c7c"
+  },
+  "type": "Cat",
+  "name": "Boopcha",
+  "adoptionStatus": "Adopted",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662312655/jkegugb25gs69f7ptn3w.jpg",
+  "height": 68,
+  "weight": 32,
+  "color": "Smooth orange-brown",
+  "bio": "Scared of everythig.",
+  "hypoallergenic": true,
+  "dietary": [
+    "Only eats fish"
+  ],
+  "breed": "Scottish Fold",
+  "owner": "63032494ad5642825260f8fd",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c7d"
+  },
+  "type": "Dog",
+  "name": "Glug",
+  "adoptionStatus": "Adopted",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662309610/vy1fzcd4ptds4jyafml5.jpg",
+  "height": 17,
+  "weight": 26,
+  "color": "Light-mocha",
+  "bio": "Small boy. Good small boy.",
+  "hypoallergenic": true,
+  "dietary": [
+    "Allergic to shell-fish"
+  ],
+  "breed": "Pug",
+  "owner": "6302940afe68c57d7dc6f8fa",
+  "savedAtUsers": [
+    "6318a7c7aa96a64e1e3c5f27"
+  ]
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c7e"
+  },
+  "type": "Dog",
+  "name": "Fiffi",
+  "adoptionStatus": "Adopted",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662309729/q1ea0hnmnepqboc8scfe.jpg",
+  "height": 23,
+  "weight": 19,
+  "color": "Brown/White",
+  "bio": "Always wakes up at 6AM and demands to be fed",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Spaniel-Welsh",
+  "owner": "6302940afe68c57d7dc6f8f3",
+  "savedAtUsers": [
+    "6302940afe68c57d7dc6f8fa",
+    "6302940afe68c57d7dc6f8f4"
+  ]
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c7f"
+  },
+  "type": "Dog",
+  "name": "Groplox",
+  "adoptionStatus": "Fostered",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662312819/t7r4unr5czxr6mnyomby.jpg",
+  "height": 54,
+  "weight": 67,
+  "color": "Sable",
+  "bio": "Very smart and loyal.\r\nTerritorial, and can get agressive.\r\nNeeds a strong hand.",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "German Shepherd Mix",
+  "owner": "6302940afe68c57d7dc6f8fb",
+  "savedAtUsers": [
+    "63032494ad5642825260f8fd"
+  ]
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c80"
+  },
+  "type": "Dog",
+  "name": "Bragar-Lee",
+  "adoptionStatus": "Fostered",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662312997/ntteuwdhsfme07hdryk2.jpg",
+  "height": 58,
+  "weight": 29,
+  "color": "White/Brown",
+  "bio": "Very energetic and playful.\r\nNeeds plenty of outside play-time.",
+  "hypoallergenic": true,
+  "dietary": [
+    "Allergic to dairy"
+  ],
+  "breed": "Pit Bull/Labrador Retriever",
+  "owner": "6302940afe68c57d7dc6f8f7",
+  "savedAtUsers": [
+    "6302940afe68c57d7dc6f8fa"
+  ]
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c81"
+  },
+  "type": "Cat",
+  "name": "Zrubavel",
+  "adoptionStatus": "Adopted",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662540081/huemn4ha1kpqp6aqzfip.jpg",
+  "height": 92,
+  "weight": 44,
+  "color": "Sahdes of gray",
+  "bio": "Believes humans live to serve it",
+  "hypoallergenic": true,
+  "dietary": [
+    "Tuna in water only",
+    " not oil"
+  ],
+  "breed": "Maine Coon",
+  "owner": "63032494ad5642825260f8fd",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c82"
+  },
+  "type": "Dog",
+  "name": "Volka",
+  "adoptionStatus": "Fostered",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662540996/lbpyc594lzr6r5ysanhv.jpg",
+  "height": 57,
+  "weight": 26,
+  "color": "White/light-gray",
+  "bio": "Very friendly and loyal,\r\nbut also very dramatic and loud.",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Siberian Husky",
+  "owner": "63033be6de2a67e187be27cd",
+  "savedAtUsers": [
+    "63032494ad5642825260f8fd"
+  ]
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c83"
+  },
+  "type": "Cat",
+  "name": "Hitogui",
+  "adoptionStatus": "Available",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662540582/y4cwr23btxgd5xbfdpll.jpg",
+  "height": 30,
+  "weight": 16,
+  "color": "Striped gray/brown",
+  "bio": "Wild and unruly.\r\nNatural hunter.",
+  "hypoallergenic": false,
+  "dietary": [
+    "Only eats meat"
+  ],
+  "breed": "Iriomote",
+  "owner": "",
+  "savedAtUsers": [
+    "63032494ad5642825260f8fd",
+    "6302940afe68c57d7dc6f8f4"
+  ]
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c84"
+  },
+  "type": "Dog",
+  "name": "Ryker",
+  "adoptionStatus": "Fostered",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662309887/ii0bdaeztn2aufvitimf.jpg",
+  "height": 68,
+  "weight": 70,
+  "color": "Bright-brown",
+  "bio": "Moderately bright and is good at problem solving.",
+  "hypoallergenic": false,
+  "dietary": [
+    "Allergic to dairy"
+  ],
+  "breed": "Buhund-Norwegian",
+  "owner": "6302940afe68c57d7dc6f8fa",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c85"
+  },
+  "type": "Dog",
+  "name": "Rosie",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 57,
+  "weight": 59,
+  "color": "Blue",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Pit Bull Mix",
+  "owner": "63037c8298a23a6f295ce68b",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c86"
+  },
+  "type": "Cat",
+  "name": "Mudmud",
+  "adoptionStatus": "Available",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662570860/wya4c4l2kijkxfb8nfza.jpg",
+  "height": 29,
+  "weight": 33,
+  "color": "Black/Orange/White",
+  "bio": "Rumored to bring good luck to its owner",
+  "hypoallergenic": true,
+  "dietary": [
+    "Allergic to shell-fish"
+  ],
+  "breed": "Calico",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c87"
+  },
+  "type": "Dog",
+  "name": "Ivy",
+  "adoptionStatus": "Fostered",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662310035/txyhk7akbyizpfkhmzzp.jpg",
+  "height": 64,
+  "weight": 47,
+  "color": "Black/Brown-spots",
+  "bio": "Will always go on the kitchen counters when no one is looking,\r\n\r\nand will roll in mud whenever possible.",
+  "hypoallergenic": false,
+  "dietary": [
+    "Only eats meat"
+  ],
+  "breed": "German Shepherd",
+  "owner": "6302940afe68c57d7dc6f8fc",
+  "savedAtUsers": [
+    "6314c81cb725424222ca1121"
+  ]
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c88"
+  },
+  "type": "Dog",
+  "name": "Olive",
+  "adoptionStatus": "Available",
+  "picture": "",
+  "height": 74,
+  "weight": 2,
+  "color": "Brown Brindle",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Mastiff Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c89"
+  },
+  "type": "Dog",
+  "name": "Molly",
+  "adoptionStatus": "Adopted",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662571650/fyl1qs95rv4grmffjfyt.jpg",
+  "height": 17,
+  "weight": 16,
+  "color": "Dark-brown/Black",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Yorkshire Terrier",
+  "owner": "6302940afe68c57d7dc6f8f6",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c8a"
+  },
+  "type": "Dog",
+  "name": "Oobsy",
+  "adoptionStatus": "Adopted",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662534006/ipgtq08iioj9po9ezh4z.jpg",
+  "height": 70,
+  "weight": 62,
+  "color": "Black",
+  "bio": "A Labrador, that retrieves.",
+  "hypoallergenic": false,
+  "dietary": [
+    "Likes to eat grass",
+    " which is bad for it."
+  ],
+  "breed": "Labrador Retriever Mix",
+  "owner": "6302940afe68c57d7dc6f8f4",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c8b"
+  },
+  "type": "Dog",
+  "name": "Zorgoth",
+  "adoptionStatus": "Adopted",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662194677/trhmv20xxpr7z7nkm6hk.jpg",
+  "height": 48,
+  "weight": 31,
+  "color": "White",
+  "bio": "Fa la la la la, la la, la laaa",
+  "hypoallergenic": true,
+  "dietary": [
+    "one",
+    "two"
+  ],
+  "breed": "Maltese Mix",
+  "owner": "6302940afe68c57d7dc6f8f3",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c8c"
+  },
+  "type": "Cat",
+  "name": "Cinnamon",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 67,
+  "weight": 32,
+  "color": "Brown Tabby",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Domestic Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c8d"
+  },
+  "type": "Dog",
+  "name": "Lily",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 84,
+  "weight": 76,
+  "color": "Black/White",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Border Collie/Labrador Retriever",
+  "owner": "6302940afe68c57d7dc6f8fd",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c8e"
+  },
+  "type": "Dog",
+  "name": "Ripley",
+  "adoptionStatus": "Available",
+  "picture": "",
+  "height": 28,
+  "weight": 47,
+  "color": "Tan/White",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [
+    "A-1",
+    "C-4"
+  ],
+  "breed": "Labrador Retriever Mix",
+  "owner": "",
+  "savedAtUsers": [
+    "6318c1d45929c8eb82f1075c",
+    "6318c1d45929c8eb82f1075c"
+  ]
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c8f"
+  },
+  "type": "Dog",
+  "name": "Lobo",
+  "adoptionStatus": "Available",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662571147/skr5ugzdqm6jccqbmnsj.png",
+  "height": 72,
+  "weight": 34,
+  "color": "Sploched white",
+  "bio": "Was found wandering the streets in a nearby town.\r\nHas much love to give.",
+  "hypoallergenic": false,
+  "dietary": [
+    "item1",
+    "item2",
+    "item3",
+    "item4",
+    "item5"
+  ],
+  "breed": "Australian Shepherd",
+  "owner": "",
+  "savedAtUsers": [
+    "6302940afe68c57d7dc6f8f4"
+  ]
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c90"
+  },
+  "type": "Dog",
+  "name": "Jaqueline",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 68,
+  "weight": 54,
+  "color": "Red",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [
+    "one",
+    "three"
+  ],
+  "breed": "Staffordshire Mix",
+  "owner": "6302940afe68c57d7dc6f8fb",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c91"
+  },
+  "type": "Cat",
+  "name": "Moorvin",
+  "adoptionStatus": "Adopted",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662571944/evb1usknaj05cran6oef.jpg",
+  "height": 26,
+  "weight": 34,
+  "color": "Black",
+  "bio": "Very clever and majestic cat",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Bombay",
+  "owner": "",
+  "savedAtUsers": [
+    "6314c81cb725424222ca1121",
+    "6318c1d45929c8eb82f1075c"
+  ]
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c92"
+  },
+  "type": "Dog",
+  "name": "Sheldon",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 19,
+  "weight": 22,
+  "color": "Tricolor",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Cardigan Welsh Corgi Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c93"
+  },
+  "type": "Dog",
+  "name": "Kane",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 30,
+  "weight": 82,
+  "color": "Black/White",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Labrador Retriever/Pit Bull",
+  "owner": "",
+  "savedAtUsers": [
+    "6314c81cb725424222ca1121"
+  ]
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c94"
+  },
+  "type": "Cat",
+  "name": "Kitten",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 90,
+  "weight": 10,
+  "color": "Brown Tabby",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Domestic Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c95"
+  },
+  "type": "Cat",
+  "name": "Liam",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 51,
+  "weight": 24,
+  "color": "Blue/White",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Domestic Longhair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c96"
+  },
+  "type": "Dog",
+  "name": "Alfie",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 68,
+  "weight": 64,
+  "color": "Cream/Gray",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Soft Coated Wheaten Terrier Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c97"
+  },
+  "type": "Dog",
+  "name": "Shades",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 10,
+  "weight": 66,
+  "color": "Black/White",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Labrador Retriever Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c98"
+  },
+  "type": "Dog",
+  "name": "Penny",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 76,
+  "weight": 71,
+  "color": "Buff",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Chihuahua Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c99"
+  },
+  "type": "Dog",
+  "name": "Ginger",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 32,
+  "weight": 36,
+  "color": "Red/White",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Chihuahua Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c9a"
+  },
+  "type": "Dog",
+  "name": "Lolly",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 42,
+  "weight": 57,
+  "color": "Brown Brindle",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Labrador Retriever Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c9b"
+  },
+  "type": "Dog",
+  "name": "Sheila",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 94,
+  "weight": 8,
+  "color": "Brown/Black",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "German Shepherd Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c9c"
+  },
+  "type": "Dog",
+  "name": "Rocket",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 20,
+  "weight": 75,
+  "color": "Tricolor",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Chihuahua Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c9d"
+  },
+  "type": "Dog",
+  "name": "Tucker",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 51,
+  "weight": 32,
+  "color": "Brown/White",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Labrador Retriever Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c9e"
+  },
+  "type": "Cat",
+  "name": "Sugar",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 53,
+  "weight": 63,
+  "color": "Black",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Domestic Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9c9f"
+  },
+  "type": "Dog",
+  "name": "Chula",
+  "adoptionStatus": "Adopted",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662211057/auiofolrv0ob2kh7nouz.jpg",
+  "height": 24,
+  "weight": 46,
+  "color": "Off-white",
+  "bio": "Require to be brushed and groomed frequently.",
+  "hypoallergenic": false,
+  "dietary": [
+    "Chicken",
+    "Bones"
+  ],
+  "breed": "Clumber Spaniel",
+  "owner": "",
+  "savedAtUsers": [
+    "6302940afe68c57d7dc6f8f4"
+  ]
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9ca0"
+  },
+  "type": "Other",
+  "name": "Colossus",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 81,
+  "weight": 4,
+  "color": "Gray",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Chinchilla-Stnd Mix"
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9ca1"
+  },
+  "type": "Dog",
+  "name": "Aria",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 89,
+  "weight": 51,
+  "color": "White/Black",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Cardigan Welsh Corgi/English Setter",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9ca2"
+  },
+  "type": "Cat",
+  "name": "Captamerica",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 72,
+  "weight": 10,
+  "color": "Blue/White",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Domestic Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9ca3"
+  },
+  "type": "Dog",
+  "name": "Oreo",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 55,
+  "weight": 23,
+  "color": "Black/White",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Border Collie Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9ca4"
+  },
+  "type": "Cat",
+  "name": "Bacon",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 30,
+  "weight": 87,
+  "color": "Blue",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Domestic Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9ca5"
+  },
+  "type": "Cat",
+  "name": "Winnie",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 90,
+  "weight": 28,
+  "color": "Blue",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Russian Blue Mix",
+  "owner": "",
+  "savedAtUsers": [
+    "631491c87d7fc97094a918fb"
+  ]
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9ca6"
+  },
+  "type": "Cat",
+  "name": "Smoke",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 31,
+  "weight": 84,
+  "color": "Blue",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Russian Blue Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9ca7"
+  },
+  "type": "Cat",
+  "name": "Pepper",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 26,
+  "weight": 5,
+  "color": "Black/White",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Domestic Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9ca8"
+  },
+  "type": "Cat",
+  "name": "Mittens",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 53,
+  "weight": 50,
+  "color": "Brown Tabby/White",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Domestic Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9ca9"
+  },
+  "type": "Cat",
+  "name": "Luke",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 52,
+  "weight": 39,
+  "color": "Black/White",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Domestic Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9caa"
+  },
+  "type": "Cat",
+  "name": "Shazie",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 52,
+  "weight": 70,
+  "color": "Black Tabby",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Domestic Medium Hair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cab"
+  },
+  "type": "Dog",
+  "name": "Kyra",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 54,
+  "weight": 1,
+  "color": "Fawn/White",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Pit Bull Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cac"
+  },
+  "type": "Cat",
+  "name": "Moe",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 40,
+  "weight": 22,
+  "color": "Brown Tabby/White",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Domestic Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cad"
+  },
+  "type": "Dog",
+  "name": "Daisy",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 10,
+  "weight": 78,
+  "color": "Tan/White",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Chihuahua Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cae"
+  },
+  "type": "Cat",
+  "name": "Max",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 90,
+  "weight": 23,
+  "color": "Brown Tabby",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Domestic Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9caf"
+  },
+  "type": "Dog",
+  "name": "Brody",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 40,
+  "weight": 12,
+  "color": "White/Brown Brindle",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Parson Russell Terrier Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cb0"
+  },
+  "type": "Dog",
+  "name": "Lucky",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 93,
+  "weight": 31,
+  "color": "White",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Miniature Poodle Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cb1"
+  },
+  "type": "Dog",
+  "name": "Bear",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 12,
+  "weight": 18,
+  "color": "Black",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Flat Coat Retriever Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cb2"
+  },
+  "type": "Dog",
+  "name": "Quill",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 12,
+  "weight": 56,
+  "color": "White/Black",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Labrador Retriever Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cb3"
+  },
+  "type": "Cat",
+  "name": "Pumpkin",
+  "adoptionStatus": "Available",
+  "picture": "",
+  "height": 52,
+  "weight": 95,
+  "color": "Orange Tabby",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Domestic Medium Hair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cb4"
+  },
+  "type": "Dog",
+  "name": "Luke",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 17,
+  "weight": 77,
+  "color": "Tan/Black",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Labrador Retriever/Beagle",
+  "owner": "6303c7a1367312913635044d",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cb5"
+  },
+  "type": "Dog",
+  "name": "Ittybitty",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 74,
+  "weight": 71,
+  "color": "Black/White",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Pit Bull Mix",
+  "owner": "63029caf50c6c869095f9d4b",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cb6"
+  },
+  "type": "Dog",
+  "name": "Benji",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 17,
+  "weight": 43,
+  "color": "Tan",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Border Terrier Mix",
+  "owner": "63033be6de2a67e187be27cd",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cb7"
+  },
+  "type": "Dog",
+  "name": "Rose",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 67,
+  "weight": 24,
+  "color": "Yellow",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Labrador Retriever/Jack Russell Terrier",
+  "owner": "6302940afe68c57d7dc6f8fb",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cb8"
+  },
+  "type": "Cat",
+  "name": "Shakti",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 41,
+  "weight": 21,
+  "color": "Blue/White",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Domestic Shorthair Mix",
+  "owner": "6302940afe68c57d7dc6f8f9",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cb9"
+  },
+  "type": "Cat",
+  "name": "Toots",
+  "adoptionStatus": "Fostered",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662239992/zeuwy1kyywv9bugbc6m4.jpg",
+  "height": 56,
+  "weight": 55,
+  "color": "Brown blackish",
+  "bio": "Trainable, smart, athletic, fun to watch and play with, loyal, and love water-all great traits for a family pet.",
+  "hypoallergenic": true,
+  "dietary": [
+    "Kibble"
+  ],
+  "breed": "Bengal",
+  "owner": "6302940afe68c57d7dc6f8f8",
+  "savedAtUsers": [
+    "63032494ad5642825260f8fd"
+  ]
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cba"
+  },
+  "type": "Dog",
+  "name": "Boone",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 10,
+  "weight": 63,
+  "color": "Liver/White",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "English Springer Spaniel Mix",
+  "owner": "6318a7c7aa96a64e1e3c5f27",
+  "savedAtUsers": [
+    "6302940afe68c57d7dc6f8fa"
+  ]
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cbb"
+  },
+  "type": "Dog",
+  "name": "Ruby",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 62,
+  "weight": 72,
+  "color": "Brown Brindle",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Catahoula/Labrador Retriever",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cbc"
+  },
+  "type": "Dog",
+  "name": "White Boy",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 31,
+  "weight": 24,
+  "color": "White/Black",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Pit Bull Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cbd"
+  },
+  "type": "Dog",
+  "name": "Gio",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 80,
+  "weight": 86,
+  "color": "Red/Tan",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Chihuahua Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cbe"
+  },
+  "type": "Cat",
+  "name": "Jolie",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 30,
+  "weight": 40,
+  "color": "Brown Tabby/White",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Domestic Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cbf"
+  },
+  "type": "Dog",
+  "name": "Yoshi",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 73,
+  "weight": 75,
+  "color": "Blue/White",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Pit Bull Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cc0"
+  },
+  "type": "Dog",
+  "name": "Toby",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 20,
+  "weight": 28,
+  "color": "Cream",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Chihuahua Longhair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cc1"
+  },
+  "type": "Dog",
+  "name": "Charlie",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 10,
+  "weight": 89,
+  "color": "White/Brown",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Treeing Walker Coonhound Mix",
+  "owner": "",
+  "savedAtUsers": [
+    "6302940afe68c57d7dc6f8fa"
+  ]
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cc2"
+  },
+  "type": "Cat",
+  "name": "Stella Luna",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 45,
+  "weight": 77,
+  "color": "Black/White",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Domestic Medium Hair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cc3"
+  },
+  "type": "Dog",
+  "name": "Luna",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 46,
+  "weight": 8,
+  "color": "Black/White",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Siberian Husky Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cc4"
+  },
+  "type": "Cat",
+  "name": "Lucy",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 39,
+  "weight": 30,
+  "color": "Tortie",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Domestic Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cc5"
+  },
+  "type": "Dog",
+  "name": "Nala",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 38,
+  "weight": 4,
+  "color": "Black/White",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Cocker Spaniel Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cc6"
+  },
+  "type": "Dog",
+  "name": "Preciosa",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 100,
+  "weight": 0,
+  "color": "Black/Tan",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Chihuahua Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cc7"
+  },
+  "type": "Dog",
+  "name": "Sandy",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 19,
+  "weight": 93,
+  "color": "White",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Miniature Schnauzer/Miniature Poodle",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cc8"
+  },
+  "type": "Dog",
+  "name": "Shy",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 23,
+  "weight": 59,
+  "color": "Black",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Labrador Retriever Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cc9"
+  },
+  "type": "Dog",
+  "name": "Luna",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 66,
+  "weight": 42,
+  "color": "Brown/White",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Labrador Retriever Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cca"
+  },
+  "type": "Dog",
+  "name": "Georgo",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 49,
+  "weight": 35,
+  "color": "Chocolate/Tan",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Labrador Retriever Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9ccb"
+  },
+  "type": "Dog",
+  "name": "Chucho",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 19,
+  "weight": 2,
+  "color": "Tan/White",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Chihuahua Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9ccc"
+  },
+  "type": "Cat",
+  "name": "Smooches",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 56,
+  "weight": 88,
+  "color": "Black/White",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Domestic Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9ccd"
+  },
+  "type": "Dog",
+  "name": "Shadow",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 54,
+  "weight": 83,
+  "color": "Black",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "German Shepherd",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cce"
+  },
+  "type": "Dog",
+  "name": "Sargento",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 19,
+  "weight": 42,
+  "color": "Red/White",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Rhod Ridgeback Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9ccf"
+  },
+  "type": "Cat",
+  "name": "Mia",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 85,
+  "weight": 80,
+  "color": "Tortie Point",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Siamese Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cd0"
+  },
+  "type": "Dog",
+  "name": "Rosco",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 97,
+  "weight": 99,
+  "color": "Red/White",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Chihuahua Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cd1"
+  },
+  "type": "Dog",
+  "name": "Canela",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 77,
+  "weight": 85,
+  "color": "White/Tan",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Chihuahua Shorthair",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cd2"
+  },
+  "type": "Cat",
+  "name": "Harlem",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 14,
+  "weight": 18,
+  "color": "Orange Tabby",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Domestic Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cd3"
+  },
+  "type": "Cat",
+  "name": "Miss Rose",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 70,
+  "weight": 72,
+  "color": "Calico",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Domestic Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cd4"
+  },
+  "type": "Cat",
+  "name": "Loki",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 31,
+  "weight": 6,
+  "color": "Brown Tabby",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Domestic Longhair Mix",
+  "owner": "",
+  "savedAtUsers": [
+    "6302940afe68c57d7dc6f8fa"
+  ]
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cd5"
+  },
+  "type": "Dog",
+  "name": "Malo",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 76,
+  "weight": 26,
+  "color": "Black",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Labrador Retriever Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cd6"
+  },
+  "type": "Dog",
+  "name": "Chaco",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 27,
+  "weight": 95,
+  "color": "Black/White",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Labrador Retriever Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cd7"
+  },
+  "type": "Dog",
+  "name": "Scooby",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 26,
+  "weight": 78,
+  "color": "Tan/Black",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "German Shepherd Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cd8"
+  },
+  "type": "Dog",
+  "name": "Lex",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 15,
+  "weight": 86,
+  "color": "Brown",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Boxer Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cd9"
+  },
+  "type": "Cat",
+  "name": "Peeta",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 69,
+  "weight": 28,
+  "color": "Orange Tabby",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Domestic Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cda"
+  },
+  "type": "Cat",
+  "name": "Nyanners",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 64,
+  "weight": 43,
+  "color": "White pink",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Domestic Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cdb"
+  },
+  "type": "Dog",
+  "name": "Coco",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 39,
+  "weight": 22,
+  "color": "White/Brown",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Pit Bull Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cdc"
+  },
+  "type": "Cat",
+  "name": "Fafali",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 13,
+  "weight": 98,
+  "color": "Tortie",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Domestic Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cdd"
+  },
+  "type": "Dog",
+  "name": "Happy Camper",
+  "adoptionStatus": "Available",
+  "picture": "",
+  "height": 40,
+  "weight": 40,
+  "color": "Black",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Labrador Retriever Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cde"
+  },
+  "type": "Dog",
+  "name": "Chacha",
+  "adoptionStatus": "Available",
+  "picture": "",
+  "height": 61,
+  "weight": 53,
+  "color": "White/Brown",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Beagle Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cdf"
+  },
+  "type": "Dog",
+  "name": "Monday",
+  "adoptionStatus": "Available",
+  "picture": "",
+  "height": 16,
+  "weight": 79,
+  "color": "White",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Miniature Schnauzer Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9ce0"
+  },
+  "type": "Dog",
+  "name": "Edgar",
+  "adoptionStatus": "Available",
+  "picture": "",
+  "height": 68,
+  "weight": 86,
+  "color": "Brown/White",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Leonberger Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9ce1"
+  },
+  "type": "Dog",
+  "name": "Ella",
+  "adoptionStatus": "Available",
+  "picture": "",
+  "height": 51,
+  "weight": 48,
+  "color": "Brown",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Chihuahua Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9ce3"
+  },
+  "type": "Cat",
+  "name": "James",
+  "adoptionStatus": "Available",
+  "picture": "",
+  "height": 83,
+  "weight": 29,
+  "color": "Blue Tabby",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Domestic Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9ce4"
+  },
+  "type": "Dog",
+  "name": "Valentino",
+  "adoptionStatus": "Available",
+  "picture": "",
+  "height": 45,
+  "weight": 97,
+  "color": "Black/Tan",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Pug/Border Terrier",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9ce5"
+  },
+  "type": "Dog",
+  "name": "Fancy",
+  "adoptionStatus": "Available",
+  "picture": "",
+  "height": 14,
+  "weight": 79,
+  "color": "Black/White",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Papillon/Border Collie",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9ce6"
+  },
+  "type": "Dog",
+  "name": "Novah",
+  "adoptionStatus": "Available",
+  "picture": "",
+  "height": 16,
+  "weight": 39,
+  "color": "White",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Pit Bull Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9ce7"
+  },
+  "type": "Dog",
+  "name": "Bobobobobo",
+  "adoptionStatus": "Available",
+  "picture": "",
+  "height": 10,
+  "weight": 21,
+  "color": "Black/Tricolor",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Beagle",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9ce8"
+  },
+  "type": "Dog",
+  "name": "Pig",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 24,
+  "weight": 61,
+  "color": "White/Pink",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Bulldog",
+  "owner": "6318a7c7aa96a64e1e3c5f27",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9ce9"
+  },
+  "type": "Dog",
+  "name": "Truman",
+  "adoptionStatus": "Available",
+  "picture": "",
+  "height": 83,
+  "weight": 36,
+  "color": "White/Black",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Rat Terrier Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cea"
+  },
+  "type": "Dog",
+  "name": "Martie",
+  "adoptionStatus": "Available",
+  "picture": "",
+  "height": 34,
+  "weight": 27,
+  "color": "Tricolor",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Chihuahua Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9ceb"
+  },
+  "type": "Dog",
+  "name": "Newt",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 19,
+  "weight": 52,
+  "color": "Brown Brindle/White",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Pit Bull Mix",
+  "owner": "631491c87d7fc97094a918fb",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cec"
+  },
+  "type": "Dog",
+  "name": "Patrick",
+  "adoptionStatus": "Available",
+  "picture": "",
+  "height": 69,
+  "weight": 14,
+  "color": "Brown/Black",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Pomeranian Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9ced"
+  },
+  "type": "Cat",
+  "name": "Davis",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 94,
+  "weight": 83,
+  "color": "Brown Tabby",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Domestic Shorthair Mix",
+  "owner": "6302940afe68c57d7dc6f8fa",
+  "savedAtUsers": [
+    "6318c1d45929c8eb82f1075c"
+  ]
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cee"
+  },
+  "type": "Cat",
+  "name": "Chankla",
+  "adoptionStatus": "Available",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662572836/arg9hwo3yzvfhnoydxdu.jpg",
+  "height": 24,
+  "weight": 26,
+  "color": "Ginger",
+  "bio": "Sleeps a lot.\r\nVery jumpy when awake.",
+  "hypoallergenic": true,
+  "dietary": [
+    "item-A",
+    "item-B"
+  ],
+  "breed": "Somali",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cef"
+  },
+  "type": "Cat",
+  "name": "Montgomery",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 54,
+  "weight": 43,
+  "color": "Brown Tabby/White",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Domestic Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cf0"
+  },
+  "type": "Dog",
+  "name": "Ollie",
+  "adoptionStatus": "Available",
+  "picture": "",
+  "height": 82,
+  "weight": 52,
+  "color": "Black",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Australian Cattle Dog/Labrador Retriever",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cf1"
+  },
+  "type": "Dog",
+  "name": "Meryl",
+  "adoptionStatus": "Available",
+  "picture": "",
+  "height": 66,
+  "weight": 31,
+  "color": "Brown Brindle/White",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Pit Bull Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cf2"
+  },
+  "type": "Dog",
+  "name": "Minnie",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 15,
+  "weight": 8,
+  "color": "Blue/Tan",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Chihuahua Shorthair Mix",
+  "owner": "6318a7c7aa96a64e1e3c5f27",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cf3"
+  },
+  "type": "Cat",
+  "name": "Bumble",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 59,
+  "weight": 74,
+  "color": "Seal Point",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Siamese",
+  "owner": "6318c1d45929c8eb82f1075c",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cf4"
+  },
+  "type": "Dog",
+  "name": "Vinnie",
+  "adoptionStatus": "Available",
+  "picture": "",
+  "height": 41,
+  "weight": 99,
+  "color": "Tan/White",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Pit Bull Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cf5"
+  },
+  "type": "Cat",
+  "name": "Jasmine",
+  "adoptionStatus": "Available",
+  "picture": "",
+  "height": 66,
+  "weight": 22,
+  "color": "Orange Tabby/White",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Domestic Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": [
+    "6318a7c7aa96a64e1e3c5f27"
+  ]
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cf6"
+  },
+  "type": "Cat",
+  "name": "Willow",
+  "adoptionStatus": "Available",
+  "picture": "",
+  "height": 43,
+  "weight": 61,
+  "color": "Black",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Domestic Longhair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cf7"
+  },
+  "type": "Dog",
+  "name": "Brie",
+  "adoptionStatus": "Available",
+  "picture": "",
+  "height": 50,
+  "weight": 42,
+  "color": "Brown Brindle/White",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Greyhound Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cf8"
+  },
+  "type": "Cat",
+  "name": "Lana",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 47,
+  "weight": 60,
+  "color": "White/Brown Tabby",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Domestic Shorthair Mix",
+  "owner": "6314c81cb725424222ca1121",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cf9"
+  },
+  "type": "Cat",
+  "name": "Glenn",
+  "adoptionStatus": "Available",
+  "picture": "",
+  "height": 98,
+  "weight": 14,
+  "color": "Blue Tabby/White",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Domestic Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cfa"
+  },
+  "type": "Dog",
+  "name": "Josh",
+  "adoptionStatus": "Available",
+  "picture": "",
+  "height": 46,
+  "weight": 41,
+  "color": "Black/White",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Miniature Pinscher Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cfb"
+  },
+  "type": "Cat",
+  "name": "Oreo",
+  "adoptionStatus": "Available",
+  "picture": "",
+  "height": 32,
+  "weight": 39,
+  "color": "Lynx Point",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Domestic Medium Hair",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cfc"
+  },
+  "type": "Dog",
+  "name": "Delilah",
+  "adoptionStatus": "Available",
+  "picture": "",
+  "height": 77,
+  "weight": 36,
+  "color": "Brown Merle/White",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Pit Bull Mix",
+  "owner": "",
+  "savedAtUsers": [
+    "6318a7c7aa96a64e1e3c5f27"
+  ]
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cfd"
+  },
+  "type": "Cat",
+  "name": "Snowflake",
+  "adoptionStatus": "Fostered",
+  "picture": "",
+  "height": 30,
+  "weight": 63,
+  "color": "Cream Tabby/White",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Domestic Shorthair Mix",
+  "owner": "6302940afe68c57d7dc6f8f4",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cfe"
+  },
+  "type": "Cat",
+  "name": "Dora",
+  "adoptionStatus": "Available",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662055771/lfbvjplraan6ud6hjtlq.jpg",
+  "height": 23,
+  "weight": 54,
+  "color": "Calico",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Domestic Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "62fe9080b02b804586da9cff"
+  },
+  "type": "Cat",
+  "name": "Cosmo",
+  "adoptionStatus": "Available",
+  "picture": "",
+  "height": 24,
+  "weight": 9,
+  "color": "Chocolate",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [],
+  "breed": "Domestic Shorthair Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "630008bc7c7af0f9969782fd"
+  },
+  "type": "Dog",
+  "name": "Zamzaza",
+  "adoptionStatus": "Adopted",
+  "picture": "",
+  "height": 64,
+  "weight": 31,
+  "color": "Gray",
+  "bio": "",
+  "hypoallergenic": true,
+  "dietary": [
+    "[]"
+  ],
+  "breed": "Parson Russell Terrier Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "630018867eaaa92a9ac88f80"
+  },
+  "type": "Cat",
+  "name": "Spaghetti",
+  "adoptionStatus": "Available",
+  "picture": "",
+  "height": 59,
+  "weight": 41,
+  "color": "Pink",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Siamese Mix",
+  "owner": "",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "631368ed6a9a4140c03803cd"
+  },
+  "type": "Dog",
+  "name": "Macroofles",
+  "adoptionStatus": "Fostered",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662216429/j5jwmpjvziauoczjmauh.jpg",
+  "height": 65,
+  "weight": 32,
+  "color": "Brown",
+  "bio": "A a setter, a gundog, and family dog",
+  "hypoallergenic": false,
+  "dietary": [
+    "ah"
+  ],
+  "breed": "Setter-irish",
+  "owner": "63032494ad5642825260f8fd",
+  "savedAtUsers": [
+    "63032494ad5642825260f8fd"
+  ]
+},{
+  "_id": {
+    "$oid": "631843258bb6c429946988c0"
+  },
+  "type": "Dog",
+  "name": "Dangalf",
+  "adoptionStatus": "Adopted",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662534437/eubxo3wfh3uj8s6v0bqt.jpg",
+  "height": 83,
+  "weight": 78,
+  "color": "Black",
+  "bio": "Playful and energetic.\r\nNot aware of its size, will jump on people if allowed.",
+  "hypoallergenic": false,
+  "dietary": [
+    "Sensitive to pork"
+  ],
+  "breed": "Great Dane",
+  "owner": "63032494ad5642825260f8fd",
+  "savedAtUsers": []
+},{
+  "_id": {
+    "$oid": "6319982fbc23874c8eb81592"
+  },
+  "type": "Dog",
+  "name": "Blabla",
+  "adoptionStatus": "Available",
+  "picture": "https://res.cloudinary.com/drnapju6t/image/upload/v1662621743/tf5yekjvecxedfbrp0hv.jpg",
+  "height": null,
+  "weight": null,
+  "color": "",
+  "bio": "",
+  "hypoallergenic": false,
+  "dietary": [],
+  "breed": "Poodle",
+  "owner": "",
+  "savedAtUsers": []
+}]

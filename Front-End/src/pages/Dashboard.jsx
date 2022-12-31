@@ -7,14 +7,13 @@
 
 
 import { React, useState, useEffect, useContext } from 'react';
-import { Box, Image, Flex, Button, Divider } from '@chakra-ui/react';
+import { Box, Flex, Button, Divider } from '@chakra-ui/react';
 import { useNavigate } from "react-router-dom";
 import PetSettings from "./PetSettings"
 import UsersPage from './UsersPage';
 import PetsTable from './PetsTable';
 import axios from 'axios';
 import UsersContext from '../context/UsersContext';
-import Search from './Search';
 
 export default function Dashboard() {
     const baseUrl = "http://localhost:6060";
