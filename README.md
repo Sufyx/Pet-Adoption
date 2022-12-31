@@ -19,15 +19,15 @@ A mock website for browsing through a large selection of different pets, and ado
 ##
 ### Description
 ##### Home Page
-![signin_screen](Description/signin_screen) \
+![signin_screen](Description/signin_screen.png) \
 Simple home page and welcome message. \
 Login/Sign-up and navigation menu on the nav-bar. \
 Basic validation in place for login/sign-up. \
-![side_screen](Description/side_menu) \
+![side_screen](Description/side_menu.png) \
 The options on the navigation menu will be limited according to the user's access level.
 
 ##### Pets Browse
-![pet_search](Description/pet_search) \
+![pet_search](Description/pet_search.png) \
 Search for a pet from the database. \
 Several parameters available to search by, advanced search available only to logged-in users. \
 Search results will be displayed in the form of small pet cards. \
@@ -35,8 +35,8 @@ Cards will link to full pet page card.
 
 
 ##### Pet Card
-![pet_card_available](Description/pet_card_available)
-![pet_card_taken](Description/pet_card_taken) \
+![pet_card_available](Description/pet_card_available.png)
+![pet_card_taken](Description/pet_card_taken.png) \
 Card page for a specific pet from the database. \
 Contains general details, as well as buttons for actions available to the users relating to the pet, ie: save/adopt/foster. \
 The available actions vary depending on the pet's adoption status, and their relation to the user. \
@@ -46,11 +46,11 @@ For example: \
 "Edit" pet will only be available for admins.
 
 ##### User Profile
-![user_profile](Description/user_profile) \
+![user_profile](Description/user_profile.png) \
 Profile page for registered users. \
 Contains the option to add a short bio, and links to the lists of pets the user has saved/adopted/fostered.
-![pets_page_saved](Description/pets_page_saved)
-![user_details_edit](Description/user_details_edit)
+![pets_page_saved](Description/pets_page_saved.png)
+![user_details_edit](Description/user_details_edit.png)
 
 
 ##### Admin Dashboard
@@ -59,10 +59,10 @@ Administrator exclusive page, which contains:
 - A detailed list of all pets in the database, including the pet's adoption availability and owner (if they have one). 
 - Option to add a new pet.
 
-![dashboard_pets](Description/dashboard_pets)
-![dashboard_users](Description/dashboard_users)
+![dashboard_pets](Description/dashboard_pets.png)
+![dashboard_users](Description/dashboard_users.png)
 
-![add_edit_pet](Description/add_edit_pet)
+![add_edit_pet](Description/add_edit_pet.png)
 
 ##
 ##### General features
