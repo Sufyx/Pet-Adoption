@@ -18,6 +18,7 @@ A mock website for browsing through a large selection of different pets, and ado
 
 ##
 ### Description
+
 #### Home Page
 <img alt="signin_screen" src="Description/signin_screen.png" width="500" height="auto" >
 <img alt="side_menu" src="Description/side_menu.png" width="500" height="auto" >
@@ -27,6 +28,7 @@ Basic validation in place for login/sign-up. <br>
 The options on the navigation menu will be limited according to the user's access level.
 
 <br>
+
 #### Pets Browse
 <img alt="pet_search" src="Description/pet_search.png" width="500" height="auto" >
 Search for a pet from the database. <br>
@@ -35,6 +37,7 @@ Search results will be displayed in the form of small pet cards. <br>
 Cards will link to full pet page card.
 
 <br>
+
 #### Pet Card
 <img alt="pet_card_available" src="Description/pet_card_available.png" width="500" height="auto" >
 <img alt="pet_card_taken" src="Description/pet_card_taken.png" width="500" height="auto" >
@@ -47,6 +50,7 @@ For example: <br>
 "Edit" pet will only be available for admins.
 
 <br>
+
 #### User Profile
 <img alt="user_profile" src="Description/user_profile.png" width="500" height="auto" >
 <img alt="pets_page_saved" src="Description/pets_page_saved.png" width="500" height="auto" >
@@ -55,6 +59,7 @@ Profile page for registered users. <br>
 Contains the option to add a short bio, and links to the lists of pets the user has saved/adopted/fostered.
 
 <br>
+
 #### Admin Dashboard
 <img alt="dashboard_pets" src="Description/dashboard_pets.png" width="500" height="auto" >
 <img alt="dashboard_users" src="Description/dashboard_users.png" width="500" height="auto" >
@@ -65,6 +70,7 @@ Administrator exclusive page, which contains:
 - Option to add a new pet.
 
 <br>
+
 ##
 ##### General features
 - Users that didn't log out will remain logged in on next session, thanks to local storage of jwt.
