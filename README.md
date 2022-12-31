@@ -19,7 +19,8 @@ A mock website for browsing through a large selection of different pets, and ado
 ##
 ### Description
 ##### Home Page
-![signin_screen](Description/signin_screen.png) \
+<!-- ![signin_screen](Description/signin_screen.png) \ -->
+<img alt="signin_screen" src="Description/signin_screen.png" width="500" height="auto" >
 Simple home page and welcome message. \
 Login/Sign-up and navigation menu on the nav-bar. \
 Basic validation in place for login/sign-up. \
@@ -27,7 +28,8 @@ Basic validation in place for login/sign-up. \
 The options on the navigation menu will be limited according to the user's access level.
 
 ##### Pets Browse
-![pet_search](Description/pet_search.png) \
+<!-- ![pet_search](Description/pet_search.png) \ -->
+<img alt="pet_search" src="Description/pet_search.png" width="500" height="auto" >
 Search for a pet from the database. \
 Several parameters available to search by, advanced search available only to logged-in users. \
 Search results will be displayed in the form of small pet cards. \
@@ -35,8 +37,10 @@ Cards will link to full pet page card.
 
 
 ##### Pet Card
-![pet_card_available](Description/pet_card_available.png)
-![pet_card_taken](Description/pet_card_taken.png) \
+<!-- ![pet_card_available](Description/pet_card_available.png) -->
+<img alt="pet_card_available" src="Description/pet_card_available.png" width="500" height="auto" >
+<!-- ![pet_card_taken](Description/pet_card_taken.png) \ -->
+<img alt="pet_card_taken" src="Description/pet_card_taken.png" width="500" height="auto" >
 Card page for a specific pet from the database. \
 Contains general details, as well as buttons for actions available to the users relating to the pet, ie: save/adopt/foster. \
 The available actions vary depending on the pet's adoption status, and their relation to the user. \
@@ -46,11 +50,14 @@ For example: \
 "Edit" pet will only be available for admins.
 
 ##### User Profile
-![user_profile](Description/user_profile.png) \
+<!-- ![user_profile](Description/user_profile.png) \ -->
+<img alt="user_profile" src="Description/user_profile.png" width="500" height="auto" >
 Profile page for registered users. \
 Contains the option to add a short bio, and links to the lists of pets the user has saved/adopted/fostered.
-![pets_page_saved](Description/pets_page_saved.png)
-![user_details_edit](Description/user_details_edit.png)
+<!-- ![pets_page_saved](Description/pets_page_saved.png) -->
+<img alt="pets_page_saved" src="Description/pets_page_saved.png" width="500" height="auto" >
+<!-- ![user_details_edit](Description/user_details_edit.png) -->
+<img alt="user_details_edit" src="Description/user_details_edit.png" width="500" height="auto" >
 
 
 ##### Admin Dashboard
@@ -59,10 +66,12 @@ Administrator exclusive page, which contains:
 - A detailed list of all pets in the database, including the pet's adoption availability and owner (if they have one). 
 - Option to add a new pet.
 
-![dashboard_pets](Description/dashboard_pets.png)
-![dashboard_users](Description/dashboard_users.png)
-
-![add_edit_pet](Description/add_edit_pet.png)
+<!-- ![dashboard_pets](Description/dashboard_pets.png) -->
+<img alt="dashboard_pets" src="Description/dashboard_pets.png" width="500" height="auto" >
+<!-- ![dashboard_users](Description/dashboard_users.png) -->
+<img alt="dashboard_users" src="Description/dashboard_users.png" width="500" height="auto" >
+<!-- ![add_edit_pet](Description/add_edit_pet.png) -->
+<img alt="add_edit_pet" src="Description/add_edit_pet.png" width="500" height="auto" >
 
 ##
 ##### General features
