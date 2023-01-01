@@ -34,11 +34,9 @@ async function getUserByIdModel(userId) {
 
 async function signUpModel(userToAdd) {
   try {
-    // console.log('signUpModel user to add ', userToAdd);
     const newUser = new User(userToAdd);
     newUser.save();
     const userId = newUser._id;
-    // console.log('signUpModel userId ', userId);
     return userId;
   } catch (err) {
     console.error("Caught: ", err.message);
@@ -83,7 +81,6 @@ async function removePetFromUserModel(userEmail, petId) {
 }
 
 async function updateUserModel(settings, userId) {
-  console.log("updateUserModel params ", settings);
   try {
     const newSettings = {};
     for (const key in settings) {
@@ -102,7 +99,6 @@ async function updateUserModel(settings, userId) {
 }
 
 async function changeAdminStatusModel(userId, status) {
-  // console.log("un/make admin model params: ", userId, " ", status);
   try {
     const res = await User.updateOne({ _id: ObjectId(userId) }, {isAdmin: status});
     return res;
@@ -126,10 +122,8 @@ async function getAllUsersModel() {
 }
 
 async function removePetFromAllUsers(usersArr, petId) {
-  console.log("removePetFromAllUsers petId ", petId);
   try {
     usersArr.forEach(async userId => {
-      console.log("removePetFromAllUsers forEach userId ", userId);
       await User.updateOne({ _id: ObjectId(userId)}, {$pull: {userPets: petId}});
       await User.updateOne({ _id: ObjectId(userId)}, {$pull: {savedPets: petId}});
     });

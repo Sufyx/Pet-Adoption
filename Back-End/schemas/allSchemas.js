@@ -29,7 +29,6 @@ const updateSchema = {
     password: {type: "string", maxLength: 50},
     passwordConfirm: {type: "string", maxLength: 50},
     phone: {type: "string", maxLength: 40},
-    // isAdmin: {type: "boolean"},
     bio: {type: "string", maxLength: 300},
     userId: {type: "string"}
   },
@@ -62,7 +61,6 @@ const newPetSchema = {
         dietary: { type: "array", items: { type: "string" }, uniqueItems: true },
         breed: { type: "string", minLength: 2, maxLength: 30 }
     },
-    // required: ["type", "name", "adoptionStatus", "breed"],
     additionalProperties: false
 }
 //

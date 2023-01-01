@@ -4,17 +4,21 @@ Full-stack web project, fully developed by me. <br>
 A mock website for browsing through a large selection of different pets, and adopting/fostering them.
 ##
 
-### Implementation
+### Main Implementation
+Project is written in MERN stack.
 
 #### Back End
+- REST API, done in the Model–View–Controller architecture.
+- Server is written in Node Express, with Object Data Modeling done in Mongoose.
 - The database is stored online on a MongoDB Atlas cluster.
-- Server is written in Node express, with Object Data Modeling done in Mongoose.
-- Routes include authentication and validation using Jason web tokens.
-- User passwords are encrypted.
+- Images are uploaded using Multer NPm, and are stored on Cloudinary.
+- Server routes include authentication and validation, using 'AJV' schemas and 'JWT' tokens.
+- User passwords are encrypted, using 'Bcrypt'.
 
 #### Front End
-- The client side is done in React and designed with Chakra-UI.
-- Page access and actions are restricted depending on user (guest / registered / admin).
+- The client side is written in React.
+- Design and styling are done with Chakra-UI.
+- Page routing and route-protection done with react-router-dom npm.
 
 ##
 ### Description
@@ -23,8 +27,8 @@ A mock website for browsing through a large selection of different pets, and ado
 <img alt="signin_screen" src="Description/signin_screen.png" width="500" height="auto" >
 <img alt="side_menu" src="Description/side_menu.png" width="500" height="auto" >
 Simple home page and welcome message. <br>  
-Login/Sign-up and navigation menu on the nav-bar. <br>
-Basic validation in place for login/sign-up. <br>
+Login/Sign-up and navigation menu are on a nav-bar. <br>
+Basic validation is in place for login/sign-up. <br>
 The options on the navigation menu will be limited according to the user's access level.
 
 <br>
@@ -32,8 +36,9 @@ The options on the navigation menu will be limited according to the user's acces
 #### Pets Browse
 <img alt="pet_search" src="Description/pet_search.png" width="500" height="auto" >
 Search for a pet from the database. <br>
-Several parameters available to search by, advanced search available only to logged-in users. <br>
-Search results will be displayed in the form of small pet cards. <br>
+Several parameters available to search by. <br>
+Advanced search available only to logged-in users. <br>
+Search results will be displayed in a grid of small pet cards. <br>
 Cards will link to full pet page card.
 
 <br>
@@ -42,12 +47,12 @@ Cards will link to full pet page card.
 <img alt="pet_card_available" src="Description/pet_card_available.png" width="500" height="auto" >
 <img alt="pet_card_taken" src="Description/pet_card_taken.png" width="500" height="auto" >
 Card page for a specific pet from the database. <br>
-Contains general details, as well as buttons for actions available to the users relating to the pet, ie: save/adopt/foster. <br>
-The available actions vary depending on the pet's adoption status, and their relation to the user. <br>
+Contains information about the pet, as well as actions available for it, ie: save/adopt/etc. <br>
+The available actions vary according to the pet's adoption status, and their relation to the user. <br>
 For example: <br>
 "Adopt"/"Foster" will only be available if the pet was not adopted/fostered by another user. <br>
 "Return" will only be available if the pet was adopted/fostered specifically by the current user. <br>
-"Edit" pet will only be available for admins.
+"Edit"/"Delete" will only be available for administrators.
 
 <br>
 
@@ -56,7 +61,7 @@ For example: <br>
 <img alt="pets_page_saved" src="Description/pets_page_saved.png" width="500" height="auto" >
 <img alt="user_details_edit" src="Description/user_details_edit.png" width="500" height="auto" >
 Profile page for registered users. <br>
-Contains the option to add a short bio, and links to the lists of pets the user has saved/adopted/fostered.
+Contains the user details and bio with the option to edit them, and links to the lists of pets the user has saved/adopted/fostered.
 
 <br>
 
@@ -65,18 +70,40 @@ Contains the option to add a short bio, and links to the lists of pets the user 
 <img alt="dashboard_users" src="Description/dashboard_users.png" width="500" height="auto" >
 <img alt="add_edit_pet" src="Description/add_edit_pet.png" width="500" height="auto" >
 Administrator exclusive page, which contains:
-- A detailed list of all registered users. Links to their profile and pets lists, and an option to edit their details and make them an admin.
-- A detailed list of all pets in the database, including the pet's adoption availability and owner (if they have one). 
 - Option to add a new pet.
+- A detailed list of all registered users. <br> 
+Each row links to its user's profile and pets lists, and an option to edit their details and make them an admin.
+- A detailed list of all pets in the database, including the pet's adoption status and owner (if they have one). <br>
+Each row links to its pet's page.
 
 <br>
 
 ##
 ##### General features
-- Users that didn't log out will remain logged in on next session, thanks to local storage of jwt.
-- Users will only have access to certain pages and actions based on their access level.
+
+- Users will only have access to certain pages and actions based on their access level, using 
 - User access levels:
   -  Guest (not logged in): Home screen and basic search only.
   -  Registered (logged in): Home, profile page, advanced search, pet cards with ability to adopt/foster/save pets.
   -  Administrator: All registered user access, plus: Able to add/edit/delete pets, view/edit other users profiles.
 
+- Logged users may perform the following actions on the pets:
+  - Adopt/foster: Only doable for pets that were not adopted/fostered by another user. <br>
+  The user will then become the pet's owner, and it will no longer be available for other users to adopt/foster. <br>
+  Will add the pet to the user's pet's-page on their profile, under "adopted/fostered pets".
+  - Save: Doable for all pets. <br>
+  Acts as a bookmark by adding any pet to the user's pet's-page on their profile, under "saved pets".
+  - Return: Only doable for pets the user has previously adopted/fostered. <br>
+  Will make the pet available for other users again. <br>
+  Removes the pet from the user's pet-page on their profile.
+  - Unsave: Only doable for pets the user has previously saved. <br>
+  Removes the pet from the user's pet-page on their profile.
+  - Administrator only actions:
+    - Delete: Removes the pet from the database, and from the lists of any users who owned or saved it.
+    - Edit: Change the pet's details.
+
+- Users remain logged in for the next session, using to local storage of 'JWT' tokens.
+
+##
+
+:)

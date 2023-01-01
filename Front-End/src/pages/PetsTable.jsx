@@ -7,7 +7,7 @@
 
 import { React, useState, useEffect, useContext } from 'react';
 import {
-    Button, Table, Thead, Tbody, Tfoot,
+    Table, Thead, Tbody, Tfoot,
     Tr, Th, Td, TableCaption, TableContainer
 } from '@chakra-ui/react';
 import { useNavigate } from "react-router-dom";

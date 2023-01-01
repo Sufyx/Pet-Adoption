@@ -334,7 +334,6 @@ export default function PetSettings({ newPet }) {
                     </Flex>
                 </Flex>
 
-
             </FormControl>
         </div>
     )
