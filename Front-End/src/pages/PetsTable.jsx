@@ -16,7 +16,7 @@ import axios from 'axios';
 
 
 export default function PetsTable() {
-    const baseUrl = "http://localhost:6060";
+    const baseUrl = process.env.REACT_APP_SERVER_URL;
     const navigate = useNavigate();
 
     const [allPets, setAllPets] = useState([]);

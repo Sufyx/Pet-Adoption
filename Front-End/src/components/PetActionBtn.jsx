@@ -12,7 +12,7 @@ import UsersContext from '../context/UsersContext';
 
 
 export default function PetActionBtn({ petAction, petName, petId, updateIsOwnedByUser, updateIsSavedByUser }) {
-  const baseUrl = "http://localhost:6060";
+  const baseUrl = process.env.REACT_APP_SERVER_URL;
   const { userLogged } = useContext(UsersContext);
   const toast = useToast();
 

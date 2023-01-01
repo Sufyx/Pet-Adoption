@@ -15,9 +15,9 @@ import { EditIcon } from '@chakra-ui/icons';
 import UsersContext from '../context/UsersContext';
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from 'axios';
-//icon={<EditIcon />}
+
 export default function UserProfile() {
-    const baseUrl = "http://localhost:6060";
+    const baseUrl = process.env.REACT_APP_SERVER_URL;
     const navigate = useNavigate();
     const { search } = useLocation();
     const query = new URLSearchParams(search);

@@ -7,7 +7,11 @@
 
 const express = require("express");
 const router = express.Router();
-const UsersController = require("../controllers/usersController");
+// const UsersController = require("../controllers/usersController.js");
+const {
+    signUp, login, getUserById, changeAdminStatus,
+    updateUser, getAllUsers, getFullUserById, stayLoggedIn
+} = require("../controllers/UsersController");
 
 const {
     confirmPasswordsMatch, isUserNew, encryptPassword,
@@ -18,17 +22,16 @@ const { validateBody } = require("../middleware/validateBody");
 const { signUpSchema, loginSchema, updateSchema } = require("../schemas/allSchemas");
 
 
-router.get("/", checkAuth, checkAdmin, UsersController.getAllUsers);
-router.get("/logged", checkAuth, UsersController.stayLoggedIn);
-router.get("/:userId", checkAuth, UsersController.getUserById);
-router.get("/:userId/full", checkAuth, UsersController.getFullUserById);
+router.get("/", checkAuth, checkAdmin, getAllUsers);
+router.get("/logged", checkAuth, stayLoggedIn);
+router.get("/:userId", checkAuth, getUserById);
+router.get("/:userId/full", checkAuth, getFullUserById);
 
-router.post("/signup", validateBody(signUpSchema), confirmPasswordsMatch, isUserNew, encryptPassword, UsersController.signUp);
-router.post("/login", validateBody(loginSchema), isUserInDB, verifyPassword, UsersController.login);
+router.post("/signup", validateBody(signUpSchema), confirmPasswordsMatch, isUserNew, encryptPassword, signUp);
+router.post("/login", validateBody(loginSchema), isUserInDB, verifyPassword, login);
 
-router.put("/admin/:userId", checkAuth, checkAdmin, UsersController.changeAdminStatus);
-router.put("/:userId", checkAuth, verifyUserAccess, validateBody(updateSchema), updateUserMiddleware, UsersController.updateUser);
+router.put("/admin/:userId", checkAuth, checkAdmin, changeAdminStatus);
+router.put("/:userId", checkAuth, verifyUserAccess, validateBody(updateSchema), updateUserMiddleware, updateUser);
 
-// (req, res, next)=>{console.log("???");next();},
 
 module.exports = router;

@@ -14,7 +14,7 @@ import UsersContext from '../context/UsersContext';
 import axios from 'axios';
 
 export default function Home() {
-  const baseUrl = "http://localhost:6060";
+  const baseUrl = process.env.REACT_APP_SERVER_URL;
   const { updateUser } = useContext(UsersContext);
 
   useEffect(() => {

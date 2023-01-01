@@ -16,7 +16,7 @@ import UsersContext from '../context/UsersContext';
 
 
 export default function PetPage() {
-    const baseUrl = "http://localhost:6060";
+    const baseUrl = process.env.REACT_APP_SERVER_URL;
     const navigate = useNavigate();
     const { search } = useLocation();
     const query = new URLSearchParams(search);

@@ -19,7 +19,7 @@ import {
 import { ChevronDownIcon } from '@chakra-ui/icons';
 
 export default function LogModal() {
-    const baseUrl = "http://localhost:6060";
+    const baseUrl = process.env.REACT_APP_SERVER_URL;
     const navigate = useNavigate();
     const toast = useToast();
 

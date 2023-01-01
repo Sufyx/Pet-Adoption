@@ -13,9 +13,8 @@ import { useNavigate, useHistory } from "react-router-dom";
 
 
 export default function AdminActionBtn({ adminAction, petName, petId }) {
-  const baseUrl = "http://localhost:6060";
+  const baseUrl = process.env.REACT_APP_SERVER_URL;
   const navigate = useNavigate();
-  // const history = useHistory();
 
   const { userLogged } = useContext(UsersContext);
 

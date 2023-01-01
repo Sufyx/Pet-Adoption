@@ -18,7 +18,7 @@ import axios from 'axios';
 import uuid from 'react-uuid';
 
 export default function PetSettings({ newPet }) {
-    const baseUrl = "http://localhost:6060";
+    const baseUrl = process.env.REACT_APP_SERVER_URL;
     const { search } = useLocation();
     const query = new URLSearchParams(search);
     const petId = query.get("petId");

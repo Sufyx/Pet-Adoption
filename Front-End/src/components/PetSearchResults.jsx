@@ -13,7 +13,7 @@ import axios from 'axios';
 
 
 export default function PetSearchResults({ searchParams }) {
-    const baseUrl = "http://localhost:6060";
+    const baseUrl = process.env.REACT_APP_SERVER_URL;
     const [searchRes, setSearchRes] = useState([]);
 
 

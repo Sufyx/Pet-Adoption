@@ -16,7 +16,7 @@ import axios from 'axios';
 import UsersContext from '../context/UsersContext';
 
 export default function Dashboard() {
-    const baseUrl = "http://localhost:6060";
+    const baseUrl = process.env.REACT_APP_SERVER_URL;
     const navigate = useNavigate();
 
     const { userLogged } = useContext(UsersContext);

@@ -12,9 +12,7 @@ const PetsController = require("../controllers/petsController");
 const { newPetSchema, updatePetSchema } = require("../schemas/allSchemas");
 const { validateBody } = require("../middleware/validateBody");
 const { checkAuth, checkAdmin, verifyUserAccess } = require("../middleware/usersMiddleware");
-const {
-    isPetAvailable, doesUserHavePet, editPetMiddleware
-} = require("../middleware/petsMiddleware");
+const { isPetAvailable, doesUserHavePet} = require("../middleware/petsMiddleware");
 const { upload, uploadToCloudinary } = require("../middleware/fileUpload");
 
 //guest routes

@@ -17,7 +17,7 @@ import axios from 'axios';
 
 
 export default function UsersPage() {
-    const baseUrl = "http://localhost:6060";
+    const baseUrl = process.env.REACT_APP_SERVER_URL;
     const navigate = useNavigate();
     const [allUsers, setAllUsers] = useState([]);
     const { userLogged } = useContext(UsersContext);

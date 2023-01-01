@@ -29,8 +29,6 @@ export default function PetCard({ pet }) {
     <div>
       <Flex flexDir='column' align="center" boxShadow='dark-lg' rounded='md' px="2%" py="5%"
         bg="rgba(57, 164, 164, 0.2)"
-        // bgImage="https://cdn.wallpapersafari.com/57/69/X0s3Dm.jpg" bgSize="cover"
-        // bgImage="https://i.pinimg.com/originals/6b/c0/0a/6bc00a2607f58287c4c348e0ce4dcdcd.jpg" 
         bgPosition="center" bgRepeat="no-repeat" >
         <Image borderRadius='5px' height="10vw" alt='pet image' m="2%" border="2px outset teal" src={pet.picture}
           fallbackSrc='http://posfacturar.com/pos_organicnails/public/upload/default_image/default_pet.jpg' />
