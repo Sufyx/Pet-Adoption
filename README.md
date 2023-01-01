@@ -70,6 +70,7 @@ Contains the user details and bio with the option to edit them, and links to the
 <img alt="dashboard_users" src="Description/dashboard_users.png" width="500" height="auto" >
 <img alt="add_edit_pet" src="Description/add_edit_pet.png" width="500" height="auto" >
 Administrator exclusive page, which contains:
+
 - Option to add a new pet.
 - A detailed list of all registered users. <br> 
 Each row links to its user's profile and pets lists, and an option to edit their details and make them an admin.
@@ -79,28 +80,28 @@ Each row links to its pet's page.
 <br>
 
 ##
-##### General features
+### General features
 
-- Users will only have access to certain pages and actions based on their access level, using 
+- Users will only have access to certain pages and actions based on their access level. 
 - User access levels:
   -  Guest (not logged in): Home screen and basic search only.
   -  Registered (logged in): Home, profile page, advanced search, pet cards with ability to adopt/foster/save pets.
   -  Administrator: All registered user access, plus: Able to add/edit/delete pets, view/edit other users profiles.
 
 - Logged users may perform the following actions on the pets:
-  - Adopt/foster: Only doable for pets that were not adopted/fostered by another user. <br>
+  - **Adopt/foster:** Only doable for pets that were not adopted/fostered by another user. <br>
   The user will then become the pet's owner, and it will no longer be available for other users to adopt/foster. <br>
-  Will add the pet to the user's pet's-page on their profile, under "adopted/fostered pets".
-  - Save: Doable for all pets. <br>
-  Acts as a bookmark by adding any pet to the user's pet's-page on their profile, under "saved pets".
-  - Return: Only doable for pets the user has previously adopted/fostered. <br>
+  Will add the pet to the user's pets-page on their profile, under "adopted/fostered pets".
+  - **Save:** Doable for all pets. <br>
+  Acts as a bookmark by adding any pet to the user's pets-page on their profile, under "saved pets".
+  - **Return:** Only doable for pets the user has previously adopted/fostered. <br>
   Will make the pet available for other users again. <br>
-  Removes the pet from the user's pet-page on their profile.
-  - Unsave: Only doable for pets the user has previously saved. <br>
-  Removes the pet from the user's pet-page on their profile.
+  Removes the pet from the user's pets-page on their profile.
+  - **Unsave:** Only doable for pets the user has previously saved. <br>
+  Removes the pet from the user's pets-page on their profile.
   - Administrator only actions:
-    - Delete: Removes the pet from the database, and from the lists of any users who owned or saved it.
-    - Edit: Change the pet's details.
+    - **Delete:** Removes the pet from the database, and from the lists of any users who owned or saved it.
+    - **Edit:** Change the pet's details.
 
 - Users remain logged in for the next session, using to local storage of 'JWT' tokens.
 
