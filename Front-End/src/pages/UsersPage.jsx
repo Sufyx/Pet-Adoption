@@ -16,7 +16,7 @@ import UsersContext from '../context/UsersContext';
 import axios from 'axios';
 
 
-export default function UsersPage() {
+export default function UsersPage({ toggleSpinner }) {
     const baseUrl = process.env.REACT_APP_SERVER_URL;
     const navigate = useNavigate();
     const [allUsers, setAllUsers] = useState([]);
@@ -34,10 +34,12 @@ export default function UsersPage() {
 
     async function fetchUsers() {
         try {
+            toggleSpinner(true);
             const { token } = JSON.parse(localStorage.getItem('loggedUser'));
             const res = await axios.get(`${baseUrl}/users`,
                 { headers: { authorization: `Bearer ${token}` } });
             setAllUsers([...res.data.users]);
+            toggleSpinner(false);
         } catch (err) {
             console.error("Caught: " + err.message);
         }

@@ -12,7 +12,7 @@ import { Box, Grid, GridItem } from '@chakra-ui/react';
 import axios from 'axios';
 
 
-export default function PetSearchResults({ searchParams }) {
+export default function PetSearchResults({ searchParams, toggleSpinner }) {
     const baseUrl = process.env.REACT_APP_SERVER_URL;
     const [searchRes, setSearchRes] = useState([]);
 
@@ -24,9 +24,11 @@ export default function PetSearchResults({ searchParams }) {
 
     async function fetchPets() {
         try {
+            toggleSpinner(true);
             const res = await axios.get(`${baseUrl}/pet`,
                 { params: { searchParams: searchParams } });
             setSearchRes(res.data);
+            toggleSpinner(false);
         } catch (err) {
             console.error("Caught: " + err.message);
         }

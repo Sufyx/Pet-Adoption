@@ -15,7 +15,7 @@ import UsersContext from '../context/UsersContext';
 import axios from 'axios';
 
 
-export default function PetsTable() {
+export default function PetsTable({ toggleSpinner }) {
     const baseUrl = process.env.REACT_APP_SERVER_URL;
     const navigate = useNavigate();
 
@@ -32,6 +32,7 @@ export default function PetsTable() {
 
     async function fetchPets() {
         try {
+            toggleSpinner(true);
             const res = await axios.get(`${baseUrl}/pet`,
                 { params: { searchParams: {} } });
 
@@ -47,6 +48,7 @@ export default function PetsTable() {
                 }
             }
             setAllPets([...res.data]);
+            toggleSpinner(false);
         } catch (err) {
             console.error("Caught: " + err.message);
         }

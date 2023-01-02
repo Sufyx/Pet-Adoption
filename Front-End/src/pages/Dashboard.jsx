@@ -7,7 +7,7 @@
 
 
 import { React, useState, useEffect, useContext } from 'react';
-import { Box, Flex, Button, Divider } from '@chakra-ui/react';
+import { Box, Flex, Button, Divider, Spinner } from '@chakra-ui/react';
 import { useNavigate } from "react-router-dom";
 import PetSettings from "./PetSettings"
 import UsersPage from './UsersPage';
@@ -21,7 +21,7 @@ export default function Dashboard() {
 
     const { userLogged } = useContext(UsersContext);
     const [activeTab, setActiveTab] = useState("users");
-
+    const [spinnerUp, setSpinnerUp] = useState(false);
 
     useEffect(() => {
         if (!userLogged.isAdmin) {
@@ -43,16 +43,24 @@ export default function Dashboard() {
         }
     }
 
+    function toggleSpinner(spinnerUp) {
+        setSpinnerUp(spinnerUp);
+    }
+
 
     const petsTab =
-        // <><Search dashboard={true} /></>
-        <><PetsTable /></>
+        <><PetsTable toggleSpinner={toggleSpinner} /></>
 
     const usersTab =
-        <><UsersPage /></>
+        <><UsersPage toggleSpinner={toggleSpinner} /></>
 
     const addPetTab =
         <><PetSettings newPet={true} /></>
+
+    const spinner =
+        <>
+            <Spinner thickness='6px' speed='0.7s' emptyColor='teal.200' color='teal.800' size='md' />
+        </>
 
 
     return (
@@ -62,17 +70,17 @@ export default function Dashboard() {
                     <Button onClick={() => setActiveTab("pets")} bg='rgb(57, 164, 164)' w="10%"
                         color="whitesmoke" fontSize="1.8vw" m="1% 5%" border="1px outset teal"
                         _hover={{ bg: 'whitesmoke', color: 'teal.500' }} boxShadow='dark-lg'>
-                        Pets
+                            {spinnerUp ? spinner : "Pets"}
                     </ Button>
                     <Button onClick={() => setActiveTab("users")} bg='rgb(57, 164, 164)' w="10%"
                         color="whitesmoke" fontSize="1.8vw" m="1% 5%" border="1px outset teal"
                         _hover={{ bg: 'whitesmoke', color: 'teal.500' }} boxShadow='dark-lg'>
-                        Users
+                        {spinnerUp ? spinner : "Users"}
                     </ Button>
                     <Button onClick={() => setActiveTab("addPet")} bg='rgb(57, 164, 164)' w="10%"
                         color="whitesmoke" fontSize="1.8vw" m="1% 5%" border="1px outset teal"
                         _hover={{ bg: 'whitesmoke', color: 'teal.500' }} boxShadow='dark-lg'>
-                        Add Pet
+                        {spinnerUp ? spinner : "Add Pet"}
                     </ Button>
                 </Flex>
                 <Divider />

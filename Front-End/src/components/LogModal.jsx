@@ -11,7 +11,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import UsersContext from '../context/UsersContext';
 import {
-    Menu, MenuButton, Button, Modal, ModalOverlay,
+    Menu, MenuButton, Button, Modal, ModalOverlay, Spinner,
     ModalHeader, ModalFooter, ModalBody, ModalCloseButton,
     useDisclosure, Input, FormControl, ModalContent,
     FormLabel, InputGroup, InputLeftAddon, Flex, useToast
@@ -25,6 +25,7 @@ export default function LogModal() {
 
     const { userLogged, updateUser } = useContext(UsersContext);
     const { isOpen, onOpen, onClose } = useDisclosure(false);
+    const [spinnerUp, setSpinnerUp] = useState(false);
     const [isSignUp, setIsSignUp] = useState();
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
@@ -61,6 +62,8 @@ export default function LogModal() {
             return;
         }
 
+        setSpinnerUp(true);
+
         if (!isSignUp) {
             try {
                 const res = await axios.post(`${baseUrl}/users/login`, {
@@ -81,6 +84,7 @@ export default function LogModal() {
             } catch (err) {
                 console.error("Login error: ", err);
             }
+            setSpinnerUp(false);
             return;
         }
 
@@ -111,6 +115,7 @@ export default function LogModal() {
                     duration: 5000,
                     isClosable: true,
                 });
+                setSpinnerUp(false);
                 return;
             }
         } catch (err) {
@@ -124,7 +129,7 @@ export default function LogModal() {
         }));
         updateUser(data.user);
         onClose();
-        navigate("/home");
+        navigate("/home"); // ?
     }
 
 
@@ -189,16 +194,25 @@ export default function LogModal() {
     let signUpModal =
         <>
             <Input value={formInputs.passwordConfirm} type='password' placeholder='confirm password'
-                onChange={e => { setFormInputs(prev => ({ ...prev, passwordConfirm: e.target.value })); setPasswordError(''); }} />
+                onChange={e => {
+                    setFormInputs(prev => ({ ...prev, passwordConfirm: e.target.value }));
+                    setPasswordError('');
+                }} />
             <hr />
             <Flex justify="space-between" align="center">
                 <FormLabel className="formLabel">Full Name</FormLabel>
                 <span className="loginErrorMessage">{nameError}</span>
             </Flex>
             <Input type='text' placeholder='First Name'
-                onChange={e => { setFormInputs(prev => ({ ...prev, firstName: e.target.value })); setNameError(''); }} />
+                onChange={e => {
+                    setFormInputs(prev => ({ ...prev, firstName: e.target.value }));
+                    setNameError('');
+                }} />
             <Input type='text' placeholder='Last Name'
-                onChange={e => { setFormInputs(prev => ({ ...prev, lastName: e.target.value })); setNameError(''); }} />
+                onChange={e => {
+                    setFormInputs(prev => ({ ...prev, lastName: e.target.value }));
+                    setNameError('');
+                }} />
             <hr />
             <Flex justify="space-between" align="center">
                 <FormLabel className="formLabel">Phone Number</FormLabel>
@@ -207,10 +221,17 @@ export default function LogModal() {
             <InputGroup>
                 <InputLeftAddon children='+972' />
                 <Input type='tel' placeholder='phone number'
-                    onChange={e => { setFormInputs(prev => ({ ...prev, phone: e.target.value })); setPhoneError(''); }} />
+                    onChange={e => {
+                        setFormInputs(prev => ({ ...prev, phone: e.target.value }));
+                        setPhoneError('');
+                    }} />
             </InputGroup>
         </>;
 
+    const spinner =
+        <>
+            <Spinner thickness='6px' speed='0.7s' emptyColor='teal.200' color='teal.800' size='md' />
+        </>
 
     let modalBody =
         <FormControl>
@@ -219,14 +240,20 @@ export default function LogModal() {
                 <span className="loginErrorMessage">{emailError}</span>
             </Flex>
             <Input value={formInputs.email} type='email' placeholder='email' autoComplete='off'
-                onChange={e => { setFormInputs(prev => ({ ...prev, email: e.target.value })); setEmailError(''); }} />
+                onChange={e => {
+                    setFormInputs(prev => ({ ...prev, email: e.target.value }));
+                    setEmailError('');
+                }} />
             <hr />
             <Flex justify="space-between" align="center">
                 <FormLabel className="formLabel"> Password </FormLabel>
                 <span className="loginErrorMessage">{passwordError}</span>
             </Flex>
             <Input value={formInputs.password} type='password' placeholder='password'
-                onChange={e => { setFormInputs(prev => ({ ...prev, password: e.target.value })); setPasswordError(''); }} />
+                onChange={e => {
+                    setFormInputs(prev => ({ ...prev, password: e.target.value }));
+                    setPasswordError('');
+                }} />
 
             {isSignUp ? signUpModal : extendModalBtn}
         </FormControl>
@@ -242,10 +269,12 @@ export default function LogModal() {
                 </ModalBody>
 
                 <ModalFooter>
-                    <Button onClick={saveClick} backgroundColor='rgb(116, 219, 222)' variant='ghost' marginRight={"1%"}>
-                        {isSignUp ? "Save" : "Login"}
+                    <Button onClick={saveClick} backgroundColor='rgb(116, 219, 222)'
+                        variant='ghost' marginRight={"1%"}>
+                        {spinnerUp ? spinner : (isSignUp ? "Save" : "Login")}
                     </Button>
-                    <Button mr={3} onClick={onClose} backgroundColor='rgb(223, 206, 237)'>  Cancel </Button>
+                    <Button mr={3} onClick={onClose}
+                        backgroundColor='rgb(223, 206, 237)'>  Cancel </Button>
                 </ModalFooter>
             </ModalContent>
         </Modal>

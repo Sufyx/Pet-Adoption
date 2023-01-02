@@ -45,7 +45,6 @@ export default function UserProfile() {
             const res = await axios.get(`${baseUrl}/users/${userId}`,
                 { headers: { authorization: `Bearer ${token}` } });
 
-            // console.log("UserProfile fetchUser res.data ", res.data.user);
             const user = res.data.user
             setFullUser(user);
             if (user.bio) {

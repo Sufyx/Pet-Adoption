@@ -7,7 +7,7 @@
 
 
 import { React, useState, useEffect, useContext } from 'react';
-import { Box, Grid, GridItem, Flex, Button, Text, Center } from '@chakra-ui/react';
+import { Box, Grid, GridItem, Flex, Button, Text, Spinner } from '@chakra-ui/react';
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from 'axios';
 import UsersContext from '../context/UsersContext';
@@ -25,6 +25,7 @@ export default function UserPets() {
     const { userLogged } = useContext(UsersContext);
     const [petList, setPetList] = useState([]);
     const [listToDisplay, setListToDisplay] = useState('userPets');
+    const [spinnerUp, setSpinnerUp] = useState(false);
 
     useEffect(() => {
         if ((query.get("userId") === userLogged._id) || (userLogged.isAdmin)) {
@@ -42,6 +43,7 @@ export default function UserPets() {
 
     async function fetchPets() {
         try {
+            setSpinnerUp(true);
             const { token } = JSON.parse(localStorage.getItem('loggedUser'));
             const res = await axios.get(`${baseUrl}/pet/user/${userId}`,
                 { headers: { authorization: `Bearer ${token}` } });
@@ -54,6 +56,7 @@ export default function UserPets() {
                     setPetList(res.data.petList.savedPets);
                 }
             }
+            setSpinnerUp(false);
         } catch (err) {
             console.error("Caught: " + err.message);
         }
@@ -68,9 +71,15 @@ export default function UserPets() {
         }
     }
 
+
+    const spinner =
+        <>
+            <Spinner thickness='6px' speed='0.7s' emptyColor='teal.200' color='teal.800' size='md' />
+        </>
+
     const petsDisplay =
         <>
-            <Grid  templateColumns='repeat(4, 1fr)' gap={5} className="userPetsGrid">
+            <Grid templateColumns='repeat(4, 1fr)' gap={5} className="userPetsGrid">
                 {petList.map(pet =>
                     <GridItem key={pet._id}>
                         <PetCard pet={pet} />
@@ -91,15 +100,19 @@ export default function UserPets() {
     return (
         <div className="userPetsContainer homeFont">
             <Flex flexDir="column" align="center">
-                <Text fontSize="2.2vw" my="1%" as='u' fontWeight='bold' textShadow='-0.5px -0.5px rgb(67,155,173)' >
+                <Text fontSize="2.2vw" my="1%" as='u' fontWeight='bold'
+                    textShadow='-0.5px -0.5px rgb(67,155,173)' >
                     {firstName}'s Pets Page
                 </Text>
                 <Button onClick={toggleList} colorScheme='teal' w="fit-content" >
-                    Show {listToDisplay === "userPets" ? "saved pets" : "adopted/fostered pets"}
+                    {spinnerUp ? spinner :
+                        listToDisplay === "userPets" ? "Show saved pets" :
+                            "Show adopted/fostered pets"}
                 </Button>
             </Flex>
             <Box m="1%" rounded='md' w="98%">
-                {petList.length === 0 ? noPetsMessage : petsDisplay}
+                {spinnerUp ? "" : 
+                petList.length === 0 ? noPetsMessage : petsDisplay}
             </Box>
         </div>
     )
