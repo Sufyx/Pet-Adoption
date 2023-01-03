@@ -50,7 +50,6 @@ body,
   margin: 0;
   padding: 0;
   overflow: hidden;
-  font-size: 1.1vw;
   font-weight: 600;
 }
 
@@ -109,7 +108,7 @@ body,
 
 .slideHeader {
   position: absolute;
-  transform: translate(120%, 30%);
+  transform: translate(100%, 30%);
   font-size: 1.3vw;
   color: #c4e3e3;
   text-shadow: 0px 0px 7px #074646;
@@ -161,7 +160,7 @@ body,
 }
 
 .fadeIn {
-  animation: fadeIn ease 1.5s;
+  animation: fadeIn ease 0.5s;
 }
 @keyframes fadeIn {
   0% {opacity:0;}

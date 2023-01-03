@@ -5,14 +5,19 @@
  * Asaf Gilboa
 */
 
-import { React, useContext } from 'react';
-import { Button, useToast } from '@chakra-ui/react';
+import { React, useState, useContext } from 'react';
+import { Button, useToast, Spinner } from '@chakra-ui/react';
 import axios from 'axios';
 import UsersContext from '../context/UsersContext';
 
 
-export default function PetActionBtn({ petAction, petName, petId, updateIsOwnedByUser, updateIsSavedByUser }) {
+export default function PetActionBtn({
+  petAction, petName, petId, updateIsOwnedByUser, updateIsSavedByUser }) {
+
   const baseUrl = process.env.REACT_APP_SERVER_URL;
+
+  const [spinnerUp, setSpinnerUp] = useState(false);
+
   const { userLogged } = useContext(UsersContext);
   const toast = useToast();
 
@@ -31,6 +36,7 @@ export default function PetActionBtn({ petAction, petName, petId, updateIsOwnedB
 
 
   async function petStatusAction() {
+    setSpinnerUp(true);
     let petActionStr = petAction;
     if (petAction !== "Save") {
       petActionStr = `${petAction}ed`;
@@ -61,13 +67,15 @@ export default function PetActionBtn({ petAction, petName, petId, updateIsOwnedB
         });
       }
     }
+    setSpinnerUp(false);
   }
 
 
   async function petReturn() {
+    setSpinnerUp(true);
     const { token } = JSON.parse(localStorage.getItem('loggedUser'));
     const res = await axios.post(`${baseUrl}/pet/${petId}/return`,
-      {holder: "holder"}, { headers: { authorization: `Bearer ${token}` } });
+      { holder: "holder" }, { headers: { authorization: `Bearer ${token}` } });
 
     if (res.data) {
       updateIsOwnedByUser(false);
@@ -78,9 +86,11 @@ export default function PetActionBtn({ petAction, petName, petId, updateIsOwnedB
         isClosable: true,
       });
     }
+    setSpinnerUp(false);
   }
 
   async function petUnsave() {
+    setSpinnerUp(true);
     const { token } = JSON.parse(localStorage.getItem('loggedUser'));
     const res = await axios.delete(`${baseUrl}/pet/${petId}/save`,
       { headers: { authorization: `Bearer ${token}` } });
@@ -94,13 +104,18 @@ export default function PetActionBtn({ petAction, petName, petId, updateIsOwnedB
         isClosable: true,
       });
     }
+    setSpinnerUp(false);
   }
 
+  const spinner =
+    <>
+      <Spinner thickness='6px' speed='0.7s' emptyColor='teal.200' color='teal.800' size='md' />
+    </>
 
   return (
     <Button my="8%" borderRadius="full" h="6vw" fontSize="1.1vw" colorScheme='teal' border="2px outset teal"
       onClick={petActionClick} boxShadow='dark-lg' _hover={{ bg: 'whitesmoke', color: 'teal.500' }}>
-      {petAction} {petName}
+      {spinnerUp ? spinner : `${petAction} ${petName}` }
     </Button>
   )
 }

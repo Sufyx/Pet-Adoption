@@ -23,8 +23,8 @@ async function getUserByEmailModel(email) {
 
 async function getUserByIdModel(userId) {
   try {
-    const user = await User.findOne({ _id: ObjectId(userId)});
-    user.password= undefined;
+    const user = await User.findOne({ _id: ObjectId(userId) });
+    user.password = undefined;
     return user;
   } catch (err) {
     console.error("Caught: ", err.message);
@@ -47,9 +47,9 @@ async function addPetToUserModel(userId, petId, petAction) {
   try {
     let updatedUser;
     if (petAction === "Save") {
-      updatedUser = User.updateOne({ _id: ObjectId(userId)}, {$push: {savedPets: petId}});
+      updatedUser = User.updateOne({ _id: ObjectId(userId) }, { $push: { savedPets: petId } });
     } else {
-      updatedUser = User.updateOne({ _id: ObjectId(userId)}, {$push: {userPets: petId}});
+      updatedUser = User.updateOne({ _id: ObjectId(userId) }, { $push: { userPets: petId } });
     }
     return (updatedUser);
   } catch (err) {
@@ -61,7 +61,7 @@ async function addPetToUserModel(userId, petId, petAction) {
 async function removeSavedPetFromUserModel(userId, petId) {
   try {
     let updatedUser = "user failed to update";
-    updatedUser = User.updateOne({ _id: ObjectId(userId) }, {$pull: {savedPets: petId}});
+    updatedUser = User.updateOne({ _id: ObjectId(userId) }, { $pull: { savedPets: petId } });
     // ObjectId(userId) }
     return updatedUser;
   } catch (err) {
@@ -73,7 +73,7 @@ async function removeSavedPetFromUserModel(userId, petId) {
 async function removePetFromUserModel(userId, petId) {
   try {
     let updatedUser = "user failed to update";
-    updatedUser = User.updateOne({ _id: ObjectId(userId)}, {$pull: {userPets: petId}});
+    updatedUser = User.updateOne({ _id: ObjectId(userId) }, { $pull: { userPets: petId } });
     return updatedUser;
   } catch (err) {
     console.error("Caught: ", err.message);
@@ -100,7 +100,7 @@ async function updateUserModel(settings, userId) {
 
 async function changeAdminStatusModel(userId, status) {
   try {
-    const res = await User.updateOne({ _id: ObjectId(userId) }, {isAdmin: status});
+    const res = await User.updateOne({ _id: ObjectId(userId) }, { isAdmin: status });
     return res;
   } catch (err) {
     console.error("Caught: ", err.message);
@@ -128,8 +128,8 @@ async function getAllUsersModel() {
 async function removePetFromAllUsers(usersArr, petId) {
   try {
     usersArr.forEach(async userId => {
-      await User.updateOne({ _id: ObjectId(userId)}, {$pull: {userPets: petId}});
-      await User.updateOne({ _id: ObjectId(userId)}, {$pull: {savedPets: petId}});
+      await User.updateOne({ _id: ObjectId(userId) }, { $pull: { userPets: petId } });
+      await User.updateOne({ _id: ObjectId(userId) }, { $pull: { savedPets: petId } });
     });
   } catch (err) {
     console.error("Caught: ", err.message);
@@ -149,30 +149,31 @@ async function updateNewsFeed(type, pet, userId) {
     if (minutes < 10) {
       minutes = "0" + minutes;
     }
-    timeStamp = `${timeStamp.toLocaleDateString()} ${hours}:${minutes} - `;
+    timeStamp = `${timeStamp.toLocaleDateString()} ${hours}:${minutes} [#]`;
 
     let item = timeStamp;
     const action = type.toLowerCase();
     if (type === "Adopted" || type === "Fostered" || type === "Returned") {
       const user = await getUserByIdModel(userId);
-      item += `${user.firstName} ${user.lastName} has ${action} ${pet.name} the ${pet.type.toLowerCase()}`;
+      item += `${user.firstName} ${user.lastName} has 
+        ${action} ${pet.name} the ${pet.type.toLowerCase()}`;
     } else if (type === "Added" || type === "Deleted") {
       item += `Pet ${action}: ${pet.name} the ${pet.type.toLowerCase()}`;
     }
 
     console.log("news: " + item);
     await User.updateOne(
-      { _id: ObjectId('63b3f5e291d5878d0beb5600')}, {$push: {userPets: item}});
+      { _id: ObjectId('63b3f5e291d5878d0beb5600') }, { $push: { userPets: item } });
   } catch (err) {
     console.error("Caught: ", err.message);
   }
 }
 
 async function getNewsFeedModel() {
-  try{
-      const user = await getUserByIdModel('63b3f5e291d5878d0beb5600');
-      const news = [...user.userPets];
-      return news;
+  try {
+    const user = await getUserByIdModel('63b3f5e291d5878d0beb5600');
+    const news = [...user.userPets];
+    return news;
   } catch (err) {
     console.error("Caught: ", err.message);
   }
@@ -182,6 +183,6 @@ async function getNewsFeedModel() {
 module.exports = {
   getUserByEmailModel, signUpModel, addPetToUserModel,
   removePetFromUserModel, getUserByIdModel, removeSavedPetFromUserModel,
-  updateUserModel, getAllUsersModel, changeAdminStatusModel, 
+  updateUserModel, getAllUsersModel, changeAdminStatusModel,
   removePetFromAllUsers, updateNewsFeed, getNewsFeedModel
 };

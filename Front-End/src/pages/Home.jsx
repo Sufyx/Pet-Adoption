@@ -62,7 +62,7 @@ export default function Home() {
           </Box>
 
           <Box marginX={3} className='homeFont homeGadget imageFrame' w="35%">
-            < Heading fontSize="1.2vw" color="teal.900" align="center">
+            < Heading fontSize="1.3vw" color="teal.900" align="center">
               News Feed
             </ Heading >
             <NewsFeed />
@@ -75,9 +75,6 @@ export default function Home() {
         <HStack w="100%" justify='space-between'>
 
           <Box marginX={3} className='homeFont homeGadget' w="36%" >
-            {/* < Heading className='slideHeader' >
-              Our pets
-            </ Heading > */}
             <PetSlides />
           </Box>
 
