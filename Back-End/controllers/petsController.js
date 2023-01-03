@@ -40,7 +40,7 @@ async function savePet(req, res) {
         const { petId } = req.params;
         const { petAction } = req.body;
         const { userId } = req.body;
-        const modelRes = await savePetModel(petId, userId, petAction);
+        await savePetModel(petId, userId, petAction);
         res.send({ ok: true, petId: petId, message: `pet ${petAction}ed :)` });
     } catch (err) {
         console.error("Caught: ", err.message);
@@ -51,8 +51,8 @@ async function savePet(req, res) {
 async function returnPet(req, res) {
     try {
         const { petId } = req.params;
-        const { userEmail } = req.body;
-        const modelRes = await returnPetModel(petId, userEmail);
+        const { userId } = req.body;
+        await returnPetModel(petId, userId);
         res.send({ ok: true, petId: petId, message: `pet returned :(` });
     } catch (err) {
         console.error("Caught: ", err.message);
@@ -64,7 +64,7 @@ async function deleteSavedPet(req, res) {
     try {
         const { petId } = req.params;
         const { userId } = req.body;
-        const modelRes = await deleteSavedPetModel(petId, userId);
+        await deleteSavedPetModel(petId, userId);
         res.send({ ok: true, petId: petId, message: `pet unsaved` });
     } catch (err) {
         console.error("Caught: ", err.message);
@@ -73,10 +73,9 @@ async function deleteSavedPet(req, res) {
 }
 
 
-function addPet(req, res) {
+async function addPet(req, res) {
     try {
         const petData = { ...req.body }
-        console.log("addPet petData ", petData);
         const newPet = {
             type: petData.type,
             name: petData.name,
@@ -92,7 +91,8 @@ function addPet(req, res) {
             owner: '',
             savedAtUsers: []
         };
-        const addedPetId = addPetModel(newPet);
+        const addedPetId = await addPetModel(newPet);
+        console.log(" addPet addedPetId", addedPetId);
         res.send(addedPetId);
         return;
     } catch (err) {
@@ -119,7 +119,7 @@ async function editPet(req, res) {
 async function deletePet(req, res) {
     try {
         const { petId } = req.params;
-        const deletedPet = deletePetModel(petId);
+        const deletedPet = await deletePetModel(petId);
         if (deletedPet) {
             res.send({ ok: true, deletedPet: petId, message: 'Pet Deleted' });
             return;

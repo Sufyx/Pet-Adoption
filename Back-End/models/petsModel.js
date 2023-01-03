@@ -10,7 +10,7 @@ const Pet = require("../schemas/Pet");
 const {
     addPetToUserModel, removePetFromUserModel,
     getUserByIdModel, removeSavedPetFromUserModel,
-    removePetFromAllUsers
+    removePetFromAllUsers, updateNewsFeed
 } = require("./usersModel");
 const ObjectId = require('mongodb').ObjectId;
 
@@ -74,6 +74,9 @@ async function savePetModel(petId, userId, petAction) {
             savedPet = await Pet.updateOne(
                 { _id: ObjectId(petId) }, { $set: { adoptionStatus: petAction, owner: userId } }
             );
+
+            const thisPet= await getPetModel(petId);
+            await updateNewsFeed(petAction, thisPet, userId); 
         } else {
             savedPet = await Pet.updateOne({ _id: ObjectId(petId) }, { $push: { savedAtUsers: userId } });
         }
@@ -85,12 +88,15 @@ async function savePetModel(petId, userId, petAction) {
 }
 
 
-async function returnPetModel(petId, userEmail) {
+async function returnPetModel(petId, userId) {
     try {
         const returnedPet = await Pet.updateOne(
             { _id: ObjectId(petId) },
             { $set: { adoptionStatus: "Available", owner: "" } });
-        const userUpdate = await removePetFromUserModel(userEmail, petId);
+        const userUpdate = await removePetFromUserModel(userId, petId);
+
+        const thisPet= await getPetModel(petId);
+        await updateNewsFeed("Returned", thisPet, userId);
         return { pet: returnedPet, user: userUpdate };
     } catch (err) {
         console.error("Caught: ", err.message);
@@ -140,10 +146,13 @@ async function getPetsByUserIdModel(userId) {
 }
 
 
-function addPetModel(petToAdd) {
+async function addPetModel(petToAdd) {
     try {
         const newPet = new Pet(petToAdd);
-        newPet.save();
+        await newPet.save();
+
+        console.log("addPetModel: " + petToAdd.name, newPet._id);
+        await updateNewsFeed("Added", newPet, "0");
         return newPet._id;
     } catch (err) {
         console.error("Caught: ", err.message);
@@ -170,12 +179,17 @@ async function editPetModel(petId, editParams) {
 
 async function deletePetModel(petId) {
     try {
+        
         const pet = await getPetModel(petId);
-        const usersArr = [...pet.savedAtUsers, pet.owner];
+        const usersArr = [...pet.savedAtUsers];
+        if (pet.owner) {
+            usersArr.push(pet.owner);
+        }
         if (usersArr.length > 0) {
             await removePetFromAllUsers(usersArr, petId);
         }
         await Pet.deleteOne({ _id: ObjectId(petId) });
+        await updateNewsFeed("Deleted", pet, "0");
         return true;
     } catch (err) {
         console.error("Caught: ", err.message);

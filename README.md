@@ -1,6 +1,6 @@
 ### Pet Adoption Full Stack Project
 
-[Project deployment link](https://ag-petadoption.onrender.com) 
+[Project deployment link](https://ag-petadoption.onrender.com) <br>
 Free hosted server, so it is somewhat slow.
 
 Full-stack web project, fully developed by me. <br>

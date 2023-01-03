@@ -61,9 +61,7 @@ export default function LogModal() {
             setPasswordError("Password must be at least 6 characters");
             return;
         }
-
         setSpinnerUp(true);
-
         if (!isSignUp) {
             try {
                 const res = await axios.post(`${baseUrl}/users/login`, {
@@ -82,6 +80,12 @@ export default function LogModal() {
                     });
                 }
             } catch (err) {
+                const reqError = err.response.data;
+                if (reqError.includes("password") || reqError.includes("Password")) {
+                    setPasswordError(reqError);                    
+                } else {
+                    setEmailError(reqError);
+                }
                 console.error("Login error: ", err);
             }
             setSpinnerUp(false);

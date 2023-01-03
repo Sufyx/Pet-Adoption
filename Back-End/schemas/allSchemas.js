@@ -63,7 +63,6 @@ const newPetSchema = {
     },
     additionalProperties: false
 }
-//
 
   const updatePetSchema = {
     type: "object",

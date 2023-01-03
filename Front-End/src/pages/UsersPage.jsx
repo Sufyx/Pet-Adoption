@@ -54,7 +54,7 @@ export default function UsersPage({ toggleSpinner }) {
             }
             const { token } = JSON.parse(localStorage.getItem('loggedUser'));
             const status = user.isAdmin ? false : true;
-            const res = await axios.put(`${baseUrl}/users/admin/${user._id}`, { status: status },
+            await axios.put(`${baseUrl}/users/admin/${user._id}`, { status: status },
                 { headers: { authorization: `Bearer ${token}` } });
             fetchUsers();
         } catch (err) {

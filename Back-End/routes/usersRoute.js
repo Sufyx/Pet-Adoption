@@ -9,7 +9,7 @@ const express = require("express");
 const router = express.Router();
 // const UsersController = require("../controllers/usersController.js");
 const {
-    signUp, login, getUserById, changeAdminStatus,
+    signUp, login, getUserById, changeAdminStatus, getNewsFeed,
     updateUser, getAllUsers, getFullUserById, stayLoggedIn
 } = require("../controllers/UsersController");
 
@@ -23,6 +23,7 @@ const { signUpSchema, loginSchema, updateSchema } = require("../schemas/allSchem
 
 
 router.get("/", checkAuth, checkAdmin, getAllUsers);
+router.get("/news", getNewsFeed);
 router.get("/logged", checkAuth, stayLoggedIn);
 router.get("/:userId", checkAuth, getUserById);
 router.get("/:userId/full", checkAuth, getFullUserById);

@@ -7,7 +7,8 @@
 
 const {
     signUpModel, getUserByEmailModel, getUserByIdModel,
-    updateUserModel, getAllUsersModel, changeAdminStatusModel
+    updateUserModel, getAllUsersModel, 
+    changeAdminStatusModel, getNewsFeedModel
 } = require("../models/usersModel");
 const { getPetsByUserIdModel } = require("../models/petsModel");
 const jwt = require("jsonwebtoken");
@@ -134,7 +135,19 @@ async function changeAdminStatus(req, res) {
 }
 
 
+async function getNewsFeed(req, res) {
+    try {
+        const news = await getNewsFeedModel();
+        res.send({ ok: true, news });
+    } catch (err) {
+        console.error("Caught: ", err.message);
+        res.status(500).send(err);
+    }
+}
+
+
 module.exports = {
     signUp, login, logout, getUserById, changeAdminStatus,
-    updateUser, getAllUsers, getFullUserById, stayLoggedIn
+    updateUser, getAllUsers, getFullUserById, 
+    stayLoggedIn, getNewsFeed
 };

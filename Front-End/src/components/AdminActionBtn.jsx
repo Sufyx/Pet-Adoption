@@ -9,7 +9,7 @@ import { React, useContext } from 'react';
 import { Button } from '@chakra-ui/react';
 import axios from 'axios';
 import UsersContext from '../context/UsersContext';
-import { useNavigate, useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 export default function AdminActionBtn({ adminAction, petName, petId }) {
@@ -40,7 +40,7 @@ export default function AdminActionBtn({ adminAction, petName, petId }) {
     try {
       const { token } = JSON.parse(localStorage.getItem('loggedUser'));
       // console.log("deletePet petId: ", petId)
-      const res = await axios.delete(`${baseUrl}/pet/${petId}`,
+      await axios.delete(`${baseUrl}/pet/${petId}`,
       { headers: { authorization: `Bearer ${token}` } });
       navigate("/search");
     } catch (err) {

@@ -61,10 +61,8 @@ export default function PetPage() {
         }
         let petFound = false;
         if (res.data.petList.userPets) {
-            console.log("userPets ", res.data.petList.userPets);
             res.data.petList.userPets.forEach(pet => {
                 if (pet._id === query.get("petId")) {
-                    console.log("pet owned");
                     petFound = true;
                 }
             });
@@ -73,10 +71,8 @@ export default function PetPage() {
 
         petFound = false;
         if (res.data.petList.savedPets) {
-            console.log("savedPets ", res.data.petList.savedPets);
             res.data.petList.savedPets.forEach(pet => {
                 if (pet._id === query.get("petId")) {
-                    console.log("pet saved");
                     petFound = true;
                 }
             });

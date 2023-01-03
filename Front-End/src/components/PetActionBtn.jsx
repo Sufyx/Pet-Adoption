@@ -67,8 +67,7 @@ export default function PetActionBtn({ petAction, petName, petId, updateIsOwnedB
   async function petReturn() {
     const { token } = JSON.parse(localStorage.getItem('loggedUser'));
     const res = await axios.post(`${baseUrl}/pet/${petId}/return`,
-      { userEmail: userLogged.email },
-      { headers: { authorization: `Bearer ${token}` }, });
+      {holder: "holder"}, { headers: { authorization: `Bearer ${token}` } });
 
     if (res.data) {
       updateIsOwnedByUser(false);
@@ -84,7 +83,7 @@ export default function PetActionBtn({ petAction, petName, petId, updateIsOwnedB
   async function petUnsave() {
     const { token } = JSON.parse(localStorage.getItem('loggedUser'));
     const res = await axios.delete(`${baseUrl}/pet/${petId}/save`,
-      { params: { userEmail: userLogged.email }, headers: { authorization: `Bearer ${token}` }, });
+      { headers: { authorization: `Bearer ${token}` } });
 
     if (res.data) {
       updateIsSavedByUser(false);

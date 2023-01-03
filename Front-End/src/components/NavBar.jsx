@@ -1,7 +1,5 @@
 /**
- * ITC Full-Stack Bootcamp
  * Pet Adoption Project
- * 12/08/2022
  * Asaf Gilboa
 */
 
@@ -26,7 +24,7 @@ export default function NavBar() {
     const welcomeMsg =
         <Text bg="rgb(75, 207, 247)" py="0.6%" px="1%" fontWeight='semibold' boxShadow='dark-lg'
             borderRadius="5px" border="0.5px inset teal" color="rgb(14, 48, 45)">
-            Welcome, {userLogged.firstName} {userLogged.lastName}
+            Hello, {userLogged.firstName} {userLogged.lastName}
         </Text>
 
     const userLinks =

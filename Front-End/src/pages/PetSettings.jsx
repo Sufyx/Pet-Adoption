@@ -148,6 +148,7 @@ export default function PetSettings({ newPet }) {
                 const res = await axios.post(`${baseUrl}/pet`,
                     petData, { headers: { authorization: `Bearer ${token}` } });
                 if (res.data) {
+                    console.log("PetSettings 151 res.data ", res.data);
                     navigate(`/pet?petId=${res.data}`);
                 }
             } else {
