@@ -4,7 +4,7 @@
 */
 
 import { React, useState, useEffect } from 'react';
-import { ListItem, UnorderedList, Text } from '@chakra-ui/react';
+import { Box, ListItem, UnorderedList, Text } from '@chakra-ui/react';
 import axios from 'axios';
 import uuid from 'react-uuid';
 
@@ -39,8 +39,8 @@ export default function NewsFeed() {
 
 
     return (
-        <div>
-            <UnorderedList>
+        <Box >
+            <UnorderedList pl="1%">
                 {newsArray.map(item =>
                     <ListItem key={uuid()}>
                         <Text fontSize="0.9vw">
@@ -52,6 +52,6 @@ export default function NewsFeed() {
                     </ListItem>
                 )}
             </UnorderedList>
-        </div>
+        </Box>
     )
 }

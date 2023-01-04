@@ -7,7 +7,7 @@ import LogModal from './LogModal';
 import { React, useContext } from 'react';
 import UsersContext from '../context/UsersContext';
 import {
-    Menu, MenuButton, MenuList, MenuItem,
+    Box, Menu, MenuButton, MenuList, MenuItem,
     Text, MenuGroup, IconButton, Divider
 } from '@chakra-ui/react';
 import {
@@ -27,19 +27,41 @@ export default function NavBar() {
             Hello, {userLogged.firstName} {userLogged.lastName}
         </Text>
 
+    const homeLink =
+            <NavLink to={"/home"}>
+                <MenuItem icon={<StarIcon />}>Home</MenuItem>
+            </NavLink>
+    const searchLink =
+            <NavLink to={"/search"}>
+                <MenuItem icon={<Search2Icon />}>Search</MenuItem>
+            </NavLink>
+    const myPetsLink =
+            <NavLink to={JSON.parse(localStorage.getItem('loggedUser')) ?
+                `/mypets?userId=${userLogged._id}&firstName=${userLogged.firstName}` : "/home"}>
+                <MenuItem icon={<ViewIcon />}>My Pets</MenuItem>
+            </NavLink>
+    const settingsLink =
+            <NavLink to={JSON.parse(localStorage.getItem('loggedUser')) ?
+                `/usersettings?userId=${userLogged._id}` : "/home"}>
+                <MenuItem icon={<SettingsIcon />}>Settings</MenuItem>
+            </NavLink>
+    const profileLink =
+            <NavLink to={JSON.parse(localStorage.getItem('loggedUser')) ?
+                `/userprofile?userId=${userLogged._id}` : "/home"}>
+                <MenuItem icon={<CheckIcon />}>Profile</MenuItem>
+            </NavLink>
+    const dashBoardLink =
+            <NavLink to={userLogged.isAdmin ? "/dashboard" : "/home"}>
+                <MenuItem icon={<UnlockIcon />}>Dashboard</MenuItem>
+            </NavLink>
+
     const userLinks =
         <>
             <Divider />
             <MenuGroup title="Users" color="teal.500">
-                <NavLink to={JSON.parse(localStorage.getItem('loggedUser')) ? `/mypets?userId=${userLogged._id}&firstName=${userLogged.firstName}` : "/home"}>
-                    <MenuItem icon={<ViewIcon />}>My Pets</MenuItem>
-                </NavLink>
-                <NavLink to={JSON.parse(localStorage.getItem('loggedUser')) ? `/usersettings?userId=${userLogged._id}` : "/home"}>
-                    <MenuItem icon={<SettingsIcon />}>Settings</MenuItem>
-                </NavLink>
-                <NavLink to={JSON.parse(localStorage.getItem('loggedUser')) ? `/userprofile?userId=${userLogged._id}` : "/home"}>
-                    <MenuItem icon={<CheckIcon />}>Profile</MenuItem>
-                </NavLink>
+                {myPetsLink}
+                {settingsLink}
+                {profileLink}
             </MenuGroup>
         </>
 
@@ -47,9 +69,7 @@ export default function NavBar() {
         <>
             <Divider />
             <MenuGroup title="Admin" color="red.500">
-                <NavLink to={userLogged.isAdmin ? "/dashboard" : "/home"}>
-                    <MenuItem icon={<UnlockIcon />}>Dashboard</MenuItem>
-                </NavLink>
+                {dashBoardLink}
             </MenuGroup>
         </>
 
@@ -61,18 +81,33 @@ export default function NavBar() {
                     boxShadow='dark-lg' />
                 <MenuList>
                     <MenuGroup title="Guests" color="gray.500">
-                        <NavLink to={"/home"}>
-                            <MenuItem icon={<StarIcon />}>Home</MenuItem>
-                        </NavLink>
-                        <NavLink to={"/search"}>
-                            <MenuItem icon={<Search2Icon />}>Search</MenuItem>
-                        </NavLink>
+                        {homeLink}
+                        {searchLink}
                     </MenuGroup>
                     {userLogged ? userLinks : ''}
                     {userLogged.isAdmin ? adminLinks : ''}
                 </MenuList>
             </Menu>
+
+            <Menu className="navLink">
+                <Box className="navLink">{homeLink}</Box>
+                <Box className="navLink" _focus={{ color: 'black' }}>{searchLink}</Box>
+            </Menu>
+
+            {userLogged ? 
+            <Menu className="navLink">
+                <Box className="navLink">{myPetsLink}</Box>
+                <Box className="navLink">{settingsLink}</Box>
+                <Box className="navLink">{profileLink}</Box>
+            </Menu> : ""}
+
+            {userLogged.isAdmin ? 
+            <Menu className="navLink">
+                <Box className="navLink">{dashBoardLink}</Box>
+            </Menu> : ""}
+
             {userLogged ? welcomeMsg : ''}
+
             <LogModal />
         </div>
     )

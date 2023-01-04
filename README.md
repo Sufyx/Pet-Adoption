@@ -27,12 +27,19 @@ Project is written in MERN stack.
 ### Description
 
 #### Home Page
+<img alt="side_menu" src="Description/home_page.png" width="500" height="auto" >
+Home/landing page and welcome message. also contains:
+
+- Real time activity feed for latest actions by users and changes to pets.
+- Slideshow showing a random pets. Changes every few seconds. For logged-n users, clicking links to the pet's page.
+- Our mascots, the hyper-laser cat and dog.
+
+<br>
+
+#### Sign-up/Log-in
 <img alt="signin_screen" src="Description/signin_screen.png" width="500" height="auto" >
-<img alt="side_menu" src="Description/side_menu.png" width="500" height="auto" >
-Simple home page and welcome message. <br>  
-Login/Sign-up and navigation menu are on a nav-bar. <br>
-Basic validation is in place for login/sign-up. <br>
-The options on the navigation menu will be limited according to the user's access level.
+A Login/Sign-up. Button for it is on a nav-bar. <br>
+Basic validation is in place on the form, and more rigid authentication takes place on the back-end. <br>
 
 <br>
 
@@ -52,9 +59,9 @@ Cards will link to full pet page card.
 Card page for a specific pet from the database. <br>
 Contains information about the pet, as well as actions available for it, ie: save/adopt/etc. <br>
 The available actions vary according to the pet's adoption status, and their relation to the user. <br>
-For example: <br>
+For instance: <br>
 "Adopt"/"Foster" will only be available if the pet was not adopted/fostered by another user. <br>
-"Return" will only be available if the pet was adopted/fostered specifically by the current user. <br>
+"Return" will only be available if the pet is already owned by the current user. <br>
 "Edit"/"Delete" will only be available for administrators.
 
 <br>
@@ -64,7 +71,8 @@ For example: <br>
 <img alt="pets_page_saved" src="Description/pets_page_saved.png" width="500" height="auto" >
 <img alt="user_details_edit" src="Description/user_details_edit.png" width="500" height="auto" >
 Profile page for registered users. <br>
-Contains the user details and bio with the option to edit them, and links to the lists of pets the user has saved/adopted/fostered.
+Contains the user details and bio with the option to edit them, <br>
+and links to the lists of pets the user has saved/adopted/fostered.
 
 <br>
 
@@ -91,7 +99,7 @@ Each row links to its pet's page.
   -  Registered (logged in): Home, profile page, advanced search, pet cards with ability to adopt/foster/save pets.
   -  Administrator: All registered user access, plus: Able to add/edit/delete pets, view/edit other users profiles.
 
-- Logged users may perform the following actions on the pets:
+- Logged users may perform the following actions on the pets in the website:
   - **Adopt/foster:** Only doable for pets that were not adopted/fostered by another user. <br>
   The user will then become the pet's owner, and it will no longer be available for other users to adopt/foster. <br>
   Will add the pet to the user's pets-page on their profile, under "adopted/fostered pets".

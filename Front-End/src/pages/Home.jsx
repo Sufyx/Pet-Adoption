@@ -8,7 +8,8 @@
 
 import { React, useEffect, useContext } from 'react';
 import {
-  Image, Box, Flex, Spacer, Heading, Text, HStack
+  Image, Box, Flex, Spacer, Heading,
+   Text, HStack, VStack, Link
 } from '@chakra-ui/react';
 import axios from 'axios';
 import UsersContext from '../context/UsersContext';
@@ -43,52 +44,55 @@ export default function Home() {
         Welcome to A.G Pet Adoption agency
       </ Heading >
 
-      <Flex className="homeDisplayDiv" m="auto" marginTop="1%" w="96%"
+      <Flex m="auto" marginTop="1%" w="96%" h="80vh"
         bg="rgba(57, 164, 164, 0.2)" borderRadius="30px" p="2%"
         boxShadow='dark-lg' direction='column' align='center'>
 
-        <HStack w="100%" justify='space-between'>
-          <Image src='https://i.imgur.com/RnTb6Em.jpg' alt='Hyper Dog' className='homePageImage'
-            objectFit='cover' borderRadius='full' roundedRight="md" />
-          {/* < Spacer /> */}
-          <Box marginX={3} className='homeFont' w="30%" textAlign="center">
-            <Text fontSize="1.3vw" fontWeight="semibold" color="teal.900">
-              Hey there pet person. <br />
-              Thank you for visiting. <br />
-              This is a prestige digital database of various precious animals. <br />
-              These animals deserve a loving home, and together we can give it to them. <br />
-              Take your time to browse our various pets.
-            </ Text >
-          </Box>
+        <HStack w="100%" h="100%" justify='space-between'>
 
-          <Box marginX={3} className='homeFont homeGadget imageFrame' w="35%">
-            < Heading fontSize="1.3vw" color="teal.900" align="center">
-              News Feed
-            </ Heading >
-            <NewsFeed />
-          </Box>
+          <VStack className='homeVStack'>
+            <Image src='https://i.imgur.com/RnTb6Em.jpg' alt='Hyper Dog' className='homePageImage'
+              borderRadius='full' roundedRight="md" objectFit='cover'  />
+            <Spacer h="5vh" />
+            <Box marginX={3} className='homeFont homeGadget'  >
+              <PetSlides />
+            </Box>
+          </VStack>
+
+          <VStack className='homeVStack' w='25%'>
+            <Box marginX={3} className='homeFont' textAlign="center">
+              <Text fontSize="1.3vw" fontWeight="semibold" color="teal.900">
+                Hey there pet person. <br />
+                Thank you for visiting. <br />
+                This is a prestige digital database of various precious animals. <br />
+                These animals deserve a loving home, and together we can give it to them. <br />
+              </ Text >
+            </Box>
+            <Spacer h="6vh" />
+            <Box marginX={3} className='homeFont' textAlign="center">
+              <Text fontSize="1.3vw" fontWeight="semibold" color="teal.900">
+                To browse our various pets, go to "Search". <br />
+                Log-in or sign-up to get full access, <br />
+                and start your (digital) pet family <br />
+                :)
+              </ Text >
+            </Box>
+          </VStack>
+
+          <VStack className='homeVStack'>
+            <Image src='https://i.imgur.com/E2uVXFh.jpg' alt='Hyper Cat' className='homePageImage'
+              objectFit='cover' borderRadius='full' roundedLeft="md" />
+            <Spacer h="5vh" />
+            <Box marginX={3} className='homeFont homeGadget imageFrame' >
+              < Heading fontSize="1.3vw" color="teal.900" align="center">
+                Recent Activity
+              </ Heading >
+              <NewsFeed />
+            </Box>
+          </VStack>
 
         </HStack>
 
-        <Box h="5vh"><Spacer /></Box>
-
-        <HStack w="100%" justify='space-between'>
-
-          <Box marginX={3} className='homeFont homeGadget' w="36%" >
-            <PetSlides />
-          </Box>
-
-          <Box marginX={3} className='homeFont' w="30%" textAlign="center">
-            <Text fontSize="1.3vw" fontWeight="semibold" color="teal.900">
-              To browse pets, go to "search" on the menu on the top right. <br />
-              Log-in or sign-up to get full access, and start your (digital) pet family <br />
-              :)
-            </ Text >
-          </Box>
-
-          <Image src='https://i.imgur.com/E2uVXFh.jpg' alt='Hyper Dog' className='homePageImage'
-            objectFit='cover' borderRadius='full' roundedLeft="md" />
-        </HStack>
       </Flex>
 
     </div>

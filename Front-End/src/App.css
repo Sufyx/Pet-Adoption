@@ -39,14 +39,33 @@ body,
   /* background: linear-gradient(90deg, rgba(67,155,173,1) 0%, rgba(45,187,217,1) 50%, rgba(67,155,173,1) 100%); */
 }
 
+.navLink{
+  background-color: rgb(59, 116, 165);
+  color: bisque;
+  border-radius: 8px;
+}
+.css-13c7rae:focus, .css-13c7rae:active{
+  background-color: bisque;
+  color: rgb(35, 85, 129);
+  border-radius: 8px;
+}
+
 .homePageContainer {
   display: flex;
   flex-direction: column;
 }
 
+.homeVStack {
+  height: 100%;
+  width: 34%;
+}
+.homeVStack>Div, .homeVStack>img {
+  width: 100%;
+  height: 50%;
+}
+
 .homeGadget {
   border-radius: 8px;
-  height: 30vh;
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -106,12 +125,16 @@ body,
   margin-top: 2%;
 }
 
-.slideHeader {
+.slideHeader, .slideCaption {
   position: absolute;
   transform: translate(100%, 30%);
-  font-size: 1.3vw;
   color: #c4e3e3;
   text-shadow: 0px 0px 7px #074646;
+}
+.slideCaption {
+  transform: translate(100%, -140%);
+  color: #0a385b;
+  text-shadow: 0px 0px 4px #a589be;
 }
 
 .userPetsContainer,
