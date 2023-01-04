@@ -3,25 +3,29 @@
  * Asaf Gilboa
 */
 
-import { React } from 'react';
+import { React, useContext } from 'react';
+import UsersContext from '../context/UsersContext';
 import { Image, Flex, Button, Text } from '@chakra-ui/react';
 import { NavLink } from 'react-router-dom';
 
 
 export default function PetCard({ pet }) {
 
+  const { userLogged, loginHook } = useContext(UsersContext);  
+  function triggerLogin() {
+    loginHook();
+  }
+
   const seeMore =
-    JSON.parse(localStorage.getItem('loggedUser')) ?
-      <NavLink className="petCardLink" to={`/pet?petId=${pet._id}`}>
-        <Button colorScheme='teal' variant='solid' mt="5%" py="3%" fontSize="1.1vw"
-          w="80%" h="fit-content" name={pet.name} border="1px outset teal">
-          See More
+      <NavLink to={userLogged ? `/pet?petId=${pet._id}` : ''}
+        onClick={userLogged ? '' : triggerLogin}
+        className="petCardLink">
+        <Button colorScheme='teal' variant='solid' mt="5%" p="3%" fontSize="1.1vw"
+          w="auto" h="fit-content" name={pet.name} border="1px outset teal">
+          {userLogged ? 'See More' : 'Login to see more'}
         </Button>
       </NavLink>
-      : <Text bg='teal' color="whitesmoke" mt="5%" py="3%" fontSize="1.1vw" textAlign="center"
-        w="80%" h="fit-content" name={pet.name} border="1px outset teal" borderRadius="6px">
-        Login to see more
-      </Text>;
+      
 
   return (
     <div>

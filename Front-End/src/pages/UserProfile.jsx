@@ -62,7 +62,6 @@ export default function UserProfile() {
         const { token } = JSON.parse(localStorage.getItem('loggedUser'));
         const res = await axios.put(`${baseUrl}/users/${userId}`, { bio: editVal },
             { headers: { authorization: `Bearer ${token}` } });
-        // console.log("userSettings saveBio updatedUser ", res.data.updatedUser);
         setUserBio(res.data.updatedUser.bio);
         closeEdit();
     }

@@ -19,7 +19,7 @@ import { NavLink } from 'react-router-dom';
 
 export default function NavBar() {
 
-    const { userLogged } = useContext(UsersContext);
+    const { userLogged } = useContext(UsersContext);    
 
     const welcomeMsg =
         <Text bg="rgb(75, 207, 247)" py="0.6%" px="1%" fontWeight='semibold' boxShadow='dark-lg'

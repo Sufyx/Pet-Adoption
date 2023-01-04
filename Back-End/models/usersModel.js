@@ -161,7 +161,6 @@ async function updateNewsFeed(type, pet, userId) {
       item += `Pet ${action}: ${pet.name} the ${pet.type.toLowerCase()}`;
     }
 
-    console.log("news: " + item);
     await User.updateOne(
       { _id: ObjectId('63b3f5e291d5878d0beb5600') }, { $push: { userPets: item } });
   } catch (err) {

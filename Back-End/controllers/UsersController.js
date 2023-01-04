@@ -18,7 +18,6 @@ require("dotenv").config();
 
 async function signUp(req, res) {
     try {
-        console.log("contoller signup req.body: ", req.body);
         const { email, password, firstName, lastName, phone } = req.body;
         const newUser = {
             firstName: firstName,

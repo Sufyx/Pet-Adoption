@@ -5,7 +5,7 @@
  * Asaf Gilboa
 */
 
-import { React, useState, useContext } from 'react';
+import { React, useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 // import localForage from 'localforage';
 import { useNavigate } from 'react-router-dom';
@@ -23,7 +23,7 @@ export default function LogModal() {
     const navigate = useNavigate();
     const toast = useToast();
 
-    const { userLogged, updateUser } = useContext(UsersContext);
+    const { userLogged, updateUser, loginTrigger } = useContext(UsersContext);
     const { isOpen, onOpen, onClose } = useDisclosure(false);
     const [spinnerUp, setSpinnerUp] = useState(false);
     const [isSignUp, setIsSignUp] = useState();
@@ -39,6 +39,13 @@ export default function LogModal() {
         passwordConfirm: '',
         phone: ''
     });
+
+
+    useEffect(() => {
+        if (loginTrigger !== 0) {
+            loginClick();
+        }
+    }, [loginTrigger]);
 
 
     function loginClick() {
@@ -74,7 +81,7 @@ export default function LogModal() {
                         title: `Welcome back ${res.data.user.firstName} `,
                         description: "We missed you :)",
                         status: 'success',
-                        duration: 5000,
+                        duration: 4000,
                         position: 'top',
                         isClosable: true,
                     });
@@ -82,7 +89,7 @@ export default function LogModal() {
             } catch (err) {
                 const reqError = err.response.data;
                 if (reqError.includes("password") || reqError.includes("Password")) {
-                    setPasswordError(reqError);                    
+                    setPasswordError(reqError);
                 } else {
                     setEmailError(reqError);
                 }
@@ -116,7 +123,7 @@ export default function LogModal() {
                     description: "Your account has been created",
                     status: 'success',
                     position: 'top',
-                    duration: 5000,
+                    duration: 4000,
                     isClosable: true,
                 });
                 setSpinnerUp(false);
@@ -133,7 +140,7 @@ export default function LogModal() {
         }));
         updateUser(data.user);
         onClose();
-        navigate("/home"); // ?
+        // navigate("/home"); 
     }
 
 
@@ -176,9 +183,15 @@ export default function LogModal() {
         </Button>
 
     const extendModalBtn =
-        <Button onClick={extendModal} mt="3%" bg="whitesmoke" color="teal"
-            _hover={{ bg: 'teal.500', color: 'whitesmoke' }} border="1px outset teal" >
+        <Button onClick={extendModal} mr="6%" bg="whitesmoke" color="teal"
+            _hover={{ bg: 'teal.500', color: 'whitesmoke' }} border="1px ridge teal" >
             I don't have a user yet
+        </Button>
+
+    const shrinkModalBtn =
+        <Button onClick={shrinkModal} mr="6%" bg="whitesmoke" color="teal"
+            _hover={{ bg: 'teal.500', color: 'whitesmoke' }} border="1px ridge teal" >
+            I already have a user
         </Button>
 
     function extendModal(e) {
@@ -192,6 +205,9 @@ export default function LogModal() {
             phone: ''
         });
         setIsSignUp(true);
+    }
+    function shrinkModal() {
+        setIsSignUp(false);
     }
 
 
@@ -259,7 +275,8 @@ export default function LogModal() {
                     setPasswordError('');
                 }} />
 
-            {isSignUp ? signUpModal : extendModalBtn}
+            {isSignUp ? signUpModal : ""}
+
         </FormControl>
 
     const modal =
@@ -273,11 +290,12 @@ export default function LogModal() {
                 </ModalBody>
 
                 <ModalFooter>
+                    {isSignUp ? shrinkModalBtn : extendModalBtn}
                     <Button onClick={saveClick} backgroundColor='rgb(116, 219, 222)'
-                        variant='ghost' marginRight={"1%"}>
+                        variant='ghost' marginRight={"1%"} border="1px ridge teal" >
                         {spinnerUp ? spinner : (isSignUp ? "Save" : "Login")}
                     </Button>
-                    <Button mr={3} onClick={onClose}
+                    <Button mr={3} onClick={onClose} variant='ghost' border="1px ridge teal"
                         backgroundColor='rgb(223, 206, 237)'>  Cancel </Button>
                 </ModalFooter>
             </ModalContent>

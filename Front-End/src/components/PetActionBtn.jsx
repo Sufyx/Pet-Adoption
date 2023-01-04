@@ -43,7 +43,7 @@ export default function PetActionBtn({
     }
     const { token } = JSON.parse(localStorage.getItem('loggedUser'));
     const res = await axios.post(`${baseUrl}/pet/${petId}/${petAction.toLowerCase()}`,
-      { petAction: petActionStr, userEmail: userLogged.email },
+      { petAction: petActionStr },
       { headers: { authorization: `Bearer ${token}` }, });
 
     if (res.data) {
@@ -53,7 +53,7 @@ export default function PetActionBtn({
           title: `${petName} has been saved`,
           description: `You may see them in your profile at any time`,
           status: 'info',
-          duration: 5000,
+          duration: 4000,
           isClosable: true,
         });
       } else {
@@ -62,7 +62,7 @@ export default function PetActionBtn({
           title: `Awesome!`,
           description: `Thank you for ${petAction.toLowerCase()}ing ${petName} `,
           status: 'success',
-          duration: 5000,
+          duration: 4000,
           isClosable: true,
         });
       }
@@ -82,7 +82,7 @@ export default function PetActionBtn({
       toast({
         title: `${petName} has been returned :(`,
         status: 'info',
-        duration: 5000,
+        duration: 4000,
         isClosable: true,
       });
     }
@@ -100,7 +100,7 @@ export default function PetActionBtn({
       toast({
         title: `${petName} has been removed from your saved pets`,
         status: 'info',
-        duration: 5000,
+        duration: 4000,
         isClosable: true,
       });
     }

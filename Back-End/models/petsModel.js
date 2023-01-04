@@ -150,8 +150,6 @@ async function addPetModel(petToAdd) {
     try {
         const newPet = new Pet(petToAdd);
         await newPet.save();
-
-        console.log("addPetModel: " + petToAdd.name, newPet._id);
         await updateNewsFeed("Added", newPet, "0");
         return newPet._id;
     } catch (err) {

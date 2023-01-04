@@ -24,6 +24,7 @@ function App() {
   
   const navigate = useNavigate();
   const [userLogged, setUserLogged] = useState('');
+  const [loginTrigger, setLoginTrigger] = useState(0);
   
   useEffect(() => {
     navigate("/home");
@@ -38,11 +39,16 @@ function App() {
     }
   }
 
+  function loginHook() {
+    console.log("-= login hook =-");
+    setLoginTrigger((loginTrigger) => loginTrigger + 1);
+  }
+
 
 
   return (
     <div className="App">
-      <UsersContext.Provider value={{userLogged, updateUser}} >
+      <UsersContext.Provider value={{userLogged, updateUser, loginTrigger, loginHook}} >
         <NavBar />
         <Routes >
           <Route path="/home" element={<Home />} />
