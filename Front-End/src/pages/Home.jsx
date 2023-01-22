@@ -1,7 +1,5 @@
 /**
- * ITC Full-Stack Bootcamp
  * Pet Adoption Project
- * 12/08/2022
  * Asaf Gilboa
 */
 
@@ -74,7 +72,8 @@ export default function Home() {
                 To browse our various pets, go to "Search". <br />
                 Log-in or sign-up to get full access, <br />
                 and start your (digital) pet family <br />
-                :)
+                :) <br /><br />
+                <b>This website is free-hosted, please allow a minute for the server to load before engaging.</b>
               </ Text >
             </Box>
           </VStack>

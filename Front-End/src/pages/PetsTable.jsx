@@ -1,7 +1,5 @@
 /**
- * ITC Full-Stack Bootcamp
  * Pet Adoption Project
- * 03/09/2022
  * Asaf Gilboa
 */
 
