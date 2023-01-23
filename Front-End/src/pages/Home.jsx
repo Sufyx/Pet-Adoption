@@ -7,7 +7,7 @@
 import { React, useEffect, useContext } from 'react';
 import {
   Image, Box, Flex, Spacer, Heading,
-   Text, HStack, VStack, Link
+  Text, HStack, VStack, Link
 } from '@chakra-ui/react';
 import axios from 'axios';
 import UsersContext from '../context/UsersContext';
@@ -50,7 +50,7 @@ export default function Home() {
 
           <VStack className='homeVStack'>
             <Image src='https://i.imgur.com/RnTb6Em.jpg' alt='Hyper Dog' className='homePageImage'
-              borderRadius='full' roundedRight="md" objectFit='cover'  />
+              borderRadius='full' roundedRight="md" objectFit='cover' />
             <Spacer h="5vh" />
             <Box marginX={3} className='homeFont homeGadget'  >
               <PetSlides />
@@ -73,7 +73,9 @@ export default function Home() {
                 Log-in or sign-up to get full access, <br />
                 and start your (digital) pet family <br />
                 :) <br /><br />
-                <b>This website is free-hosted, please allow a minute for the server to load before engaging.</b>
+                <Text fontSize="1.4vw" fontWeight="bold">
+                  * This website is free-hosted, please allow a minute for the server to load before engaging *
+                </Text>
               </ Text >
             </Box>
           </VStack>
