@@ -1,7 +1,5 @@
 /**
- * ITC Full-Stack Bootcamp
  * Pet Adoption Project
- * 19/08/2022
  * Asaf Gilboa
 */
 
@@ -10,7 +8,6 @@ const ajv = new Ajv();
 
 function validateBody(schema) {
   return (req, res, next) => {
-    // console.log(" validateBody req ", req.body);
     let userId = '';
     if (req.body.userId) {
       userId = req.body.userId;
