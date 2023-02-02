@@ -8,8 +8,8 @@ const multer = require("multer");
 const cloudinary = require("cloudinary").v2;
 const fs = require("fs");
 const upload = multer({ dest: "./images" });
-require("dotenv").config();
-const PORT = process.env.PORT || 6060;
+// require("dotenv").config();
+// const PORT = process.env.PORT || 6060;
 
 
 cloudinary.config({
