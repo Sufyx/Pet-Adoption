@@ -5,7 +5,9 @@
 
 
 import { React, useState, useEffect, useContext } from 'react';
-import { Box, Grid, GridItem, Flex, Button, Text, Spinner } from '@chakra-ui/react';
+import { 
+    Box, Grid, GridItem, Flex, Button, Text, Spinner
+ } from '@chakra-ui/react';
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from 'axios';
 import UsersContext from '../context/UsersContext';
@@ -14,17 +16,19 @@ import PetCard from '../components/PetCard';
 
 export default function UserPets() {
     const baseUrl = process.env.REACT_APP_SERVER_URL;
+    const { userLogged } = useContext(UsersContext);
     const navigate = useNavigate();
     const { search } = useLocation();
+
     const query = new URLSearchParams(search);
     const userId = query.get("userId");
     const firstName = query.get("firstName");
 
-    const { userLogged } = useContext(UsersContext);
     const [petList, setPetList] = useState([]);
     const [listToDisplay, setListToDisplay] = useState('userPets');
     const [spinnerUp, setSpinnerUp] = useState(false);
 
+    
     useEffect(() => {
         if ((query.get("userId") === userLogged._id) || (userLogged.isAdmin)) {
             fetchPets();
@@ -72,7 +76,8 @@ export default function UserPets() {
 
     const spinner =
         <>
-            <Spinner thickness='6px' speed='0.7s' emptyColor='teal.200' color='teal.800' size='md' />
+            <Spinner thickness='6px' speed='0.7s' emptyColor='teal.200'
+                color='teal.800' size='md' />
         </>
 
     const petsDisplay =
@@ -109,8 +114,8 @@ export default function UserPets() {
                 </Button>
             </Flex>
             <Box m="1%" rounded='md' w="98%">
-                {spinnerUp ? "" : 
-                petList.length === 0 ? noPetsMessage : petsDisplay}
+                {spinnerUp ? "" :
+                    petList.length === 0 ? noPetsMessage : petsDisplay}
             </Box>
         </div>
     )

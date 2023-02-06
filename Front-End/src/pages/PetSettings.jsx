@@ -196,13 +196,17 @@ export default function PetSettings({ newPet }) {
         <div className="petSettingsContainer">
             <FormControl>
 
-                {/* <FormLabel className="petFormLabel" fontSize="1.2vw"> Type </FormLabel> */}
-                <InputGroup alignItems="center" w="90%" m="auto" my="1%" boxShadow='dark-lg' borderRadius="5px">
-                    <InputLeftAddon children='Type: ' w="15%" fontSize="1.2vw" fontWeight='semibold'
-                        bg="rgb(57, 164, 164)" color="whitesmoke" />
+                <InputGroup alignItems="center" w="90%"
+                    m="auto" my="1%" boxShadow='dark-lg' borderRadius="5px">
+                    <InputLeftAddon children='Type: ' w="15%" fontSize="1.2vw"
+                        fontWeight='semibold' bg="rgb(57, 164, 164)" color="whitesmoke" />
                     <Select placeholder='Select pet type' maxW='90%' fontSize="1.1vw"
                         p="0" my="0" value={formInputs.type}
-                        onChange={e => { setFormInputs(prev => ({ ...prev, type: e.target.value })) }}>
+                        onChange={e => {
+                            setFormInputs(prev => ({
+                                ...prev, type: e.target.value
+                            }))
+                        }}>
                         {typeList.map(type =>
                             <option value={type} key={uuid()}>{type}</option>
                         )}
@@ -210,12 +214,17 @@ export default function PetSettings({ newPet }) {
                 </InputGroup>
                 <hr />
 
-                <InputGroup alignItems="center" w="90%" m="auto" my="1%" boxShadow='dark-lg' borderRadius="5px">
-                    <InputLeftAddon children='Status: ' w="15%" fontSize="1.2vw" fontWeight='semibold'
-                        bg="rgb(57, 164, 164)" color="whitesmoke" />
+                <InputGroup alignItems="center" w="90%"
+                    m="auto" my="1%" boxShadow='dark-lg' borderRadius="5px">
+                    <InputLeftAddon children='Status: ' w="15%" fontSize="1.2vw"
+                        fontWeight='semibold' bg="rgb(57, 164, 164)" color="whitesmoke" />
                     <Select placeholder='Select adoption status' maxW='90%' fontSize="1.1vw"
                         p="0" my="0" value={formInputs.adoptionStatus}
-                        onChange={e => { setFormInputs(prev => ({ ...prev, adoptionStatus: e.target.value })) }}>
+                        onChange={e => {
+                            setFormInputs(prev => ({
+                                ...prev, adoptionStatus: e.target.value
+                            }))
+                        }}>
                         <option value='Adopted' >Adopted</option>
                         <option value='Fostered' >Fostered</option>
                         <option value='Available' >Available</option>
@@ -223,19 +232,23 @@ export default function PetSettings({ newPet }) {
                 </InputGroup>
                 <hr />
 
-                <InputGroup alignItems="center" w="90%" m="auto" my="1%" boxShadow='dark-lg' borderRadius="5px">
-                    <InputLeftAddon children='Name: ' w="15%" fontSize="1.2vw" fontWeight='semibold'
-                        bg="rgb(57, 164, 164)" color="whitesmoke" />
-                    <Input value={formInputs.name} type='text' placeholder={thisPet.name} className="petFormLabel" fontSize="1.2vw"
-                        p="0" my="0" pl="2%" onChange={e => {
+                <InputGroup alignItems="center" w="90%"
+                    m="auto" my="1%" boxShadow='dark-lg' borderRadius="5px">
+                    <InputLeftAddon children='Name: ' w="15%" fontSize="1.2vw"
+                        fontWeight='semibold' bg="rgb(57, 164, 164)" color="whitesmoke" />
+                    <Input value={formInputs.name} type='text'
+                        placeholder={thisPet.name} className="petFormLabel"
+                        fontSize="1.2vw" p="0" my="0" pl="2%"
+                        onChange={e => {
                             setFormInputs(prev => ({ ...prev, name: inputLimit(e.target.value, 40) }))
                         }} />
                 </InputGroup>
                 <hr />
 
-                <InputGroup alignItems="center" w="90%" m="auto" my="1%" boxShadow='dark-lg' borderRadius="5px">
-                    <InputLeftAddon children='Color: ' w="15%" fontSize="1.2vw" fontWeight='semibold'
-                        bg="rgb(57, 164, 164)" color="whitesmoke" />
+                <InputGroup alignItems="center" w="90%"
+                    m="auto" my="1%" boxShadow='dark-lg' borderRadius="5px">
+                    <InputLeftAddon children='Color: ' w="15%" fontSize="1.2vw"
+                        fontWeight='semibold' bg="rgb(57, 164, 164)" color="whitesmoke" />
                     <Input value={formInputs.color} type='text' placeholder={thisPet.color}
                         className="petFormLabel" fontSize="1.2vw" p="0" my="0" pl="2%"
                         onChange={e => {
@@ -244,9 +257,10 @@ export default function PetSettings({ newPet }) {
                 </InputGroup>
                 <hr />
 
-                <InputGroup alignItems="center" w="90%" m="auto" my="1%" boxShadow='dark-lg' borderRadius="5px">
-                    <InputLeftAddon children='Breed: ' w="15%" fontSize="1.2vw" fontWeight='semibold'
-                        bg="rgb(57, 164, 164)" color="whitesmoke" />
+                <InputGroup alignItems="center" w="90%"
+                    m="auto" my="1%" boxShadow='dark-lg' borderRadius="5px">
+                    <InputLeftAddon children='Breed: ' w="15%" fontSize="1.2vw"
+                        fontWeight='semibold' bg="rgb(57, 164, 164)" color="whitesmoke" />
                     <Input value={formInputs.breed} type='text' placeholder={thisPet.breed}
                         className="petFormLabel" fontSize="1.2vw" p="0" my="0" pl="2%"
                         onChange={e => {
@@ -255,55 +269,63 @@ export default function PetSettings({ newPet }) {
                 </InputGroup>
                 <hr />
 
-                <InputGroup alignItems="center" w="90%" m="auto" my="1%" boxShadow='dark-lg' borderRadius="5px">
-                    <InputLeftAddon children='Height: ' w="15%" fontSize="1.2vw" fontWeight='semibold'
-                        bg="rgb(57, 164, 164)" color="whitesmoke" />
+                <InputGroup alignItems="center" w="90%"
+                    m="auto" my="1%" boxShadow='dark-lg' borderRadius="5px">
+                    <InputLeftAddon children='Height: ' w="15%" fontSize="1.2vw"
+                        fontWeight='semibold' bg="rgb(57, 164, 164)" color="whitesmoke" />
                     <Input value={formInputs.height} type='number' placeholder={thisPet.height}
-                        min={1} max={500} className="petFormLabel" fontSize="1.2vw" p="0" my="0" pl="2%"
-                        onChange={e => {
+                        min={1} max={500} className="petFormLabel" fontSize="1.2vw"
+                        p="0" my="0" pl="2%" onChange={e => {
                             setFormInputs(prev => ({ ...prev, height: e.target.value }))
                         }} />
                 </InputGroup>
                 <hr />
 
-                <InputGroup alignItems="center" w="90%" m="auto" my="1%" boxShadow='dark-lg' borderRadius="5px">
-                    <InputLeftAddon children='Weight: ' w="15%" fontSize="1.2vw" fontWeight='semibold'
-                        bg="rgb(57, 164, 164)" color="whitesmoke" />
+                <InputGroup alignItems="center" w="90%"
+                    m="auto" my="1%" boxShadow='dark-lg' borderRadius="5px">
+                    <InputLeftAddon children='Weight: ' w="15%" fontSize="1.2vw"
+                        fontWeight='semibold' bg="rgb(57, 164, 164)" color="whitesmoke" />
                     <Input value={formInputs.weight} type='number' placeholder={thisPet.weight}
-                        min={1} max={500} className="petFormLabel" fontSize="1.2vw" p="0" my="0" pl="2%"
-                        onChange={e => {
+                        min={1} max={500} className="petFormLabel" fontSize="1.2vw"
+                        p="0" my="0" pl="2%" onChange={e => {
                             setFormInputs(prev => ({ ...prev, weight: e.target.value }))
                         }} />
                 </InputGroup>
                 <hr />
 
-                <Box ml="5%" my="1%" boxShadow='dark-lg' border="1px solid whitesmoke" borderRadius="4px" w="25%">
+                <Box boxShadow='dark-lg' border="1px solid whitesmoke"
+                    ml="5%" my="1%" borderRadius="4px" w="25%">
                     <Checkbox fontWeight='semibold' isChecked={formInputs.hypoallergenic}
-                        bg="rgb(57, 164, 164)" borderRadius="4px" w="100%" p="5%" colorScheme='white'
-                        onChange={e => {
-                            setFormInputs(prev => ({ ...prev, hypoallergenic: !formInputs.hypoallergenic }));
-                            console.log("FIH: ", formInputs.hypoallergenic)
+                        bg="rgb(57, 164, 164)" borderRadius="4px" w="100%" p="5%"
+                        colorScheme='white' onChange={e => {
+                            setFormInputs(prev => ({
+                                ...prev, hypoallergenic: !formInputs.hypoallergenic
+                            }));
                         }}>
                         <Text fontSize="1.2vw" color="whitesmoke" >Hypoallergenic</Text>
                     </Checkbox>
                 </Box>
                 <hr />
 
-                <InputGroup alignItems="center" w="90%" m="auto" mt="1%" boxShadow='dark-lg' borderRadius="5px">
-                    <InputLeftAddon children='Add Dietary: ' w="21%" fontSize="1.2vw" fontWeight='semibold'
-                        bg="rgb(57, 164, 164)" color="whitesmoke" />
-                    <Input value={dietaryItem} type='text' placeholder='Dietary item' fontSize="1.1vw"
-                        p="0" my="0" pl="2%" onChange={e => setDietaryItem(e.target.value)} />
+                <InputGroup alignItems="center" w="90%" m="auto" mt="1%"
+                    boxShadow='dark-lg' borderRadius="5px">
+                    <InputLeftAddon children='Add Dietary: ' w="21%" color="whitesmoke"
+                        fontSize="1.2vw" fontWeight='semibold' bg="rgb(57, 164, 164)" />
+                    <Input value={dietaryItem} placeholder='Dietary item'
+                        type='text' fontSize="1.1vw" p="0" my="0" pl="2%"
+                        onChange={e => setDietaryItem(e.target.value)} />
                     <InputRightAddon children='+Add' fontSize="1.2vw" fontWeight='semibold'
                         bg="rgb(57, 164, 164)" color="whitesmoke" w="15%"
                         onClick={addDietaryItem} className="cursorPointer" />
                 </InputGroup>
-                <InputGroup alignItems="center" w="90%" m="auto" mb="1%" boxShadow='dark-lg' borderRadius="5px">
-                    <InputLeftAddon children='Dietary Items: ' w="21%" fontSize="1.2vw" fontWeight='semibold'
-                        bg="rgb(57, 164, 164)" color="whitesmoke" />
+                <InputGroup alignItems="center" w="90%" m="auto" mb="1%"
+                    boxShadow='dark-lg' borderRadius="5px">
+                    <InputLeftAddon children='Dietary Items: ' w="21%" fontSize="1.2vw"
+                        fontWeight='semibold' bg="rgb(57, 164, 164)" color="whitesmoke" />
                     <UnorderedList placeholder='Added dietary items' fontSize="1.2vw" w="90%">
                         {formInputs.dietary.map((item, index) =>
-                            <ListItem key={uuid()} w="90%" ml="2%" color="teal.800" fontWeight='semibold'>
+                            <ListItem key={uuid()} w="90%" ml="2%"
+                                color="teal.800" fontWeight='semibold'>
                                 <Flex align="center" justify="space-between" w="90%">
                                     <Text >{item}</Text>
                                     <Button onClick={() => removeDietaryItem(index)}
@@ -323,18 +345,21 @@ export default function PetSettings({ newPet }) {
                         border="0.1px solid whitesmoke" borderRadius="4px" h="50%" m="0.5%" >
                         Bio
                     </FormLabel>
-                    <Textarea value={formInputs.bio} type='text' placeholder={thisPet.bio} fontSize="1vw"
-                        onChange={e => {
-                            setFormInputs(prev => ({ ...prev, bio: inputLimit(e.target.value, 300) }))
+                    <Textarea value={formInputs.bio} type='text'
+                        placeholder={thisPet.bio} fontSize="1vw" onChange={e => {
+                            setFormInputs(prev => ({
+                                ...prev, bio: inputLimit(e.target.value, 300)
+                            }))
                         }} />
                 </Flex>
                 <hr />
 
                 <InputGroup w="25%" my="1%" ml="5%" boxShadow='dark-lg' borderRadius="5px">
-                    <FormLabel htmlFor="imgInput" className="imgInputLabel cursorPointer" w="100%" p="5%" m="0"
-                        bg="rgb(57, 164, 164)" border="1.5px solid whitesmoke" borderRadius="4px">
-                        <Text w="100%" fontSize="1.2vw" fontWeight='semibold' color="whitesmoke"
-                            textAlign="center">
+                    <FormLabel className="imgInputLabel cursorPointer" w="100%"
+                        p="5%" m="0" htmlFor="imgInput" bg="rgb(57, 164, 164)"
+                        border="1.5px solid whitesmoke" borderRadius="4px">
+                        <Text w="100%" fontSize="1.2vw" fontWeight='semibold'
+                            color="whitesmoke" textAlign="center">
                             Upload Image
                         </Text>
                         <input type="file" accept="image/*" id="imgInput"
@@ -351,7 +376,9 @@ export default function PetSettings({ newPet }) {
                         <Button onClick={saveClick} colorScheme='teal' fontSize="1.5vw" w="30%" >
                             {spinnerUp ? spinner : "Save"}
                         </Button>
-                        <Button onClick={clearForm} colorScheme='teal' fontSize="1.3vw" w="20%" >Clear</Button>
+                        <Button onClick={clearForm} colorScheme='teal' fontSize="1.3vw" w="20%" >
+                            Clear
+                        </Button>
 
                     </Flex>
                 </Flex>

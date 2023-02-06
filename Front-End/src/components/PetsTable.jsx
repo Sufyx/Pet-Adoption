@@ -28,16 +28,14 @@ export default function PetsTable({ toggleSpinner }) {
         }
     }, []);
 
-    
+
     async function fetchPets() {
         try {
             toggleSpinner(true);
             const res = await axios.get(`${baseUrl}/pet`,
                 { params: { searchParams: {} } });
-
             const petsData = [...res.data];
             const { token } = JSON.parse(localStorage.getItem('loggedUser'));
-
             const promises = [];
             for (let i = 0; i < petsData.length; i++) {
                 if (petsData[i].owner) {
@@ -88,14 +86,25 @@ export default function PetsTable({ toggleSpinner }) {
                     <Tbody>
                         {allPets.map(pet =>
                             <Tr key={pet._id} className="cursorPointer" fontWeight='semibold'>
-                                <Td onClick={() => seePetProfile(pet)}>{`${pet.name}`}</Td>
-                                <Td onClick={() => seePetProfile(pet)}>{`${pet.type}`}</Td>
-                                <Td onClick={() => seePetProfile(pet)}>{`${pet.breed}`}</Td>
-                                <Td onClick={() => seePetProfile(pet)}>{`${pet.height}`}</Td>
-                                <Td onClick={() => seePetProfile(pet)}>{`${pet.height}`}</Td>
+                                <Td onClick={() => seePetProfile(pet)}>
+                                    {`${pet.name}`}
+                                </Td>
+                                <Td onClick={() => seePetProfile(pet)}>
+                                    {`${pet.type}`}
+                                </Td>
+                                <Td onClick={() => seePetProfile(pet)}>
+                                    {`${pet.breed}`}
+                                </Td>
+                                <Td onClick={() => seePetProfile(pet)}>
+                                    {`${pet.height}`}
+                                </Td>
+                                <Td onClick={() => seePetProfile(pet)}>
+                                    {`${pet.height}`}
+                                </Td>
                                 <Td onClick={() => seePetProfile(pet)}
                                     fontWeight='semibold' textShadow='-0.4px -0.4px black'
-                                    color={(pet.adoptionStatus === "Available") ? "green.500" : "purple.600"} >
+                                    color={(pet.adoptionStatus === "Available") ?
+                                        "green.500" : "purple.600"} >
                                     {`${pet.adoptionStatus}`}
                                 </Td>
                                 <Td onClick={() => seePetProfile(pet)}>{`${pet.ownerName}`}</Td>
