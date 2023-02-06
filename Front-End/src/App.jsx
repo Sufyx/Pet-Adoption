@@ -21,8 +21,8 @@ import UsersContext from './context/UsersContext';
 
 
 function App() {
-  
   const navigate = useNavigate();
+  
   const [userLogged, setUserLogged] = useState('');
   const [loginTrigger, setLoginTrigger] = useState(0);
   
@@ -42,7 +42,6 @@ function App() {
   function loginHook() {
     setLoginTrigger((loginTrigger) => loginTrigger + 1);
   }
-
 
 
   return (

@@ -32,7 +32,6 @@ export default function NewsFeed() {
                     newsLine: newsLine
                 });
             }
-
             setNewsArray(newsArray.reverse());
         }
     }

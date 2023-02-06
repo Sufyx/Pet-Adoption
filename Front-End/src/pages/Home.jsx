@@ -51,9 +51,7 @@ export default function Home() {
             <Image src='https://res.cloudinary.com/drnapju6t/image/upload/v1675696434/hyperdogM_hxxrkt.jpg'
               alt='Hyper Dog' className='homePageImage'
               borderRadius='full' roundedRight="md" objectFit='cover' />
-
             <Spacer h="5vh" />
-
             <Box marginX={3} className='homeFont homeGadget'  >
               <PetSlides />
             </Box>
@@ -68,9 +66,7 @@ export default function Home() {
                 These animals deserve a loving home, and together we can give it to them. <br />
               </ Text >
             </Box>
-
             <Spacer h="6vh" />
-
             <Box marginX={3} className='homeFont' textAlign="center">
               <Text fontSize="1.3vw" fontWeight="semibold" color="teal.900">
                 To browse our various pets, go to "Search". <br />
@@ -88,9 +84,7 @@ export default function Home() {
             <Image src='https://res.cloudinary.com/drnapju6t/image/upload/v1675696386/hypercatM_mjgwlx.jpg'
               alt='Hyper Cat' className='homePageImage'
               objectFit='cover' borderRadius='full' roundedLeft="md" />
-
             <Spacer h="5vh" />
-
             <Box marginX={3} className='homeFont homeGadget imageFrame' >
               < Heading fontSize="1.3vw" color="teal.900" align="center">
                 Recent Activity

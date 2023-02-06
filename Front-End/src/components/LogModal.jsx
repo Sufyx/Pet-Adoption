@@ -138,7 +138,6 @@ export default function LogModal() {
         }));
         updateUser(data.user);
         onClose();
-        // navigate("/home"); 
     }
 
 
@@ -168,15 +167,15 @@ export default function LogModal() {
 
     const loginButton =
         <Menu>
-            <MenuButton onClick={() => loginClick()} as={Button} rightIcon={<ChevronDownIcon />}
-                marginX={3} boxShadow='dark-lg'>
+            <MenuButton onClick={() => loginClick()} as={Button}
+                rightIcon={<ChevronDownIcon />} marginX={3} boxShadow='dark-lg'>
                 Log-in / Sign-up
             </MenuButton>
         </Menu>
 
     const logOutButton =
-        <Button onClick={logOut} marginX={3} _hover={{ bg: 'gray.600', color: 'whitesmoke' }}
-            boxShadow='dark-lg'>
+        <Button onClick={logOut} marginX={3} boxShadow='dark-lg'
+            _hover={{ bg: 'gray.600', color: 'whitesmoke' }} >
             Logout
         </Button>
 
@@ -211,8 +210,8 @@ export default function LogModal() {
 
     let signUpModal =
         <>
-            <Input value={formInputs.passwordConfirm} type='password' placeholder='confirm password'
-                onChange={e => {
+            <Input value={formInputs.passwordConfirm} placeholder='confirm password'
+                type='password' onChange={e => {
                     setFormInputs(prev => ({ ...prev, passwordConfirm: e.target.value }));
                     setPasswordError('');
                 }} />
@@ -248,7 +247,8 @@ export default function LogModal() {
 
     const spinner =
         <>
-            <Spinner thickness='6px' speed='0.7s' emptyColor='teal.200' color='teal.800' size='md' />
+            <Spinner thickness='6px' emptyColor='teal.200'
+                color='teal.800' size='md' speed='0.7s' />
         </>
 
     let modalBody =
@@ -257,8 +257,8 @@ export default function LogModal() {
                 <FormLabel className="formLabel"> Email Address </FormLabel>
                 <span className="loginErrorMessage">{emailError}</span>
             </Flex>
-            <Input value={formInputs.email} type='email' placeholder='email' autoComplete='off'
-                onChange={e => {
+            <Input value={formInputs.email} type='email' placeholder='email'
+                autoComplete='off' onChange={e => {
                     setFormInputs(prev => ({ ...prev, email: e.target.value }));
                     setEmailError('');
                 }} />
