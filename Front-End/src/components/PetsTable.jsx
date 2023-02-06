@@ -28,6 +28,7 @@ export default function PetsTable({ toggleSpinner }) {
         }
     }, []);
 
+    
     async function fetchPets() {
         try {
             toggleSpinner(true);
@@ -35,22 +36,34 @@ export default function PetsTable({ toggleSpinner }) {
                 { params: { searchParams: {} } });
 
             const petsData = [...res.data];
+            const { token } = JSON.parse(localStorage.getItem('loggedUser'));
+
+            const promises = [];
             for (let i = 0; i < petsData.length; i++) {
-                petsData[i].ownerName = "";
                 if (petsData[i].owner) {
-                    const { token } = JSON.parse(localStorage.getItem('loggedUser'));
-                    const res = await axios.get(`${baseUrl}/users/${petsData[i].owner}`,
-                        { headers: { authorization: `Bearer ${token}` } });
-                    const ownerUser = res.data.user;
-                    petsData[i].ownerName = `${ownerUser.firstName} ${ownerUser.lastName}`;
+                    promises.push(axios.get(`${baseUrl}/users/${petsData[i].owner}`,
+                        { headers: { authorization: `Bearer ${token}` } }));
+                } else {
+                    promises.push(' ');
                 }
             }
-            setAllPets([...res.data]);
+            const resAll = await Promise.all(promises);
+            const dataAll = resAll.map((res) => res.data);
+            for (let i = 0; i < dataAll.length; i++) {
+                if (dataAll[i]) {
+                    const ownerUser = dataAll[i].user;
+                    petsData[i].ownerName = `${ownerUser.firstName} ${ownerUser.lastName}`;
+                } else {
+                    petsData[i].ownerName = "";
+                }
+            }
+            setAllPets([...petsData]);
             toggleSpinner(false);
         } catch (err) {
             console.error("Caught: " + err.message);
         }
     }
+
 
     async function seePetProfile(pet) {
         navigate(`/pet?petId=${pet._id}`);

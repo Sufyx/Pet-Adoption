@@ -8,8 +8,8 @@ import { React, useState, useEffect, useContext } from 'react';
 import { Box, Flex, Button, Divider, Spinner } from '@chakra-ui/react';
 import { useNavigate } from "react-router-dom";
 import PetSettings from "./PetSettings"
-import UsersPage from './UsersPage';
-import PetsTable from './PetsTable';
+import UsersPage from '../components/UsersTable';
+import PetsTable from '../components/PetsTable';
 import axios from 'axios';
 import UsersContext from '../context/UsersContext';
 
