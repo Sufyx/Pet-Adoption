@@ -6,18 +6,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const cookieParser = require('cookie-parser');
 require("dotenv").config();
+
+const PORT = process.env.PORT || 6060;
+const app = express();
+app.use(cors({ credentials: true }));
+app.use(express.json());
 
 const petsRoute = require("./routes/petsRoute");
 const usersRoute = require("./routes/usersRoute");
-
-const PORT = process.env.PORT || 6060;
-
-const app = express();
-app.use(cookieParser());
-app.use(cors({ credentials: true }));
-app.use(express.json());
 app.use("/pet", petsRoute);
 app.use("/users", usersRoute);
 

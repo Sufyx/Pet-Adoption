@@ -10,7 +10,6 @@ const {
 } = require("../models/usersModel");
 const { getPetsByUserIdModel } = require("../models/petsModel");
 const jwt = require("jsonwebtoken");
-const ObjectId = require('mongodb').ObjectId;
 require("dotenv").config();
 
 
@@ -29,7 +28,10 @@ async function signUp(req, res) {
         };
         const userId = await signUpModel(newUser);
         newUser["userId"] = userId;
-        const token = jwt.sign({ id: userId }, process.env.TOKEN_KEY, { expiresIn: "5h" });
+        const token = jwt.sign(
+            { id: userId }, 
+            process.env.TOKEN_KEY, 
+            { expiresIn: "5h" });
         res.send({ token: token, user: newUser });
     } catch (err) {
         console.error("Caught: ", err.message);
@@ -42,7 +44,10 @@ async function login(req, res) {
         const { email } = req.body.user;
         const user = await getUserByEmailModel(email);
         const payload = { id: user._id };
-        const token = jwt.sign(payload, process.env.TOKEN_KEY, { expiresIn: "5h" });
+        const token = jwt.sign(
+            payload, 
+            process.env.TOKEN_KEY, 
+            { expiresIn: "5h" });
         res.send({ token: token, user: user });
     } catch (err) {
         console.error("Caught: ", err.message);
