@@ -7,11 +7,11 @@
 import PetSearchResults from '../components/PetSearchResults';
 import { React, useState, useContext } from 'react';
 import UsersContext from '../context/UsersContext';
+import uuid from 'react-uuid';
 import {
     Input, VStack, Heading, Select, Button, FormLabel, Checkbox, Spinner,
-    InputLeftAddon, InputRightAddon, InputGroup, Flex, Text, useToast, Tooltip
+    InputLeftAddon, InputRightAddon, InputGroup, Flex, Text, useToast
 } from '@chakra-ui/react';
-import uuid from 'react-uuid';
 
 
 export default function Search({ dashboard }) {
@@ -93,7 +93,6 @@ export default function Search({ dashboard }) {
     function triggerLogin() {
         loginHook();
     }
-
 
     function clearSearch() {
         setSearchedName('');
