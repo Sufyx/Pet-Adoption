@@ -40,7 +40,6 @@ function App() {
   }
 
   function loginHook() {
-    console.log("-= login hook =-");
     setLoginTrigger((loginTrigger) => loginTrigger + 1);
   }
 

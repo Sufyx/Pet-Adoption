@@ -85,6 +85,10 @@ body,
 .homeFont {
   font-family: 'Lora', serif;
 }
+.boldText {
+  font-weight:1.5vw;
+  font-weight: bold;
+}
 
 .searchPageContainer {
   display: flex;

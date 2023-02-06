@@ -5,15 +5,18 @@
 
 
 import PetSearchResults from '../components/PetSearchResults';
-import { React, useState } from 'react';
+import { React, useState, useContext } from 'react';
+import UsersContext from '../context/UsersContext';
 import {
     Input, VStack, Heading, Select, Button, FormLabel, Checkbox, Spinner,
-    InputLeftAddon, InputRightAddon, InputGroup, Flex, Text, useToast
+    InputLeftAddon, InputRightAddon, InputGroup, Flex, Text, useToast, Tooltip
 } from '@chakra-ui/react';
 import uuid from 'react-uuid';
 
 
 export default function Search({ dashboard }) {
+    const { userLogged, loginHook } = useContext(UsersContext);  
+
     const toast = useToast();
 
     const [spinnerUp, setSpinnerUp] = useState(false);
@@ -87,6 +90,10 @@ export default function Search({ dashboard }) {
         }
     }
 
+    function triggerLogin() {
+        loginHook();
+    }
+
 
     function clearSearch() {
         setSearchedName('');
@@ -156,6 +163,22 @@ export default function Search({ dashboard }) {
             </VStack>
         </>
 
+    const searchCheckBox =
+        <>
+            <Checkbox fontWeight='semibold' my="1%" isChecked={advancedSearch}
+                onChange={toggleAdvancedSearch} isDisabled={!userLogged}>
+                <Text fontSize="1.2vw" >Advanced search</Text>
+            </Checkbox>
+        </>
+    const loginForAdvanced =
+        <>
+            <Button colorScheme='teal' variant='solid' mt="5%" p="3%" fontSize="1.1vw"
+                w="auto" h="fit-content" border="1px groove rgb(59, 141, 146)"
+                onClick={triggerLogin}>
+                Login for advanced search
+            </Button>
+        </>
+
     const spinner =
         <>
             <Spinner thickness='6px' speed='0.7s' emptyColor='teal.200' color='teal.800' size='md' />
@@ -176,10 +199,7 @@ export default function Search({ dashboard }) {
                     )}
                 </Select>
 
-                <Checkbox fontWeight='semibold' my="1%" isChecked={advancedSearch}
-                    onChange={toggleAdvancedSearch}>
-                    <Text fontSize="1.2vw" >Advanced search</Text>
-                </Checkbox>
+                {userLogged ? searchCheckBox : loginForAdvanced}
 
                 {advancedSearch ? advancedSearchOptions : ""}
 
@@ -194,7 +214,7 @@ export default function Search({ dashboard }) {
                 </Flex>
 
             </Flex>
-            <PetSearchResults searchParams={searchParams} toggleSpinner={toggleSpinner}/>
+            <PetSearchResults searchParams={searchParams} toggleSpinner={toggleSpinner} />
         </div>
     )
 }

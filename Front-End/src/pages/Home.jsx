@@ -7,7 +7,7 @@
 import { React, useEffect, useContext } from 'react';
 import {
   Image, Box, Flex, Spacer, Heading,
-  Text, HStack, VStack, Link
+  Text, HStack, VStack
 } from '@chakra-ui/react';
 import axios from 'axios';
 import UsersContext from '../context/UsersContext';
@@ -49,7 +49,8 @@ export default function Home() {
         <HStack w="100%" h="100%" justify='space-between'>
 
           <VStack className='homeVStack'>
-            <Image src='https://i.imgur.com/RnTb6Em.jpg' alt='Hyper Dog' className='homePageImage'
+            <Image src='https://res.cloudinary.com/drnapju6t/image/upload/v1675696434/hyperdogM_hxxrkt.jpg'
+              alt='Hyper Dog' className='homePageImage'
               borderRadius='full' roundedRight="md" objectFit='cover' />
             <Spacer h="5vh" />
             <Box marginX={3} className='homeFont homeGadget'  >
@@ -73,15 +74,16 @@ export default function Home() {
                 Log-in or sign-up to get full access, <br />
                 and start your (digital) pet family <br />
                 :) <br /><br />
-                <Text fontSize="1.4vw" fontWeight="bold">
+                <span className='boldText'>
                   * This website is free-hosted, please allow a minute for the server to load before engaging *
-                </Text>
+                </span>
               </ Text >
             </Box>
           </VStack>
 
           <VStack className='homeVStack'>
-            <Image src='https://i.imgur.com/E2uVXFh.jpg' alt='Hyper Cat' className='homePageImage'
+            <Image src='https://res.cloudinary.com/drnapju6t/image/upload/v1675696386/hypercatM_mjgwlx.jpg'
+              alt='Hyper Cat' className='homePageImage'
               objectFit='cover' borderRadius='full' roundedLeft="md" />
             <Spacer h="5vh" />
             <Box marginX={3} className='homeFont homeGadget imageFrame' >
