@@ -70,13 +70,16 @@ async function savePetModel(petId, userId, petAction) {
         let savedPet;
         if (petAction !== "Save") {
             savedPet = await Pet.updateOne(
-                { _id: ObjectId(petId) }, { $set: { adoptionStatus: petAction, owner: userId } }
+                { _id: ObjectId(petId) },
+                { $set: { adoptionStatus: petAction, owner: userId } }
             );
 
-            const thisPet= await getPetModel(petId);
-            await updateNewsFeed(petAction, thisPet, userId); 
+            const thisPet = await getPetModel(petId);
+            await updateNewsFeed(petAction, thisPet, userId);
         } else {
-            savedPet = await Pet.updateOne({ _id: ObjectId(petId) }, { $push: { savedAtUsers: userId } });
+            savedPet = await Pet.updateOne(
+                { _id: ObjectId(petId) },
+                { $push: { savedAtUsers: userId } });
         }
         const userUpdate = await addPetToUserModel(userId, petId, petAction);
         return { pet: savedPet, user: userUpdate };
@@ -93,7 +96,7 @@ async function returnPetModel(petId, userId) {
             { $set: { adoptionStatus: "Available", owner: "" } });
         const userUpdate = await removePetFromUserModel(userId, petId);
 
-        const thisPet= await getPetModel(petId);
+        const thisPet = await getPetModel(petId);
         await updateNewsFeed("Returned", thisPet, userId);
         return { pet: returnedPet, user: userUpdate };
     } catch (err) {
@@ -175,7 +178,7 @@ async function editPetModel(petId, editParams) {
 
 async function deletePetModel(petId) {
     try {
-        
+
         const pet = await getPetModel(petId);
         const usersArr = [...pet.savedAtUsers];
         if (pet.owner) {
@@ -193,6 +196,7 @@ async function deletePetModel(petId) {
 }
 
 module.exports = {
-    getPetsBySearchParamsModel, getPetModel, addPetModel, returnPetModel,
-    deletePetModel, editPetModel, deleteSavedPetModel, savePetModel, getPetsByUserIdModel
+    getPetsBySearchParamsModel, getPetModel, addPetModel,
+    returnPetModel, deletePetModel, editPetModel, deleteSavedPetModel,
+    savePetModel, getPetsByUserIdModel
 };
