@@ -12,7 +12,6 @@ require("dotenv").config();
 
 
 function confirmPasswordsMatch(req, res, next) {
-  console.log("pswrds match: ", req.body.password, req.body.passwordConfirm);
   if (req.body.password !== req.body.passwordConfirm) {
     res.status(400).send("Passwords don't match");
     return;
@@ -56,7 +55,7 @@ async function verifyPassword(req, res, next) {
 
   bcrypt.compare(req.body.password, user.password, (err, result) => {
     if (err) {
-      console.log("> ", err.message);
+      console.log("bcrypt error > ", err.message);
       res.status(500).send(err);
       return;
     }

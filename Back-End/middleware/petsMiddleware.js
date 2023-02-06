@@ -10,8 +10,8 @@ const { getUserByIdModel } = require("../models/usersModel");
 async function isPetAvailable(req, res, next) {
     const { petId } = req.params;
     const petToCheck = await getPetModel(petId);
-    if ((petToCheck.adoptionStatus === "Adopted") || (petToCheck.adoptionStatus === "Fostered")
-        || (!petToCheck)) {
+    if ((petToCheck.adoptionStatus === "Adopted") ||
+        (petToCheck.adoptionStatus === "Fostered") || (!petToCheck)) {
         res.status(400).send("Pet not available for adoption/foster");
         return;
     }
@@ -39,4 +39,6 @@ async function editPetMiddleware(req, res, next) {
 }
 
 
-module.exports = { isPetAvailable, doesUserHavePet, editPetMiddleware };
+module.exports = { 
+    isPetAvailable, doesUserHavePet, editPetMiddleware 
+};

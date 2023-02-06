@@ -8,8 +8,6 @@ const multer = require("multer");
 const cloudinary = require("cloudinary").v2;
 const fs = require("fs");
 const upload = multer({ dest: "./images" });
-// require("dotenv").config();
-// const PORT = process.env.PORT || 6060;
 
 
 cloudinary.config({
@@ -27,12 +25,12 @@ function uploadToCloudinary(req, res, next) {
     cloudinary.uploader.upload(req.file.path, (err, result) => {
         if (err) {
             res.status(500).send(err.message);
-            return
+            return;
         }
         if (result) {
-            req.body.picture = result.secure_url
-            fs.unlinkSync(req.file.path)
-            next()
+            req.body.picture = result.secure_url;
+            fs.unlinkSync(req.file.path);
+            next();
         }
     });
 }
