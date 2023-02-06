@@ -74,7 +74,8 @@ export default function Home() {
                 and start your (digital) pet family <br />
                 :) <br /><br />
                 <span className='boldText'>
-                  * This website is free-hosted, please allow a minute for the server to load before engaging *
+                  * This website is free-hosted, 
+                  please allow a minute for the server to load before engaging *
                 </span>
               </ Text >
             </Box>
