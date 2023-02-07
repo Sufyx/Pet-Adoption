@@ -40,6 +40,8 @@ export default function Search() {
         }
     }, []);
 
+    // make local form states into one value and useeffect on it
+
 
     function setLastSearch() {
         setSearchedName(lastSearch.petName);
@@ -121,7 +123,6 @@ export default function Search() {
         setMaxHeight('');
         setMinWeight('');
         setMaxWeight('');
-        updateSearch('');
         updateSearchResults();
     }
 
@@ -229,7 +230,8 @@ export default function Search() {
                         {spinnerUp ? spinner : "Search"}
                     </Button>
                     <Button colorScheme='teal' fontSize="1.3vw" w="40%"
-                        onClick={() => { clearSearch(); searchClick(); }} >
+                        onClick={clearSearch} >
+                        {/* onClick={() => { clearSearch(); clearSearch(); }} > */}
                         Clear
                     </Button>
                 </Flex>
