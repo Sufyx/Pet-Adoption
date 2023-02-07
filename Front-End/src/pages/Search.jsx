@@ -23,7 +23,7 @@ export default function Search() {
 
     const [spinnerUp, setSpinnerUp] = useState(false);
     const typeList = ['Dog', 'Cat'];
-    const [advancedSearch, setAdvancedSearch] = useState(true);
+    const [advancedSearch, setAdvancedSearch] = useState(false);
     const [searchedName, setSearchedName] = useState('');
     const [typeSelected, setTypeSelected] = useState('');
     const [statusSelected, setStatusSelected] = useState('');
@@ -34,7 +34,10 @@ export default function Search() {
 
 
     useEffect(() => {
+        if (userLogged) {
+            setAdvancedSearch(true);
             setLastSearch();
+        }
     }, []);
 
 
@@ -79,7 +82,11 @@ export default function Search() {
             });
             return;
         }
-        // setSearchParams({
+        updateSearchResults()
+    }
+    
+
+    function updateSearchResults() {
         updateSearch({
             petName: searchedName,
             type: typeSelected,
@@ -100,9 +107,11 @@ export default function Search() {
         }
     }
 
+
     function triggerLogin() {
         loginHook();
     }
+
 
     function clearSearch() {
         setSearchedName('');
@@ -112,16 +121,10 @@ export default function Search() {
         setMaxHeight('');
         setMinWeight('');
         setMaxWeight('');
-        updateSearch({
-            petName: '',
-            type: '',
-            status: '',
-            minHeight: '',
-            maxHeight: '',
-            minWeight: '',
-            maxWeight: ''
-        });
+        updateSearch('');
+        updateSearchResults();
     }
+
 
     function toggleSpinner(spinnerUp) {
         setSpinnerUp(spinnerUp);
@@ -232,7 +235,6 @@ export default function Search() {
                 </Flex>
 
             </Flex>
-            {/* <PetSearchResults searchParams={searchParams} toggleSpinner={toggleSpinner} /> */}
             <PetSearchResults searchParams={lastSearch} toggleSpinner={toggleSpinner} />
         </div>
     )
