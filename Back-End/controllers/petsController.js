@@ -90,7 +90,6 @@ async function addPet(req, res) {
             savedAtUsers: []
         };
         const addedPetId = await addPetModel(newPet);
-        console.log(" addPet addedPetId", addedPetId);
         res.send(addedPetId);
         return;
     } catch (err) {

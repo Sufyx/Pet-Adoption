@@ -33,7 +33,7 @@ async function doesUserHavePet(req, res, next) {
 
 async function editPetMiddleware(req, res, next) {
     const { picture } = req.body;
-    // ?
+    //  ?
     console.log("editPetMiddleware picture ", picture);
     next();
 }

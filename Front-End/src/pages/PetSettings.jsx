@@ -359,13 +359,16 @@ export default function PetSettings({ newPet }) {
                         {errorMessage}
                     </Text>
                     <Flex justify="space-between" w="90%" mt="1%">
-                        <Button onClick={saveClick} colorScheme='teal' fontSize="1.5vw" w="30%" >
+                        <Button onClick={saveClick} colorScheme='teal'
+                            fontSize="1.5vw" w="30%" >
                             {spinnerUp ? spinner : "Save"}
                         </Button>
-                        <Button onClick={clearForm} colorScheme='teal' fontSize="1.3vw" w="20%" >
+                        <Button onClick={clearForm} colorScheme='teal'
+                            fontSize="1.3vw" w="20%" >
                             Clear
                         </Button>
-                        <Button onClick={fillSettings} colorScheme='teal' fontSize="1.3vw" w="20%" >
+                        <Button onClick={fillSettings} colorScheme='teal'
+                            fontSize="1.3vw" w="20%" >
                             Restore
                         </Button>
 
