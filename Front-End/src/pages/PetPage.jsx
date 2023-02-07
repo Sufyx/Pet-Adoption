@@ -171,7 +171,7 @@ export default function PetPage() {
                     <span className="petPageDetails"><b>Dietary:</b><br />
                         &nbsp; {pet.dietary.length > 0 ? pet.dietary.join(" , \n") : "None"}
                     </span>
-                    <span className="petPageDetails"><b>Hypoallergenic:</b>
+                    <span className="petPageDetails"><b>Hypoallergenic: </b>
                         {pet.hypoallergenic ? "Yes" : "No"}
                     </span>
                 </Flex>
