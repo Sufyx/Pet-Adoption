@@ -11,6 +11,7 @@ import {
 import axios from 'axios';
 import UsersContext from '../context/UsersContext';
 import { useNavigate } from "react-router-dom";
+import localforage from 'localforage';
 
 
 export default function AdminActionBtn({ adminAction, petName, petId }) {
@@ -42,7 +43,8 @@ export default function AdminActionBtn({ adminAction, petName, petId }) {
     onClose();
     if (!userLogged.isAdmin) return;
     try {
-      const { token } = JSON.parse(localStorage.getItem('loggedUser'));
+      // const { token } = JSON.parse(localStorage.getItem('loggedUser'));
+      const { token } = await localforage.getItem('loggedUser');
       await axios.delete(`${baseUrl}/pet/${petId}`,
         { headers: { authorization: `Bearer ${token}` } });
       navigate("/search");
@@ -54,38 +56,31 @@ export default function AdminActionBtn({ adminAction, petName, petId }) {
 
   return (
     <>
-      {/* <Button my="6%" borderRadius="10px" h="4vw" fontSize="1.1vw" colorScheme='red' border="2px inset firebrick"
-      onClick={adminActionClick} _hover={{ bg: 'whitesmoke', color: 'red.500' }}>
-      {adminAction} {petName}
-    </Button> */}
-
-      <>
-        <Button my="6%" borderRadius="10px" h="4vw" fontSize="1.1vw" colorScheme='red' border="2px inset firebrick"
-          onClick={adminActionClick} _hover={{ bg: 'whitesmoke', color: 'red.500' }}>
-          {adminAction} {petName}
-        </Button>
-        <AlertDialog isOpen={isOpen} onClose={onClose}
-          leastDestructiveRef={cancelRef} >
-          <AlertDialogOverlay>
-            <AlertDialogContent>
-              <AlertDialogHeader fontSize='lg' fontWeight='bold'>
-                Delete Pet
-              </AlertDialogHeader>
-              <AlertDialogBody>
-                Are you sure? You can't undo this action
-              </AlertDialogBody>
-              <AlertDialogFooter>
-                <Button ref={cancelRef} onClick={onClose}>
-                  Cancel
-                </Button>
-                <Button colorScheme='red' onClick={deletePet} ml={3}>
-                  Delete
-                </Button>
-              </AlertDialogFooter>
-            </AlertDialogContent>
-          </AlertDialogOverlay>
-        </AlertDialog>
-      </>
+      <Button my="6%" borderRadius="10px" h="4vw" fontSize="1.1vw" colorScheme='red' border="2px inset firebrick"
+        onClick={adminActionClick} _hover={{ bg: 'whitesmoke', color: 'red.500' }}>
+        {adminAction} {petName}
+      </Button>
+      <AlertDialog isOpen={isOpen} onClose={onClose}
+        leastDestructiveRef={cancelRef} >
+        <AlertDialogOverlay>
+          <AlertDialogContent>
+            <AlertDialogHeader fontSize='lg' fontWeight='bold'>
+              Delete Pet
+            </AlertDialogHeader>
+            <AlertDialogBody>
+              Are you sure? You can't undo this action
+            </AlertDialogBody>
+            <AlertDialogFooter>
+              <Button ref={cancelRef} onClick={onClose}>
+                Cancel
+              </Button>
+              <Button colorScheme='red' onClick={deletePet} ml={3}>
+                Delete
+              </Button>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialogOverlay>
+      </AlertDialog>
     </>
   )
 }

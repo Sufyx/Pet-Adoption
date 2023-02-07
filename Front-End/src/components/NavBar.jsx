@@ -15,6 +15,7 @@ import {
     ViewIcon, SettingsIcon, UnlockIcon, CheckIcon
 } from '@chakra-ui/icons';
 import { NavLink } from 'react-router-dom';
+import localforage from 'localforage';
 
 
 export default function NavBar() {
@@ -22,7 +23,7 @@ export default function NavBar() {
 
     const welcomeMsg =
         <Text bg="rgb(75, 207, 247)" color="rgb(14, 48, 45)" py="0.6%" px="1%"
-            fontWeight='semibold' fontSize='1vw' borderRadius="5px" 
+            fontWeight='semibold' fontSize='1vw' borderRadius="5px"
             boxShadow='dark-lg' border="0.5px inset teal" >
             Hello, {userLogged.firstName} {userLogged.lastName}
         </Text>
@@ -36,18 +37,19 @@ export default function NavBar() {
             <MenuItem icon={<Search2Icon />}>Search</MenuItem>
         </NavLink>
     const myPetsLink =
-        <NavLink to={JSON.parse(localStorage.getItem('loggedUser')) ?
+        // <NavLink to={JSON.parse(localStorage.getItem('loggedUser')) ?
+        <NavLink to={async () => await localforage.getItem('loggedUser') ?
             `/mypets?userId=${userLogged._id}&firstName=${userLogged.firstName}`
             : "/home"}>
             <MenuItem icon={<ViewIcon />}>My Pets</MenuItem>
         </NavLink>
     const settingsLink =
-        <NavLink to={JSON.parse(localStorage.getItem('loggedUser')) ?
+        <NavLink to={async () => await localforage.getItem('loggedUser') ?
             `/usersettings?userId=${userLogged._id}` : "/home"}>
             <MenuItem icon={<SettingsIcon />}>Settings</MenuItem>
         </NavLink>
     const profileLink =
-        <NavLink to={JSON.parse(localStorage.getItem('loggedUser')) ?
+        <NavLink to={async () => await localforage.getItem('loggedUser') ?
             `/userprofile?userId=${userLogged._id}` : "/home"}>
             <MenuItem icon={<CheckIcon />}>Profile</MenuItem>
         </NavLink>

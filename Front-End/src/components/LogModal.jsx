@@ -5,7 +5,7 @@
 
 import { React, useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-// import localForage from 'localforage';
+import localforage from 'localforage';
 import { useNavigate } from 'react-router-dom';
 import UsersContext from '../context/UsersContext';
 import {
@@ -133,17 +133,19 @@ export default function LogModal() {
         }
     }
 
-    function logUser(data) {
-        localStorage.setItem("loggedUser", JSON.stringify({
-            token: data.token
-        }));
+    async function logUser(data) {
+        // localStorage.setItem("loggedUser", JSON.stringify({
+        //     token: data.token
+        // }));
+        await localforage.setItem("loggedUser", {token: data.token});
         updateUser(data.user);
         onClose();
     }
 
 
-    function logOut() {
-        localStorage.clear();
+    async function logOut() {
+        // localStorage.clear();
+        await localforage.clear();
         updateUser(false);
         setFormInputs({
             email: '',

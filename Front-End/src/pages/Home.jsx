@@ -10,6 +10,7 @@ import {
   Text, HStack, VStack
 } from '@chakra-ui/react';
 import axios from 'axios';
+import localforage from 'localforage';
 import UsersContext from '../context/UsersContext';
 import NewsFeed from '../components/NewsFeed';
 import PetSlides from '../components/PetSlides';
@@ -19,15 +20,15 @@ export default function Home() {
   const { updateUser } = useContext(UsersContext);
 
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem('loggedUser'));
-    if (data) {
-      reLogUser(data.token);
-    }
+    // const data = JSON.parse(localStorage.getItem('loggedUser'));
+    reLogUser();
   }, []);
-
-  async function reLogUser(token) {
+  
+  async function reLogUser() {
+    const data = await localforage.getItem('loggedUser');
+    if (!data) return;
     const res = await axios.get(`${baseUrl}/users/logged`,
-      { headers: { authorization: `Bearer ${token}` } });
+      { headers: { authorization: `Bearer ${data.token}` } });
     if (res.data) {
       updateUser(res.data.user);
     }

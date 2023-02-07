@@ -18,6 +18,7 @@ import PetSettings from './pages/PetSettings';
 import UserPets from './pages/UserPets';
 import Dashboard from './pages/Dashboard';
 import UsersContext from './context/UsersContext';
+// import localforage from 'localforage';
 
 
 function App() {
@@ -28,7 +29,7 @@ function App() {
   
   useEffect(() => {
     navigate("/home");
-    JSON.parse(localStorage.getItem('loggedUser'));
+    // JSON.parse(localStorage.getItem('loggedUser'));
   }, []);
 
   function updateUser(user) {

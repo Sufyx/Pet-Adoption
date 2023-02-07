@@ -10,6 +10,7 @@ import {
     Tr, Th, Td, TableCaption, TableContainer
 } from '@chakra-ui/react';
 import { useNavigate } from "react-router-dom";
+import localforage from 'localforage';
 import UsersContext from '../context/UsersContext';
 import axios from 'axios';
 
@@ -33,7 +34,8 @@ export default function UsersPage({ toggleSpinner }) {
     async function fetchUsers() {
         try {
             toggleSpinner(true);
-            const { token } = JSON.parse(localStorage.getItem('loggedUser'));
+            // const { token } = JSON.parse(localStorage.getItem('loggedUser'));
+            const { token } = await localforage.getItem('loggedUser');
             const res = await axios.get(`${baseUrl}/users`,
                 { headers: { authorization: `Bearer ${token}` } });
             setAllUsers([...res.data.users]);
@@ -50,7 +52,8 @@ export default function UsersPage({ toggleSpinner }) {
                 console.error("Action refused. You can't un-admin yourself.");
                 return;
             }
-            const { token } = JSON.parse(localStorage.getItem('loggedUser'));
+            // const { token } = JSON.parse(localStorage.getItem('loggedUser'));
+            const { token } = await localforage.getItem('loggedUser');
             const status = user.isAdmin ? false : true;
             await axios.put(`${baseUrl}/users/admin/${user._id}`, { status: status },
                 { headers: { authorization: `Bearer ${token}` } });

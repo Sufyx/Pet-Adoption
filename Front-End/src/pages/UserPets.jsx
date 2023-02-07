@@ -9,6 +9,7 @@ import {
     Box, Grid, GridItem, Flex, Button, Text, Spinner
  } from '@chakra-ui/react';
 import { useNavigate, useLocation } from "react-router-dom";
+import localforage from 'localforage';
 import axios from 'axios';
 import UsersContext from '../context/UsersContext';
 import PetCard from '../components/PetCard';
@@ -46,7 +47,7 @@ export default function UserPets() {
     async function fetchPets() {
         try {
             setSpinnerUp(true);
-            const { token } = JSON.parse(localStorage.getItem('loggedUser'));
+            const { token } = await localforage.getItem('loggedUser');
             const res = await axios.get(`${baseUrl}/pet/user/${userId}`,
                 { headers: { authorization: `Bearer ${token}` } });
             if (listToDisplay === "userPets") {

@@ -9,6 +9,7 @@ import {
     Tr, Th, Td, TableCaption, TableContainer
 } from '@chakra-ui/react';
 import { useNavigate } from "react-router-dom";
+import localforage from 'localforage';
 import UsersContext from '../context/UsersContext';
 import axios from 'axios';
 
@@ -35,7 +36,8 @@ export default function PetsTable({ toggleSpinner }) {
             const res = await axios.get(`${baseUrl}/pet`,
                 { params: { searchParams: {} } });
             const petsData = [...res.data];
-            const { token } = JSON.parse(localStorage.getItem('loggedUser'));
+            // const { token } = JSON.parse(localStorage.getItem('loggedUser'));
+            const { token } = await localforage.getItem('loggedUser');
             const promises = [];
             for (let i = 0; i < petsData.length; i++) {
                 if (petsData[i].owner) {

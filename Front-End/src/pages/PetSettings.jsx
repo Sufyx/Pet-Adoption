@@ -12,6 +12,7 @@ import {
 } from '@chakra-ui/react';
 import UsersContext from '../context/UsersContext';
 import { useLocation, useNavigate } from "react-router-dom";
+import localforage from 'localforage';
 import axios from 'axios';
 import uuid from 'react-uuid';
 
@@ -60,7 +61,8 @@ export default function PetSettings({ newPet }) {
 
 
     async function fillSettings() {
-        const { token } = JSON.parse(localStorage.getItem('loggedUser'));
+        // const { token } = JSON.parse(localStorage.getItem('loggedUser'));
+        const { token } = await localforage.getItem('loggedUser');
         const res = await axios.get(`${baseUrl}/pet/${query.get("petId")}`,
             { headers: { authorization: `Bearer ${token}` } });
         if (res.data) {
@@ -128,7 +130,8 @@ export default function PetSettings({ newPet }) {
                 petData.append("picture", petImage);
             }
             setSpinnerUp(true);
-            const { token } = JSON.parse(localStorage.getItem('loggedUser'));
+            // const { token } = JSON.parse(localStorage.getItem('loggedUser'));
+            const { token } = await localforage.getItem('loggedUser');
             if (newPet) {
                 const res = await axios.post(`${baseUrl}/pet`,
                     petData, { headers: { authorization: `Bearer ${token}` } });

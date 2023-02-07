@@ -12,6 +12,7 @@ import {
 import { EditIcon } from '@chakra-ui/icons';
 import UsersContext from '../context/UsersContext';
 import { useNavigate, useLocation } from "react-router-dom";
+import localforage from 'localforage';
 import axios from 'axios';
 
 export default function UserProfile() {
@@ -39,7 +40,8 @@ export default function UserProfile() {
 
     async function fetchUser() {
         try {
-            const { token } = JSON.parse(localStorage.getItem('loggedUser'));
+            // const { token } = JSON.parse(localStorage.getItem('loggedUser'));
+            const { token } = await localforage.getItem('loggedUser');
             const res = await axios.get(`${baseUrl}/users/${userId}`,
                 { headers: { authorization: `Bearer ${token}` } });
 
@@ -57,7 +59,8 @@ export default function UserProfile() {
 
 
     async function saveBio() {
-        const { token } = JSON.parse(localStorage.getItem('loggedUser'));
+        // const { token } = JSON.parse(localStorage.getItem('loggedUser'));
+        const { token } = await localforage.getItem('loggedUser');
         const res = await axios.put(`${baseUrl}/users/${userId}`, { bio: editVal },
             { headers: { authorization: `Bearer ${token}` } });
         setUserBio(res.data.updatedUser.bio);

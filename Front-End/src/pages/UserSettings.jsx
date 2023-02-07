@@ -11,6 +11,7 @@ import {
 } from '@chakra-ui/react';
 import UsersContext from '../context/UsersContext';
 import { useNavigate, useLocation } from "react-router-dom";
+import localforage from 'localforage';
 import axios from 'axios';
 
 
@@ -44,7 +45,8 @@ export default function UserSettings() {
       return;
     }
     try {
-      const { token } = JSON.parse(localStorage.getItem('loggedUser'));
+      // const { token } = JSON.parse(localStorage.getItem('loggedUser'));
+      const { token } = await localforage.getItem('loggedUser');
       const res = await axios.get(`${baseUrl}/users/${userId}`,
         { headers: { authorization: `Bearer ${token}` } });
 
@@ -101,7 +103,8 @@ export default function UserSettings() {
       }
     }
     try {
-      const { token } = JSON.parse(localStorage.getItem('loggedUser'));
+      // const { token } = JSON.parse(localStorage.getItem('loggedUser'));
+      const { token } = await localforage.getItem('loggedUser');
       const userId = query.get("userId");
       const res = await axios.put(`${baseUrl}/users/${userId}`, formInputs,
         { headers: { authorization: `Bearer ${token}` } });

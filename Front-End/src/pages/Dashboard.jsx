@@ -10,8 +10,9 @@ import { useNavigate } from "react-router-dom";
 import PetSettings from "./PetSettings"
 import UsersPage from '../components/UsersTable';
 import PetsTable from '../components/PetsTable';
-import axios from 'axios';
 import UsersContext from '../context/UsersContext';
+import localforage from 'localforage';
+import axios from 'axios';
 
 export default function Dashboard() {
     const baseUrl = process.env.REACT_APP_SERVER_URL;
@@ -31,7 +32,8 @@ export default function Dashboard() {
 
 
     async function verifyAdmin() {
-        const { token } = JSON.parse(localStorage.getItem('loggedUser'));
+        // const { token } = JSON.parse(localStorage.getItem('loggedUser'));
+        const { token } = await localforage.getItem('loggedUser');
         const res = await axios.get(`${baseUrl}/users/${userLogged._id}`,
             { headers: { authorization: `Bearer ${token}` } });
         const user = res.data.user;

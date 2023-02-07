@@ -7,6 +7,7 @@
 import { React, useState, useEffect, useContext } from 'react';
 import { Image, Flex, Box, Text } from '@chakra-ui/react';
 import { useLocation, useNavigate } from "react-router-dom";
+import localforage from 'localforage';
 import axios from 'axios';
 import PetActionBtn from '../components/PetActionBtn';
 import AdminActionBtn from '../components/AdminActionBtn';
@@ -49,7 +50,8 @@ export default function PetPage() {
 
 
     async function isPetOwnedByUser() {
-        const { token } = JSON.parse(localStorage.getItem('loggedUser'));
+        // const { token } = JSON.parse(localStorage.getItem('loggedUser'));
+        const { token } = await localforage.getItem('loggedUser');
         const res = await axios.get(`${baseUrl}/pet/user/${userLogged._id}`,
             { headers: { authorization: `Bearer ${token}` } });
         if (!res.data.petList) {
@@ -82,7 +84,8 @@ export default function PetPage() {
     async function getPet() {
         try {
             setPetId(query.get("petId"));
-            const { token } = JSON.parse(localStorage.getItem('loggedUser'));
+            // const { token } = JSON.parse(localStorage.getItem('loggedUser'));
+            const { token } = await localforage.getItem('loggedUser');
             const res = await axios.get(`${baseUrl}/pet/${query.get("petId")}`,
                 { headers: { authorization: `Bearer ${token}` } });
             if (!res.data) {
