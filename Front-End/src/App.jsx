@@ -23,20 +23,36 @@ import UsersContext from './context/UsersContext';
 
 function App() {
   const navigate = useNavigate();
-  
-  const [userLogged, setUserLogged] = useState('');
+
   const [loginTrigger, setLoginTrigger] = useState(0);
-  
+  const [userLogged, setUserLogged] = useState('');
+  const [lastSearch, setLastSearch] = useState({
+    petName: '',
+    type: '',
+    status: '',
+    minHeight: '',
+    maxHeight: '',
+    minWeight: '',
+    maxWeight: ''
+});
+
   useEffect(() => {
     navigate("/home");
-    // JSON.parse(localStorage.getItem('loggedUser'));
   }, []);
 
   function updateUser(user) {
     if (user) {
-      setUserLogged({...user});
+      setUserLogged({ ...user });
     } else {
       setUserLogged(false);
+    }
+  }
+
+  function updateSearch(params) {
+    if (params) {
+      setLastSearch({ ...params });
+    } else {
+      setLastSearch(false);
     }
   }
 
@@ -47,7 +63,11 @@ function App() {
 
   return (
     <div className="App">
-      <UsersContext.Provider value={{userLogged, updateUser, loginTrigger, loginHook}} >
+      <UsersContext.Provider value={{
+        userLogged, updateUser, 
+        loginTrigger, loginHook, 
+        updateSearch, lastSearch
+      }} >
         <NavBar />
         <Routes >
           <Route path="/home" element={<Home />} />

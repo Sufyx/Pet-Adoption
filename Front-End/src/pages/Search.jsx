@@ -5,7 +5,7 @@
 
 
 import PetSearchResults from '../components/PetSearchResults';
-import { React, useState, useContext } from 'react';
+import { React, useEffect, useState, useContext } from 'react';
 import UsersContext from '../context/UsersContext';
 import uuid from 'react-uuid';
 import {
@@ -15,7 +15,9 @@ import {
 
 
 export default function Search({ dashboard }) {
-    const { userLogged, loginHook } = useContext(UsersContext);  
+    const { 
+        userLogged, loginHook, updateSearch, lastSearch
+    } = useContext(UsersContext);  
 
     const toast = useToast();
 
@@ -29,15 +31,22 @@ export default function Search({ dashboard }) {
     const [maxHeight, setMaxHeight] = useState('');
     const [minWeight, setMinWeight] = useState('');
     const [maxWeight, setMaxWeight] = useState('');
-    const [searchParams, setSearchParams] = useState({
-        petName: '',
-        type: '',
-        status: '',
-        minHeight: '',
-        maxHeight: '',
-        minWeight: '',
-        maxWeight: ''
-    });
+    // const [searchParams, setSearchParams] = useState({
+    //     petName: '',
+    //     type: '',
+    //     status: '',
+    //     minHeight: '',
+    //     maxHeight: '',
+    //     minWeight: '',
+    //     maxWeight: ''
+    // });
+
+
+    useEffect(() => {
+        if (lastSearch) {
+
+        }
+    }, []);
 
 
     function validateSearch() {
@@ -70,7 +79,8 @@ export default function Search({ dashboard }) {
             });
             return;
         }
-        setSearchParams({
+        // setSearchParams({
+        updateSearch({
             petName: searchedName,
             type: typeSelected,
             status: statusSelected,
@@ -102,6 +112,15 @@ export default function Search({ dashboard }) {
         setMaxHeight('');
         setMinWeight('');
         setMaxWeight('');
+        updateSearch({
+            petName: '',
+            type: '',
+            status: '',
+            minHeight: '',
+            maxHeight: '',
+            minWeight: '',
+            maxWeight: ''
+        });
     }
 
     function toggleSpinner(spinnerUp) {
@@ -213,7 +232,8 @@ export default function Search({ dashboard }) {
                 </Flex>
 
             </Flex>
-            <PetSearchResults searchParams={searchParams} toggleSpinner={toggleSpinner} />
+            {/* <PetSearchResults searchParams={searchParams} toggleSpinner={toggleSpinner} /> */}
+            <PetSearchResults searchParams={lastSearch} toggleSpinner={toggleSpinner} />
         </div>
     )
 }
