@@ -22,19 +22,11 @@ export default function UserSettings() {
   const toast = useToast();
 
   const { userLogged, updateUser } = useContext(UsersContext);
-  const [editedUser, setEditedUser] = useState({ ...userLogged });
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [nameError, setNameError] = useState('');
   const [phoneError, setPhoneError] = useState('');
-  const [formInputs, setFormInputs] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    passwordConfirm: '',
-    phone: ''
-  });
+  const [formInputs, setFormInputs] = useState({});
 
 
   useEffect(() => {
@@ -46,15 +38,18 @@ export default function UserSettings() {
   }, []);
 
   async function fetchUser() {
+    const userId = query.get("userId");
+    if (userLogged._id === userId) {
+      setFormInputs(prev => ({ ...prev, ...userLogged }));
+      return;
+    }
     try {
-      const userId = query.get("userId");
-      if (userLogged._id === userId) return;
-
       const { token } = JSON.parse(localStorage.getItem('loggedUser'));
       const res = await axios.get(`${baseUrl}/users/${userId}`,
         { headers: { authorization: `Bearer ${token}` } });
 
-      setEditedUser(res.data.user);
+      setFormInputs(prev => ({ ...prev, ...res.data.user }));
+      console.log("on mount formInputs ", formInputs);
     } catch (err) {
       console.error("Caught: " + err.message);
     }
@@ -83,41 +78,36 @@ export default function UserSettings() {
 
 
   async function saveClick() {
+    if (formInputs.email) {
+      if (!isEmailValid(formInputs.email)) {
+        setEmailError("Invalid email");
+        return;
+      }
+    }
+    if (formInputs.password || formInputs.passwordConfirm) {
+      if (formInputs.password.length < 6) {
+        setPasswordError("Password must be at least 6 characters");
+        return;
+      }
+      if (formInputs.password !== formInputs.passwordConfirm) {
+        setPasswordError("Confirmation password not matching");
+        return;
+      }
+    }
+    if (formInputs.phone) {
+      if (!isPhoneValid(formInputs.phone)) {
+        setPhoneError("Invalid phone number");
+        return;
+      }
+    }
     try {
-      if (formInputs.email) {
-        if (!isEmailValid(formInputs.email)) {
-          setEmailError("Invalid email");
-          return;
-        }
-      }
-      if (formInputs.password || formInputs.passwordConfirm) {
-        if (formInputs.password.length < 6) {
-          setPasswordError("Password must be at least 6 characters");
-          return;
-        }
-        if (formInputs.password !== formInputs.passwordConfirm) {
-          setPasswordError("Confirmation password not matching");
-          return;
-        }
-      }
-      if (formInputs.phone) {
-        if (!isPhoneValid(formInputs.phone)) {
-          setPhoneError("Invalid phone number");
-          return;
-        }
-      }
       const { token } = JSON.parse(localStorage.getItem('loggedUser'));
       const userId = query.get("userId");
-      let res;
+      const res = await axios.put(`${baseUrl}/users/${userId}`, formInputs,
+        { headers: { authorization: `Bearer ${token}` } });
       if (userLogged._id === userId) {
-        res = await axios.put(`${baseUrl}/users/${userLogged._id}`, formInputs,
-          { headers: { authorization: `Bearer ${token}` } });
         updateUser(res.data.updatedUser);
-      } else {
-        res = await axios.put(`${baseUrl}/users/${userId}`, formInputs,
-          { headers: { authorization: `Bearer ${token}` } });
       }
-      setEditedUser(res.data.updatedUser);
       editSuccessful();
     } catch (err) {
       console.error("Settings update error: ", err);
@@ -137,31 +127,50 @@ export default function UserSettings() {
 
   return (
     <div className='userSettingsContainer'>
-      <FormControl bg="rgba(210, 220, 220, 0.6)" p="3%" boxShadow='dark-lg' borderRadius="6px">
+      <FormControl bg="rgba(210, 220, 220, 0.6)" p="3%"
+        boxShadow='dark-lg' borderRadius="6px">
         <Flex justify="space-between" align="center">
           <FormLabel className="formLabel" mb="0"> Email Address </FormLabel>
           <span className="loginErrorMessage">{emailError}</span>
         </Flex>
-        <Input value={formInputs.email} type='email' placeholder={userLogged ? editedUser.email : "email"} boxShadow='dark-lg'
-          onChange={e => { setFormInputs(prev => ({ ...prev, email: e.target.value })); setEmailError(''); }} />
+        <Input value={formInputs.email} type='email'
+          placeholder="email" boxShadow='dark-lg'
+          autoComplete="off" onChange={e => {
+            setFormInputs(prev => ({ ...prev, email: e.target.value }));
+            setEmailError('');
+          }} />
         <hr />
         <Flex justify="space-between" align="center" mt="2%">
           <FormLabel className="formLabel" mb="0"> Password </FormLabel>
           <span className="loginErrorMessage">{passwordError}</span>
         </Flex>
-        <Input value={formInputs.password} type='password' placeholder="New password" boxShadow='dark-lg'
-          onChange={e => { setFormInputs(prev => ({ ...prev, password: e.target.value })); setPasswordError(''); }} />
-        <Input value={formInputs.passwordConfirm} type='password' placeholder="Confirm password" boxShadow='dark-lg'
-          onChange={e => { setFormInputs(prev => ({ ...prev, passwordConfirm: e.target.value })); setPasswordError(''); }} />
+        <Input value={formInputs.password} type='password'
+          placeholder="New password" boxShadow='dark-lg'
+          autoComplete="off" onChange={e => {
+            setFormInputs(prev => ({ ...prev, password: e.target.value }));
+            setPasswordError('');
+          }} />
+        <Input value={formInputs.passwordConfirm} type='password'
+          placeholder="Confirm password" boxShadow='dark-lg'
+          onChange={e => {
+            setFormInputs(prev => ({ ...prev, passwordConfirm: e.target.value }));
+            setPasswordError('');
+          }} />
         <hr />
         <Flex justify="space-between" align="center" mt="2%">
           <FormLabel className="formLabel" mb="0">Full Name</FormLabel>
           <span className="loginErrorMessage">{nameError}</span>
         </Flex>
-        <Input type='text' placeholder={userLogged ? editedUser.firstName : "First name"} boxShadow='dark-lg'
-          onChange={e => { setFormInputs(prev => ({ ...prev, firstName: e.target.value })); setNameError(''); }} />
-        <Input type='text' placeholder={userLogged ? editedUser.lastName : "Last name"} boxShadow='dark-lg'
-          onChange={e => { setFormInputs(prev => ({ ...prev, lastName: e.target.value })); setNameError(''); }} />
+        <Input value={formInputs.firstName} placeholder="First name"
+          type='text' boxShadow='dark-lg' onChange={e => {
+            setFormInputs(prev => ({ ...prev, firstName: e.target.value }));
+            setNameError('');
+          }} />
+        <Input value={formInputs.lastName} placeholder="Last name"
+          type='text' boxShadow='dark-lg' onChange={e => {
+            setFormInputs(prev => ({ ...prev, lastName: e.target.value }));
+            setNameError('');
+          }} />
         <hr />
         <Flex justify="space-between" align="center" mt="2%">
           <FormLabel className="formLabel" mb="0">Phone Number</FormLabel>
@@ -169,17 +178,22 @@ export default function UserSettings() {
         </Flex>
         <InputGroup boxShadow='dark-lg'>
           <InputLeftAddon children='+972' />
-          <Input type='tel' placeholder={userLogged ? editedUser.phone : "Phone number"}
-            onChange={e => { setFormInputs(prev => ({ ...prev, phone: e.target.value })); setPhoneError(''); }} />
+          <Input value={formInputs.phone} placeholder="Phone number"
+            type='tel' onChange={e => {
+              setFormInputs(prev => ({ ...prev, phone: e.target.value }));
+              setPhoneError('');
+            }} />
         </InputGroup>
         <Flex justify="space-between">
-          <Button onClick={saveClick} bg='rgb(96, 199, 202)' color="whitesmoke" border="1px inset teal"
-            boxShadow='dark-lg' variant='ghost' marginRight={"1%"} mt="5%" fontWeight="bold"
+          <Button onClick={saveClick} bg='rgb(96, 199, 202)' color="whitesmoke"
+            border="1px inset teal" boxShadow='dark-lg' variant='ghost'
+            marginRight={"1%"} mt="5%" fontWeight="bold"
             _hover={{ bg: 'whitesmoke', color: 'rgb(96, 199, 202)' }}>
             Save
           </Button>
-          <Button onClick={clearForm} color='rgb(96, 199, 202)' bg="whitesmoke" border="1px outset teal"
-            boxShadow='dark-lg' variant='ghost' marginRight={"1%"} mt="5%" fontWeight="bold"
+          <Button onClick={clearForm} color='rgb(96, 199, 202)' bg="whitesmoke"
+            border="1px outset teal" boxShadow='dark-lg' variant='ghost'
+            marginRight={"1%"} mt="5%" fontWeight="bold"
             _hover={{ bg: 'rgb(96, 199, 202)', color: 'whitesmoke' }}>
             Clear
           </Button>
