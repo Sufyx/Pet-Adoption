@@ -197,6 +197,12 @@ export default function UserSettings() {
             _hover={{ bg: 'rgb(96, 199, 202)', color: 'whitesmoke' }}>
             Clear
           </Button>
+          <Button onClick={fetchUser} color='rgb(96, 199, 202)' bg="whitesmoke"
+            border="1px outset teal" boxShadow='dark-lg' variant='ghost'
+            marginRight={"1%"} mt="5%" fontWeight="bold"
+            _hover={{ bg: 'rgb(96, 199, 202)', color: 'whitesmoke' }}>
+            Restore
+          </Button>
         </Flex>
       </FormControl>
     </div>
