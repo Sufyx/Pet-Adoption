@@ -3,10 +3,9 @@
  * Asaf Gilboa
 */
 
-import { React, useState, useContext } from 'react';
+import { React, useState } from 'react';
 import { Button, useToast, Spinner } from '@chakra-ui/react';
 import axios from 'axios';
-import UsersContext from '../context/UsersContext';
 
 
 export default function PetActionBtn({
@@ -16,7 +15,6 @@ export default function PetActionBtn({
 
   const [spinnerUp, setSpinnerUp] = useState(false);
 
-  const { userLogged } = useContext(UsersContext);
   const toast = useToast();
 
 
