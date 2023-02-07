@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react';
 
 
-export default function Search({ dashboard }) {
+export default function Search() {
     const { 
         userLogged, loginHook, updateSearch, lastSearch
     } = useContext(UsersContext);  
@@ -23,7 +23,7 @@ export default function Search({ dashboard }) {
 
     const [spinnerUp, setSpinnerUp] = useState(false);
     const typeList = ['Dog', 'Cat'];
-    const [advancedSearch, setAdvancedSearch] = useState(dashboard);
+    const [advancedSearch, setAdvancedSearch] = useState(true);
     const [searchedName, setSearchedName] = useState('');
     const [typeSelected, setTypeSelected] = useState('');
     const [statusSelected, setStatusSelected] = useState('');
@@ -31,22 +31,22 @@ export default function Search({ dashboard }) {
     const [maxHeight, setMaxHeight] = useState('');
     const [minWeight, setMinWeight] = useState('');
     const [maxWeight, setMaxWeight] = useState('');
-    // const [searchParams, setSearchParams] = useState({
-    //     petName: '',
-    //     type: '',
-    //     status: '',
-    //     minHeight: '',
-    //     maxHeight: '',
-    //     minWeight: '',
-    //     maxWeight: ''
-    // });
 
 
     useEffect(() => {
-        if (lastSearch) {
-
-        }
+            setLastSearch();
     }, []);
+
+
+    function setLastSearch() {
+        setSearchedName(lastSearch.petName);
+        setTypeSelected(lastSearch.type);
+        setStatusSelected(lastSearch.status);
+        setMinHeight(lastSearch.minHeight);
+        setMaxHeight(lastSearch.maxHeight);
+        setMinWeight(lastSearch.minWeight);
+        setMaxWeight(lastSearch.maxWeight);
+    }
 
 
     function validateSearch() {

@@ -49,11 +49,7 @@ function App() {
   }
 
   function updateSearch(params) {
-    if (params) {
-      setLastSearch({ ...params });
-    } else {
-      setLastSearch(false);
-    }
+    setLastSearch({ ...params });
   }
 
   function loginHook() {
