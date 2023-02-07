@@ -4,7 +4,7 @@
 */
 
 import { React, useState, useEffect, useContext } from 'react';
-import { Heading, Image } from '@chakra-ui/react';
+import { Heading, Image, Box } from '@chakra-ui/react';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import UsersContext from '../context/UsersContext';
@@ -61,11 +61,10 @@ export default function PetSlides() {
     function activateSlides() {
         clearIntervals();
         if (petPics.length === 0) return;
-        console.log("petPics.length ", petPics.length);
-
         let index = 0;
         const currentInterval = setInterval(function () {
-            console.log("| slide ", slide, " | index ", index, " |");
+            // console.log("| slide ", slide, " | index ", index, " |");
+            // console.log("| img width  | ", img.width);
             setSlide(petPics[index].pic);
             setSlideCaption(petPics[index].caption);
             setSlidePetId(petPics[index].petId);
@@ -80,16 +79,17 @@ export default function PetSlides() {
 
     return (
         <NavLink to={userLogged ? `/pet?petId=${slidePetId}` : ``}
-            align="center" h="100%" w="100%" position="relative">
-            < Heading className='slideHeader' fontSize="2.2vw" >
-                Our pets
-            </ Heading >
-            <Image borderRadius='6px' src={slide} alt='pet picture' className='imageFrame fadeIn'
+            align="center" h="100%" w="100%" position="relative"
+            className='petSlidesContainer'>
+                < Heading className='slideHeader' >
+                    Our pets
+                </ Heading >
+                <Image borderRadius='6px' src={slide} alt='pet picture' className='imageFrame fadeIn'
                 fallbackSrc='https://media.istockphoto.com/id/884276082/photo/turquoise-blue-sheepskin-rug-background.jpg?s=612x612&w=0&k=20&c=K5YSza-nWWUKejPd1v_QGr8GbRZ9fxvFLKfAsUOSFLw='
                 fit="contain" maxH="100%" maxW="100%" m="auto" />
-            < Heading className='slideCaption' fontSize="2.3vw" >
-                {slideCaption}
-            </ Heading >
+                < Heading className='slideCaption' >
+                    {slideCaption}
+                </ Heading >
         </NavLink>
     )
 }
