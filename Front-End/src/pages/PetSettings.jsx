@@ -28,15 +28,6 @@ export default function PetSettings({ newPet }) {
     const [petImage, setPetImage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [spinnerUp, setSpinnerUp] = useState(false);
-    const [thisPet, setThisPet] = useState({
-        name: '',
-        height: '',
-        weight: '',
-        color: '',
-        bio: '. . .',
-        breed: '',
-        hypoallergenic: false
-    });
     const [formInputs, setFormInputs] = useState({
         type: '',
         name: '',
@@ -74,17 +65,9 @@ export default function PetSettings({ newPet }) {
             { headers: { authorization: `Bearer ${token}` } });
         if (res.data) {
             const pet = res.data;
-            setThisPet({ ...pet });
             setFormInputs(prev => ({
                 ...prev, ...pet
             }));
-            // setFormInputs(prev => ({
-            //     ...prev,
-            //     type: pet.type,
-            //     adoptionStatus: pet.adoptionStatus,
-            //     hypoallergenic: pet.hypoallergenic,
-            //     dietary: [...pet.dietary]
-            // }));
         }
     }
 
@@ -182,15 +165,11 @@ export default function PetSettings({ newPet }) {
             dietary: [],
             breed: ''
         });
-        setThisPet({ ...formInputs });
         setDietaryItem('');
         setPetImage('');
         setErrorMessage('');
     }
 
-    function restoreForm() {
-        
-    }
 
     const spinner =
         <>
@@ -385,6 +364,9 @@ export default function PetSettings({ newPet }) {
                         </Button>
                         <Button onClick={clearForm} colorScheme='teal' fontSize="1.3vw" w="20%" >
                             Clear
+                        </Button>
+                        <Button onClick={fillSettings} colorScheme='teal' fontSize="1.3vw" w="20%" >
+                            Restore
                         </Button>
 
                     </Flex>
