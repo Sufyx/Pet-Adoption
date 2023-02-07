@@ -38,18 +38,19 @@ export default function NavBar() {
         </NavLink>
     const myPetsLink =
         // <NavLink to={JSON.parse(localStorage.getItem('loggedUser')) ?
-        <NavLink to={async () => await localforage.getItem('loggedUser') ?
+        // <NavLink to={async () => await localforage.getItem('loggedUser') ?
+        <NavLink to={localforage.getItem('loggedUser') ?
             `/mypets?userId=${userLogged._id}&firstName=${userLogged.firstName}`
             : "/home"}>
             <MenuItem icon={<ViewIcon />}>My Pets</MenuItem>
         </NavLink>
     const settingsLink =
-        <NavLink to={async () => await localforage.getItem('loggedUser') ?
+        <NavLink to={localforage.getItem('loggedUser') ?
             `/usersettings?userId=${userLogged._id}` : "/home"}>
             <MenuItem icon={<SettingsIcon />}>Settings</MenuItem>
         </NavLink>
     const profileLink =
-        <NavLink to={async () => await localforage.getItem('loggedUser') ?
+        <NavLink to={localforage.getItem('loggedUser') ?
             `/userprofile?userId=${userLogged._id}` : "/home"}>
             <MenuItem icon={<CheckIcon />}>Profile</MenuItem>
         </NavLink>
