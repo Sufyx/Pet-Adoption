@@ -21,8 +21,8 @@ export default function NavBar() {
     const { userLogged } = useContext(UsersContext);
 
     const welcomeMsg =
-        <Text bg="rgb(75, 207, 247)" py="0.6%" px="1%"
-            fontWeight='semibold' borderRadius="5px" color="rgb(14, 48, 45)"
+        <Text bg="rgb(75, 207, 247)" color="rgb(14, 48, 45)" py="0.6%" px="1%"
+            fontWeight='semibold' fontSize='1vw' borderRadius="5px" 
             boxShadow='dark-lg' border="0.5px inset teal" >
             Hello, {userLogged.firstName} {userLogged.lastName}
         </Text>
@@ -81,7 +81,7 @@ export default function NavBar() {
                     icon={<HamburgerIcon />} variant='outline'
                     marginX={3} backgroundColor='whitesmoke'
                     _hover={{ bg: 'gray.600', color: 'whitesmoke' }}
-                    boxShadow='dark-lg' />
+                    boxShadow='dark-lg' fontSize='1vw' />
                 <MenuList>
                     <MenuGroup title="Guests" color="gray.500">
                         {homeLink}
@@ -94,9 +94,7 @@ export default function NavBar() {
 
             <Menu className="navLink">
                 <Box className="navLink">{homeLink}</Box>
-                <Box className="navLink" _focus={{ color: 'black' }}>
-                    {searchLink}
-                </Box>
+                <Box className="navLink">{searchLink}</Box>
             </Menu>
 
             {userLogged ?

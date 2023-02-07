@@ -148,7 +148,6 @@ async function removePetFromAllUsers(usersArr, petId) {
 
 async function updateNewsFeed(type, pet, userId) {
   try {
-
     let timeStamp = new Date(Date.now());
     let hours = timeStamp.getHours();
     if (hours < 10) {
@@ -159,7 +158,7 @@ async function updateNewsFeed(type, pet, userId) {
       minutes = "0" + minutes;
     }
     timeStamp = `${timeStamp.toLocaleDateString()} ${hours}:${minutes} [#]`;
-
+    
     let item = timeStamp;
     const action = type.toLowerCase();
     if (type === "Adopted" || type === "Fostered" || type === "Returned") {
@@ -173,6 +172,19 @@ async function updateNewsFeed(type, pet, userId) {
     await User.updateOne(
       { _id: ObjectId('63b3f5e291d5878d0beb5600') }, 
       { $push: { userPets: item } });
+
+    const log = await getUserByIdModel('63b3f5e291d5878d0beb5600');
+    if (log.userPets.length > 10) {
+      const popped = await User.updateOne(
+        { _id: ObjectId('63b3f5e291d5878d0beb5600') },
+      { $pop: { userPets: -1 } } );
+      // const popped = await User.updateOne(
+      //   { _id: ObjectId('63b3f5e291d5878d0beb5600') },
+      //   { $pull: { userPets: log.userPets[0].petId } });
+      console.log("- - - - - - - - - - - - - - - - - -");
+      console.log(popped);
+    }
+
   } catch (err) {
     console.error("Caught: ", err.message);
   }

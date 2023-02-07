@@ -13,10 +13,7 @@
   height: 90%;
 }
 
-html,
-body,
-.searchPageContainer,
-.App {
+html, body, .searchPageContainer, .App {
   height: 100%;
   padding: 0;
   font-family: 'Lora', serif;
@@ -42,8 +39,9 @@ body,
   background-color: rgb(59, 116, 165);
   color: bisque;
   border-radius: 8px;
+  font-size: 1.2vw;
 }
-.css-13c7rae:focus, .css-13c7rae:active{
+.css-13c7rae:focus, .css-18esm8n:focus, .css-13c7rae:active {
   background-color: bisque;
   color: rgb(35, 85, 129);
   border-radius: 8px;

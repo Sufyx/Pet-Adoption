@@ -66,8 +66,8 @@ export default function LogModal() {
             setPasswordError("Password must be at least 6 characters");
             return;
         }
-        setSpinnerUp(true);
         if (!isSignUp) {
+            setSpinnerUp(true);
             try {
                 const res = await axios.post(`${baseUrl}/users/login`, {
                     email: formInputs.email,
@@ -113,6 +113,7 @@ export default function LogModal() {
         }
 
         try {
+            setSpinnerUp(true);
             const res = await axios.post(`${baseUrl}/users/signup`, formInputs);
             if (res.data) {
                 logUser(res.data);
@@ -167,14 +168,14 @@ export default function LogModal() {
 
     const loginButton =
         <Menu>
-            <MenuButton onClick={() => loginClick()} as={Button}
+            <MenuButton onClick={() => loginClick()} as={Button} fontSize='1.1vw'
                 rightIcon={<ChevronDownIcon />} marginX={3} boxShadow='dark-lg'>
                 Log-in / Sign-up
             </MenuButton>
         </Menu>
 
     const logOutButton =
-        <Button onClick={logOut} marginX={3} boxShadow='dark-lg'
+        <Button onClick={logOut} marginX={3} boxShadow='dark-lg' fontSize='1.1vw'
             _hover={{ bg: 'gray.600', color: 'whitesmoke' }} >
             Logout
         </Button>

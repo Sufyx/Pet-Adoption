@@ -76,12 +76,15 @@ export default function PetSettings({ newPet }) {
             const pet = res.data;
             setThisPet({ ...pet });
             setFormInputs(prev => ({
-                ...prev,
-                type: pet.type,
-                adoptionStatus: pet.adoptionStatus,
-                hypoallergenic: pet.hypoallergenic,
-                dietary: [...pet.dietary]
+                ...prev, ...pet
             }));
+            // setFormInputs(prev => ({
+            //     ...prev,
+            //     type: pet.type,
+            //     adoptionStatus: pet.adoptionStatus,
+            //     hypoallergenic: pet.hypoallergenic,
+            //     dietary: [...pet.dietary]
+            // }));
         }
     }
 
@@ -185,6 +188,10 @@ export default function PetSettings({ newPet }) {
         setErrorMessage('');
     }
 
+    function restoreForm() {
+        
+    }
+
     const spinner =
         <>
             <Spinner thickness='6px' speed='0.7s' emptyColor='teal.200' color='teal.800' size='md' />
@@ -237,7 +244,7 @@ export default function PetSettings({ newPet }) {
                     <InputLeftAddon children='Name: ' w="15%" fontSize="1.2vw"
                         fontWeight='semibold' bg="rgb(57, 164, 164)" color="whitesmoke" />
                     <Input value={formInputs.name} type='text'
-                        placeholder={thisPet.name} className="petFormLabel"
+                        placeholder="Name" className="petFormLabel"
                         fontSize="1.2vw" p="0" my="0" pl="2%"
                         onChange={e => {
                             setFormInputs(prev => ({ ...prev, name: inputLimit(e.target.value, 40) }))
@@ -249,7 +256,7 @@ export default function PetSettings({ newPet }) {
                     m="auto" my="1%" boxShadow='dark-lg' borderRadius="5px">
                     <InputLeftAddon children='Color: ' w="15%" fontSize="1.2vw"
                         fontWeight='semibold' bg="rgb(57, 164, 164)" color="whitesmoke" />
-                    <Input value={formInputs.color} type='text' placeholder={thisPet.color}
+                    <Input value={formInputs.color} type='text' placeholder="Color"
                         className="petFormLabel" fontSize="1.2vw" p="0" my="0" pl="2%"
                         onChange={e => {
                             setFormInputs(prev => ({ ...prev, color: inputLimit(e.target.value, 20) }))
@@ -261,7 +268,7 @@ export default function PetSettings({ newPet }) {
                     m="auto" my="1%" boxShadow='dark-lg' borderRadius="5px">
                     <InputLeftAddon children='Breed: ' w="15%" fontSize="1.2vw"
                         fontWeight='semibold' bg="rgb(57, 164, 164)" color="whitesmoke" />
-                    <Input value={formInputs.breed} type='text' placeholder={thisPet.breed}
+                    <Input value={formInputs.breed} type='text' placeholder="Breed"
                         className="petFormLabel" fontSize="1.2vw" p="0" my="0" pl="2%"
                         onChange={e => {
                             setFormInputs(prev => ({ ...prev, breed: inputLimit(e.target.value, 20) }))
@@ -273,7 +280,7 @@ export default function PetSettings({ newPet }) {
                     m="auto" my="1%" boxShadow='dark-lg' borderRadius="5px">
                     <InputLeftAddon children='Height: ' w="15%" fontSize="1.2vw"
                         fontWeight='semibold' bg="rgb(57, 164, 164)" color="whitesmoke" />
-                    <Input value={formInputs.height} type='number' placeholder={thisPet.height}
+                    <Input value={formInputs.height} type='number' placeholder="Height"
                         min={1} max={500} className="petFormLabel" fontSize="1.2vw"
                         p="0" my="0" pl="2%" onChange={e => {
                             setFormInputs(prev => ({ ...prev, height: e.target.value }))
@@ -285,7 +292,7 @@ export default function PetSettings({ newPet }) {
                     m="auto" my="1%" boxShadow='dark-lg' borderRadius="5px">
                     <InputLeftAddon children='Weight: ' w="15%" fontSize="1.2vw"
                         fontWeight='semibold' bg="rgb(57, 164, 164)" color="whitesmoke" />
-                    <Input value={formInputs.weight} type='number' placeholder={thisPet.weight}
+                    <Input value={formInputs.weight} type='number' placeholder="Weight"
                         min={1} max={500} className="petFormLabel" fontSize="1.2vw"
                         p="0" my="0" pl="2%" onChange={e => {
                             setFormInputs(prev => ({ ...prev, weight: e.target.value }))
@@ -346,7 +353,7 @@ export default function PetSettings({ newPet }) {
                         Bio
                     </FormLabel>
                     <Textarea value={formInputs.bio} type='text'
-                        placeholder={thisPet.bio} fontSize="1vw" onChange={e => {
+                        placeholder="Bio" fontSize="1vw" onChange={e => {
                             setFormInputs(prev => ({
                                 ...prev, bio: inputLimit(e.target.value, 300)
                             }))

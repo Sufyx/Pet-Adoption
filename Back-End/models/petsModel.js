@@ -178,7 +178,6 @@ async function editPetModel(petId, editParams) {
 
 async function deletePetModel(petId) {
     try {
-
         const pet = await getPetModel(petId);
         const usersArr = [...pet.savedAtUsers];
         if (pet.owner) {
