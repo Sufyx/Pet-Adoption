@@ -6,8 +6,9 @@
 import { React, useState, useEffect, useContext } from 'react';
 import {
     Table, Thead, Tbody, Tfoot,
-    Tr, Th, Td, TableCaption, TableContainer
+    Tr, Th, Td, TableCaption, TableContainer, useStatStyles
 } from '@chakra-ui/react';
+import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons';
 import { useNavigate } from "react-router-dom";
 import localforage from 'localforage';
 import UsersContext from '../context/UsersContext';
@@ -20,6 +21,8 @@ export default function PetsTable({ toggleSpinner }) {
 
     const [allPets, setAllPets] = useState([]);
     const { userLogged } = useContext(UsersContext);
+    const [sortBy, setSortBy] = useState('');
+    const [sortOrder, setSortOrder] = useState('down');
 
     useEffect(() => {
         if (!userLogged.isAdmin) {
@@ -64,12 +67,24 @@ export default function PetsTable({ toggleSpinner }) {
     }
 
     function sortTable(param) {
-        const sorted = allPets.sort((a, b) => {
-            const x = a[param];
-            const y = b[param];
-            return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-        });
-        setAllPets([...sorted]);
+        if (sortBy === param) {
+            const sorted = allPets.reverse();
+            setAllPets([...sorted]);
+            if (sortOrder === "down") {
+                setSortOrder("up");
+            } else {
+                setSortOrder("down");
+            }
+        } else {
+            const sorted = allPets.sort((a, b) => {
+                const x = a[param];
+                const y = b[param];
+                return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+            });
+            setSortBy(param);
+            setAllPets([...sorted]);
+            setSortOrder("down");
+        }
     }
 
 
@@ -84,13 +99,48 @@ export default function PetsTable({ toggleSpinner }) {
                     <TableCaption>Pets Database</TableCaption>
                     <Thead>
                         <Tr fontWeight='bold' className="cursorPointer">
-                            <Th onClick={() => sortTable('name')}>Name</Th>
-                            <Th onClick={() => sortTable('type')}>Type</Th>
-                            <Th onClick={() => sortTable('breed')}>Breed</Th>
-                            <Th onClick={() => sortTable('height')}>Height</Th>
-                            <Th onClick={() => sortTable('weight')}>Weight</Th>
-                            <Th onClick={() => sortTable('adoptionStatus')}>Status</Th>
-                            <Th onClick={() => sortTable('ownerName')}>Owner</Th>
+                            <Th onClick={() => sortTable('name')}>
+                                Name &nbsp;
+                                {sortBy === 'name' ? sortOrder === 'down' ?
+                                    <ChevronDownIcon color='rgb(7, 59, 59)' fontSize='1.2vw' /> :
+                                    <ChevronUpIcon color='rgb(7, 59, 59)' fontSize='1.2vw' /> : ''}
+                            </Th>
+                            <Th onClick={() => sortTable('type')}>
+                                Type &nbsp;
+                                {sortBy === 'type' ? sortOrder === 'down' ?
+                                    <ChevronDownIcon color='rgb(7, 59, 59)' fontSize='1.2vw' /> :
+                                    <ChevronUpIcon color='rgb(7, 59, 59)' fontSize='1.2vw' /> : ''}
+                            </Th>
+                            <Th onClick={() => sortTable('breed')}>
+                                Breed &nbsp;
+                                {sortBy === 'breed' ? sortOrder === 'down' ?
+                                    <ChevronDownIcon color='rgb(7, 59, 59)' fontSize='1.2vw' /> :
+                                    <ChevronUpIcon color='rgb(7, 59, 59)' fontSize='1.2vw' /> : ''}
+                            </Th>
+                            <Th onClick={() => sortTable('height')}>
+                                Height &nbsp;
+                                {sortBy === 'height' ? sortOrder === 'down' ?
+                                    <ChevronDownIcon color='rgb(7, 59, 59)' fontSize='1.2vw' /> :
+                                    <ChevronUpIcon color='rgb(7, 59, 59)' fontSize='1.2vw' /> : ''}
+                            </Th>
+                            <Th onClick={() => sortTable('weight')}>
+                                Weight &nbsp;
+                                {sortBy === 'weight' ? sortOrder === 'down' ?
+                                    <ChevronDownIcon color='rgb(7, 59, 59)' fontSize='1.2vw' /> :
+                                    <ChevronUpIcon color='rgb(7, 59, 59)' fontSize='1.2vw' /> : ''}
+                            </Th>
+                            <Th onClick={() => sortTable('adoptionStatus')}>
+                                Status &nbsp;
+                                {sortBy === 'adoptionStatus' ? sortOrder === 'down' ?
+                                    <ChevronDownIcon color='rgb(7, 59, 59)' fontSize='1.2vw' /> :
+                                    <ChevronUpIcon color='rgb(7, 59, 59)' fontSize='1.2vw' /> : ''}
+                            </Th>
+                            <Th onClick={() => sortTable('ownerName')}>
+                                Owner &nbsp;
+                                {sortBy === 'ownerName' ? sortOrder === 'down' ?
+                                    <ChevronDownIcon color='rgb(7, 59, 59)' fontSize='1.2vw' /> :
+                                    <ChevronUpIcon color='rgb(7, 59, 59)' fontSize='1.2vw' /> : ''}
+                            </Th>
                         </Tr>
                     </Thead>
                     <Tbody>

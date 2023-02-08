@@ -32,12 +32,10 @@ export default function Dashboard() {
 
 
     async function verifyAdmin() {
-        // const { token } = JSON.parse(localStorage.getItem('loggedUser'));
         const { token } = await localforage.getItem('loggedUser');
         const res = await axios.get(`${baseUrl}/users/${userLogged._id}`,
             { headers: { authorization: `Bearer ${token}` } });
         const user = res.data.user;
-        console.log("verifyAdmin user ", user);
         if (!user.isAdmin) {
             navigate("/home");
         }

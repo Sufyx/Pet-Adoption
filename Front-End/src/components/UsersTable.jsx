@@ -9,6 +9,7 @@ import {
     Button, Table, Thead, Tbody, Tfoot,
     Tr, Th, Td, TableCaption, TableContainer
 } from '@chakra-ui/react';
+import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons';
 import { useNavigate } from "react-router-dom";
 import localforage from 'localforage';
 import UsersContext from '../context/UsersContext';
@@ -20,6 +21,8 @@ export default function UsersPage({ toggleSpinner }) {
     const navigate = useNavigate();
     const [allUsers, setAllUsers] = useState([]);
     const { userLogged } = useContext(UsersContext);
+    const [sortBy, setSortBy] = useState('');
+    const [sortOrder, setSortOrder] = useState('down');
 
 
     useEffect(() => {
@@ -46,13 +49,24 @@ export default function UsersPage({ toggleSpinner }) {
 
 
     function sortTable(param) {
-        console.log("sorting by ", param);
-        const sorted = allUsers.sort((a, b) => {
-            const x = a[param];
-            const y = b[param];
-            return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-        });
-        setAllUsers([...sorted]);
+        if (sortBy === param) {
+            const sorted = allUsers.reverse();
+            setAllUsers([...sorted]);
+            if (sortOrder === "down") {
+                setSortOrder("up");
+            } else {
+                setSortOrder("down");
+            }
+        } else {
+            const sorted = allUsers.sort((a, b) => {
+                const x = a[param];
+                const y = b[param];
+                return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+            });
+            setSortBy(param);
+            setAllUsers([...sorted]);
+            setSortOrder("down");
+        }
     }
 
 
@@ -85,10 +99,30 @@ export default function UsersPage({ toggleSpinner }) {
                     <TableCaption>Registered users</TableCaption>
                     <Thead>
                         <Tr fontWeight='bold' className="cursorPointer">
-                            <Th  onClick={() => sortTable('firstName')}>Name</Th>
-                            <Th  onClick={() => sortTable('email')}>Email</Th>
-                            <Th  onClick={() => sortTable('phone')}>Phone</Th>
-                            <Th  onClick={() => sortTable('isAdmin')}>Admin</Th>
+                            <Th onClick={() => sortTable('firstName')}>
+                                Name &nbsp;
+                                {sortBy === 'firstName' ? sortOrder === 'down' ?
+                                    <ChevronDownIcon color='rgb(7, 59, 59)' fontSize='1.2vw' /> :
+                                    <ChevronUpIcon color='rgb(7, 59, 59)' fontSize='1.2vw' /> : ''}
+                            </Th>
+                            <Th onClick={() => sortTable('email')}>
+                                Email &nbsp;
+                                {sortBy === 'email' ? sortOrder === 'down' ?
+                                    <ChevronDownIcon color='rgb(7, 59, 59)' fontSize='1.2vw' /> :
+                                    <ChevronUpIcon color='rgb(7, 59, 59)' fontSize='1.2vw' /> : ''}
+                            </Th>
+                            <Th onClick={() => sortTable('phone')}>
+                                Phone &nbsp;
+                                {sortBy === 'phone' ? sortOrder === 'down' ?
+                                    <ChevronDownIcon color='rgb(7, 59, 59)' fontSize='1.2vw' /> :
+                                    <ChevronUpIcon color='rgb(7, 59, 59)' fontSize='1.2vw' /> : ''}
+                            </Th>
+                            <Th onClick={() => sortTable('isAdmin')}>
+                                Admin &nbsp;
+                                {sortBy === 'isAdmin' ? sortOrder === 'down' ?
+                                    <ChevronDownIcon color='rgb(7, 59, 59)' fontSize='1.2vw' /> :
+                                    <ChevronUpIcon color='rgb(7, 59, 59)' fontSize='1.2vw' /> : ''}
+                            </Th>
                         </Tr>
                     </Thead>
                     <Tbody>
