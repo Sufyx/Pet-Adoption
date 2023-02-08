@@ -17,13 +17,11 @@ html, body, .searchPageContainer, .App {
   height: 100%;
   padding: 0;
   font-family: 'Lora', serif;
-  /* background: rgba(57, 164, 164, 0.2); */
 }
 
 .chakra-ui-light {
-  background-image: url("https://img.freepik.com/premium-photo/texture-natural-long-haired-white-fur_121867-174.jpg?w=2000");
+  background-image: url("./images/white-fur-bg-transformed.png");
   background-size: cover;
-  background-position: center-bottom;
   height: 100%;
 }
 

@@ -195,7 +195,8 @@ export default function PetPage() {
             </Flex>
             <Button leftIcon={<ArrowBackIcon />} onClick={() => { navigate("/search"); }}
                 colorScheme='blue' variant='solid' w='fit-content' m='1% 3%' p='1%' 
-                fontSize='1.5vw' >
+                fontSize='1.5vw' border="2px ridge rgb(35, 85, 129)" 
+                _hover={{ bg: 'whitesmoke', color: 'blue.500' }}>
                 Back to search
             </Button>
         </div>

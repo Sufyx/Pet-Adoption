@@ -37,8 +37,6 @@ export default function NavBar() {
             <MenuItem icon={<Search2Icon />}>Search</MenuItem>
         </NavLink>
     const myPetsLink =
-        // <NavLink to={JSON.parse(localStorage.getItem('loggedUser')) ?
-        // <NavLink to={async () => await localforage.getItem('loggedUser') ?
         <NavLink to={localforage.getItem('loggedUser') ?
             `/mypets?userId=${userLogged._id}&firstName=${userLogged.firstName}`
             : "/home"}>

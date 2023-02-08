@@ -10,7 +10,8 @@ import axios from 'axios';
 
 
 export default function PetActionBtn({
-  petAction, petName, petId, updateIsOwnedByUser, updateIsSavedByUser }) {
+  petAction, petName, petId, 
+  updateIsOwnedByUser, updateIsSavedByUser }) {
 
   const baseUrl = process.env.REACT_APP_SERVER_URL;
 
@@ -21,7 +22,8 @@ export default function PetActionBtn({
 
   function petActionClick(e) {
     e.preventDefault();
-    if ((petAction === "Adopt") || (petAction === "Foster") || (petAction === "Save")) {
+    if ((petAction === "Adopt") || (petAction === "Foster") ||
+      (petAction === "Save")) {
       petStatusAction();
     } else if (petAction === "Return") {
       petReturn();
@@ -39,7 +41,8 @@ export default function PetActionBtn({
       petActionStr = `${petAction}ed`;
     }
     const { token } = await localforage.getItem('loggedUser');
-    const res = await axios.post(`${baseUrl}/pet/${petId}/${petAction.toLowerCase()}`,
+    const res = await axios.post(
+      `${baseUrl}/pet/${petId}/${petAction.toLowerCase()}`,
       { petAction: petActionStr },
       { headers: { authorization: `Bearer ${token}` }, });
 
@@ -106,13 +109,15 @@ export default function PetActionBtn({
 
   const spinner =
     <>
-      <Spinner thickness='6px' speed='0.7s' emptyColor='teal.200' color='teal.800' size='md' />
+      <Spinner thickness='6px' speed='0.7s' emptyColor='teal.200'
+        color='teal.800' size='md' />
     </>
 
   return (
-    <Button my="8%" borderRadius="full" h="6vw" fontSize="1.1vw" colorScheme='teal' border="2px outset teal"
-      onClick={petActionClick} boxShadow='dark-lg' _hover={{ bg: 'whitesmoke', color: 'teal.500' }}>
-      {spinnerUp ? spinner : `${petAction} ${petName}` }
+    <Button my="8%" borderRadius="full" h="6vw" fontSize="1.1vw"
+      colorScheme='teal' border="2px outset teal" boxShadow='dark-lg'
+      onClick={petActionClick} _hover={{ bg: 'whitesmoke', color: 'teal.500' }}>
+      {spinnerUp ? spinner : `${petAction} ${petName}`}
     </Button>
   )
 }

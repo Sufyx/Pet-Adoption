@@ -36,7 +36,6 @@ export default function PetsTable({ toggleSpinner }) {
             const res = await axios.get(`${baseUrl}/pet`,
                 { params: { searchParams: {} } });
             const petsData = [...res.data];
-            // const { token } = JSON.parse(localStorage.getItem('loggedUser'));
             const { token } = await localforage.getItem('loggedUser');
             const promises = [];
             for (let i = 0; i < petsData.length; i++) {

@@ -134,9 +134,6 @@ export default function LogModal() {
     }
 
     async function logUser(data) {
-        // localStorage.setItem("loggedUser", JSON.stringify({
-        //     token: data.token
-        // }));
         await localforage.setItem("loggedUser", {token: data.token});
         updateUser(data.user);
         onClose();
@@ -144,7 +141,6 @@ export default function LogModal() {
 
 
     async function logOut() {
-        // localStorage.clear();
         await localforage.clear();
         updateUser(false);
         setFormInputs({

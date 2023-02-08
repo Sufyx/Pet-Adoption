@@ -43,7 +43,6 @@ export default function AdminActionBtn({ adminAction, petName, petId }) {
     onClose();
     if (!userLogged.isAdmin) return;
     try {
-      // const { token } = JSON.parse(localStorage.getItem('loggedUser'));
       const { token } = await localforage.getItem('loggedUser');
       await axios.delete(`${baseUrl}/pet/${petId}`,
         { headers: { authorization: `Bearer ${token}` } });

@@ -55,7 +55,7 @@ export default function Search() {
             }
         }
         if (searchForm.petName &&
-            searchForm.petName.searchedName.length > 40) {
+            searchForm.petName.length > 40) {
             return false;
         }
         return true;

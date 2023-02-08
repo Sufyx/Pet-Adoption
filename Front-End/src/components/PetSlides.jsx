@@ -4,7 +4,7 @@
 */
 
 import { React, useState, useEffect, useContext } from 'react';
-import { Heading, Image, Box } from '@chakra-ui/react';
+import { Heading, Image } from '@chakra-ui/react';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import UsersContext from '../context/UsersContext';
@@ -63,8 +63,6 @@ export default function PetSlides() {
         if (petPics.length === 0) return;
         let index = 0;
         const currentInterval = setInterval(function () {
-            // console.log("| slide ", slide, " | index ", index, " |");
-            // console.log("| img width  | ", img.width);
             setSlide(petPics[index].pic);
             setSlideCaption(petPics[index].caption);
             setSlidePetId(petPics[index].petId);

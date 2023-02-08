@@ -52,7 +52,6 @@ export default function UsersPage({ toggleSpinner }) {
                 console.error("Action refused. You can't un-admin yourself.");
                 return;
             }
-            // const { token } = JSON.parse(localStorage.getItem('loggedUser'));
             const { token } = await localforage.getItem('loggedUser');
             const status = user.isAdmin ? false : true;
             await axios.put(`${baseUrl}/users/admin/${user._id}`, { status: status },
