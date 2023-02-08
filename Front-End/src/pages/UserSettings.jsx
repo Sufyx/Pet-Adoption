@@ -7,7 +7,7 @@
 import { React, useState, useEffect, useContext } from 'react';
 import {
   Button, Input, FormControl, FormLabel, InputGroup,
-  InputLeftAddon, Flex, useToast
+  InputLeftAddon, Flex, useToast, Spinner
 } from '@chakra-ui/react';
 import UsersContext from '../context/UsersContext';
 import { useNavigate, useLocation } from "react-router-dom";
@@ -22,6 +22,7 @@ export default function UserSettings() {
   const query = new URLSearchParams(search);
   const toast = useToast();
 
+  const [spinnerUp, setSpinnerUp] = useState(false);
   const { userLogged, updateUser } = useContext(UsersContext);
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
@@ -48,7 +49,6 @@ export default function UserSettings() {
   async function fetchUser() {
     const userId = query.get("userId");
     if (userLogged._id === userId) {
-      // setFormInputs(prev => ({ ...prev, ...userLogged }));
       updateForm(userLogged);
       return;
     }
@@ -56,7 +56,6 @@ export default function UserSettings() {
       const { token } = await localforage.getItem('loggedUser');
       const res = await axios.get(`${baseUrl}/users/${userId}`,
         { headers: { authorization: `Bearer ${token}` } });
-      // setFormInputs(prev => ({ ...prev, ...res.data.user }));
       updateForm(res.data.user);
     } catch (err) {
       console.error("Caught: " + err.message);
@@ -64,14 +63,14 @@ export default function UserSettings() {
   }
 
   function updateForm(userDetails) {
-    const tempObj = {...formInputs};
+    const tempObj = { ...formInputs };
     for (const key in tempObj) {
       if (userDetails.hasOwnProperty(key)) {
         tempObj[key] = userDetails[key];
       }
     }
-    console.log("tempObj: " + tempObj);
-    setFormInputs({...tempObj});
+    console.log("tempObj: ", tempObj);
+    setFormInputs({ ...tempObj });
   }
 
 
@@ -97,6 +96,7 @@ export default function UserSettings() {
 
 
   async function saveClick() {
+    console.log("saveClick formInputs ", formInputs);
     if (formInputs.email) {
       if (!isEmailValid(formInputs.email)) {
         setEmailError("Invalid email");
@@ -120,12 +120,10 @@ export default function UserSettings() {
       }
     }
     try {
+      setSpinnerUp(true);
       const { token } = await localforage.getItem('loggedUser');
       const userId = query.get("userId");
-      // const safeForm = {...formInputs};
-      // delete safeForm._id;
-      // delete safeForm.isAdmin;
-      console.log("formInputs ", formInputs);
+      console.log("try formInputs ", formInputs);
       const res = await axios.put(`${baseUrl}/users/${userId}`, formInputs,
         { headers: { authorization: `Bearer ${token}` } });
       if (userLogged._id === userId) {
@@ -133,6 +131,7 @@ export default function UserSettings() {
       }
       editSuccessful();
     } catch (err) {
+      setSpinnerUp(false);
       console.error("Settings update error: ", err);
     }
   }
@@ -144,8 +143,17 @@ export default function UserSettings() {
       status: 'success',
       duration: 5000,
       isClosable: true,
-    })
+    });
+    setSpinnerUp(false);
+    navigate(`/userprofile?userId=${query.get("userId")}`);
   }
+
+
+  const spinner =
+    <>
+      <Spinner thickness='6px' emptyColor='teal.200'
+        speed='0.7s' color='teal.800' size='md' />
+    </>
 
 
   return (
@@ -212,7 +220,7 @@ export default function UserSettings() {
             border="1px inset teal" boxShadow='dark-lg' variant='ghost'
             marginRight={"1%"} mt="5%" fontWeight="bold"
             _hover={{ bg: 'whitesmoke', color: 'rgb(96, 199, 202)' }}>
-            Save
+            {spinnerUp ? spinner : "Save"}
           </Button>
           <Button onClick={clearForm} color='rgb(96, 199, 202)' bg="whitesmoke"
             border="1px outset teal" boxShadow='dark-lg' variant='ghost'

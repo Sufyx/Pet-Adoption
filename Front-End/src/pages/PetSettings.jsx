@@ -150,6 +150,7 @@ export default function PetSettings({ newPet }) {
             clearForm();
             setSpinnerUp(false);
         } catch (err) {
+            setSpinnerUp(false);
             console.error("Caught :", err);
         }
     }
@@ -176,7 +177,8 @@ export default function PetSettings({ newPet }) {
 
     const spinner =
         <>
-            <Spinner thickness='6px' speed='0.7s' emptyColor='teal.200' color='teal.800' size='md' />
+            <Spinner thickness='6px' emptyColor='teal.200'
+                speed='0.7s' color='teal.800' size='md' />
         </>
 
 

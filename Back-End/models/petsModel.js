@@ -57,7 +57,8 @@ async function getPetsBySearchParamsModel(searchParams) {
         }
     }
     try {
-        const matchingPets = await Pet.find(searchBy).limit(48);
+        // const matchingPets = await Pet.find(searchBy).limit(48);
+        const matchingPets = await Pet.find(searchBy);
         return matchingPets;
     } catch (err) {
         console.error("Caught: ", err.message);
