@@ -78,7 +78,6 @@ export default function Search() {
     }
 
 
-
     function toggleAdvancedSearch(e) {
         if (e.target.checked) {
             setAdvancedSearch(true);
@@ -259,6 +258,3 @@ export default function Search() {
         </div>
     )
 }
-
-
-
