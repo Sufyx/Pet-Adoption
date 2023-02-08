@@ -86,7 +86,8 @@ export default function LogModal() {
                 }
             } catch (err) {
                 const reqError = err.response.data;
-                if (reqError.includes("password") || reqError.includes("Password")) {
+                if (reqError.includes("password") ||
+                    reqError.includes("Password")) {
                     setPasswordError(reqError);
                 } else {
                     setEmailError(reqError);
@@ -134,7 +135,7 @@ export default function LogModal() {
     }
 
     async function logUser(data) {
-        await localforage.setItem("loggedUser", {token: data.token});
+        await localforage.setItem("loggedUser", { token: data.token });
         updateUser(data.user);
         onClose();
     }
@@ -209,9 +210,10 @@ export default function LogModal() {
 
     let signUpModal =
         <>
-            <Input value={formInputs.passwordConfirm} placeholder='confirm password'
-                type='password' onChange={e => {
-                    setFormInputs(prev => ({ ...prev, passwordConfirm: e.target.value }));
+            <Input placeholder='confirm password' type='password'
+                value={formInputs.passwordConfirm} onChange={e => {
+                    setFormInputs(prev =>
+                        ({ ...prev, passwordConfirm: e.target.value }));
                     setPasswordError('');
                 }} />
             <hr />
@@ -266,8 +268,8 @@ export default function LogModal() {
                 <FormLabel className="formLabel"> Password </FormLabel>
                 <span className="loginErrorMessage">{passwordError}</span>
             </Flex>
-            <Input value={formInputs.password} type='password' placeholder='password'
-                onChange={e => {
+            <Input type='password' placeholder='password'
+                value={formInputs.password} onChange={e => {
                     setFormInputs(prev => ({ ...prev, password: e.target.value }));
                     setPasswordError('');
                 }} />
