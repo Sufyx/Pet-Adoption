@@ -64,7 +64,6 @@ export default function PetsTable({ toggleSpinner }) {
     }
 
     function sortTable(param) {
-        console.log("sorting by ", param);
         const sorted = allPets.sort((a, b) => {
             const x = a[param];
             const y = b[param];

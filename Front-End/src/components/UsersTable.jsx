@@ -34,7 +34,6 @@ export default function UsersPage({ toggleSpinner }) {
     async function fetchUsers() {
         try {
             toggleSpinner(true);
-            // const { token } = JSON.parse(localStorage.getItem('loggedUser'));
             const { token } = await localforage.getItem('loggedUser');
             const res = await axios.get(`${baseUrl}/users`,
                 { headers: { authorization: `Bearer ${token}` } });
@@ -43,6 +42,17 @@ export default function UsersPage({ toggleSpinner }) {
         } catch (err) {
             console.error("Caught: " + err.message);
         }
+    }
+
+
+    function sortTable(param) {
+        console.log("sorting by ", param);
+        const sorted = allUsers.sort((a, b) => {
+            const x = a[param];
+            const y = b[param];
+            return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+        });
+        setAllUsers([...sorted]);
     }
 
 
@@ -74,11 +84,11 @@ export default function UsersPage({ toggleSpinner }) {
                 <Table variant='striped' colorScheme='teal'>
                     <TableCaption>Registered users</TableCaption>
                     <Thead>
-                        <Tr fontWeight='bold'>
-                            <Th>Name</Th>
-                            <Th>Email</Th>
-                            <Th>Phone</Th>
-                            <Th>Admin</Th>
+                        <Tr fontWeight='bold' className="cursorPointer">
+                            <Th  onClick={() => sortTable('firstName')}>Name</Th>
+                            <Th  onClick={() => sortTable('email')}>Email</Th>
+                            <Th  onClick={() => sortTable('phone')}>Phone</Th>
+                            <Th  onClick={() => sortTable('isAdmin')}>Admin</Th>
                         </Tr>
                     </Thead>
                     <Tbody>
