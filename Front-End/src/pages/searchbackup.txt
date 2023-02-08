@@ -1,8 +1,3 @@
-/**
- * Pet Adoption Project
- * Asaf Gilboa
-*/
-
 
 import PetSearchResults from '../components/PetSearchResults';
 import { React, useEffect, useState, useContext } from 'react';
@@ -15,47 +10,57 @@ import {
 
 
 export default function Search() {
-    const {
+    const { 
         userLogged, loginHook, updateSearch, lastSearch
-    } = useContext(UsersContext);
+    } = useContext(UsersContext);  
 
     const toast = useToast();
 
     const [spinnerUp, setSpinnerUp] = useState(false);
     const typeList = ['Dog', 'Cat'];
     const [advancedSearch, setAdvancedSearch] = useState(false);
-    const [searchForm, setSearchForm] = useState({
-        petName: '',
-        type: '',
-        status: '',
-        minHeight: '',
-        maxHeight: '',
-        minWeight: '',
-        maxWeight: ''
-    });
+    const [searchedName, setSearchedName] = useState('');
+    const [typeSelected, setTypeSelected] = useState('');
+    const [statusSelected, setStatusSelected] = useState('');
+    const [minHeight, setMinHeight] = useState('');
+    const [maxHeight, setMaxHeight] = useState('');
+    const [minWeight, setMinWeight] = useState('');
+    const [maxWeight, setMaxWeight] = useState('');
 
 
     useEffect(() => {
         if (userLogged) {
             setAdvancedSearch(true);
-            setSearchForm({ ...lastSearch });
+            setLastSearch();
         }
     }, []);
 
+    // make local form states into one value and useeffect on it
+
+
+    function setLastSearch() {
+        setSearchedName(lastSearch.petName);
+        setTypeSelected(lastSearch.type);
+        setStatusSelected(lastSearch.status);
+        setMinHeight(lastSearch.minHeight);
+        setMaxHeight(lastSearch.maxHeight);
+        setMinWeight(lastSearch.minWeight);
+        setMaxWeight(lastSearch.maxWeight);
+    }
+
 
     function validateSearch() {
-        if (searchForm.minHeight && searchForm.maxHeight) {
-            if (searchForm.minHeight > searchForm.maxHeight) {
+        if (minHeight && maxHeight) {
+            if (minHeight > maxHeight) {
                 return false;
             }
         }
-        if (searchForm.minWeight && searchForm.maxWeight) {
-            if (searchForm.minWeight > searchForm.maxWeight) {
+        if (minWeight && maxWeight) {
+            if (minWeight > maxWeight) {
                 return false;
             }
         }
-        if (searchForm.petName &&
-            searchForm.petName.searchedName.length > 40) {
+        if (searchedName && searchedName.length > 40) {
             return false;
         }
         return true;
@@ -74,9 +79,21 @@ export default function Search() {
             });
             return;
         }
-        updateSearch({ ...searchForm });
+        updateSearchResults()
     }
+    
 
+    function updateSearchResults() {
+        updateSearch({
+            petName: searchedName,
+            type: typeSelected,
+            status: statusSelected,
+            minHeight: minHeight,
+            maxHeight: maxHeight,
+            minWeight: minWeight,
+            maxWeight: maxWeight
+        });
+    }
 
 
     function toggleAdvancedSearch(e) {
@@ -94,24 +111,14 @@ export default function Search() {
 
 
     function clearSearch() {
-        setSearchForm({
-            petName: '',
-            type: '',
-            status: '',
-            minHeight: '',
-            maxHeight: '',
-            minWeight: '',
-            maxWeight: ''
-        });
-        updateSearch({
-            petName: '',
-            type: '',
-            status: '',
-            minHeight: '',
-            maxHeight: '',
-            minWeight: '',
-            maxWeight: ''
-        });
+        setSearchedName('');
+        setTypeSelected('');
+        setStatusSelected('');
+        setMinHeight('');
+        setMaxHeight('');
+        setMinWeight('');
+        setMaxWeight('');
+        updateSearchResults();
     }
 
 
@@ -123,50 +130,33 @@ export default function Search() {
     const advancedSearchOptions =
         <>
             <Select placeholder='Adoption status' borderBottom="1px inset rgb(116, 185, 178)"
-                maxW='90%' value={searchForm.status} bg="rgba(240, 240, 240, 0.6)"
-                fontSize="1.3vw"
-                onChange={e => {
-                    setSearchForm(prev => ({
-                        ...prev, status: e.target.value
-                    }))
-                }} >
+                maxW='90%' value={statusSelected} bg="rgba(240, 240, 240, 0.6)"
+                fontSize="1.3vw" onChange={e => setStatusSelected(e.target.value)} >
                 <option value='Adopted' >Adopted</option>
                 <option value='Fostered' >Fostered</option>
                 <option value='Available' >Available</option>
             </Select>
 
-            <Input placeholder='Search pet by name' value={searchForm.petName} maxW='90%'
+            <Input placeholder='Search pet by name' value={searchedName} maxW='90%'
                 fontSize="1.3vw" borderBottom="1px inset rgb(116, 185, 178)" mt="2%"
                 type='text' bg="rgba(240, 240, 240, 0.6)"
-                onChange={e => {
-                    setSearchForm(prev => ({
-                        ...prev, petName: e.target.value
-                    }))
-                }} />
+                onChange={e => setSearchedName(e.target.value)} />
 
             <VStack >
                 <FormLabel fontWeight='bold' w="90%" mb="0" mt="5%" >
                     Height range: </FormLabel>
                 <InputGroup w="90%" >
                     <InputLeftAddon children='Min: ' fontSize="1.2vw" p="5%" h="2.5vw" />
-                    <Input type='number' placeholder=' - - - ' value={searchForm.minHeight}
+                    <Input type='number' placeholder=' - - - ' value={minHeight}
                         h="2.5vw" min={0} bg="rgba(240, 240, 240, 0.6)"
-                        onChange={e => {
-                            setSearchForm(prev => ({
-                                ...prev, minHeight: e.target.value
-                            }))
-                        }} />
+                        onChange={e => setMinHeight(e.target.value)} />
                     <InputRightAddon children='cm' fontSize="1.2vw" p="5%" h="2.5vw" />
                 </InputGroup>
                 <InputGroup w="90%" borderBottom="1px inset rgb(116, 185, 178)">
                     <InputLeftAddon children='Max: ' fontSize="1.2vw" p="5%" h="2.5vw" />
-                    <Input type='number' placeholder=' - - - ' value={searchForm.maxHeight}
+                    <Input type='number' placeholder=' - - - ' value={maxHeight}
                         h="2.5vw" min={0} max={200} bg="rgba(240, 240, 240, 0.6)"
-                        onChange={e => {
-                            setSearchForm(prev => ({
-                                ...prev, maxHeight: e.target.value
-                            }))
-                        }} />
+                        onChange={e => setMaxHeight(e.target.value)} />
                     <InputRightAddon children='cm' fontSize="1.2vw" p="5%" h="2.5vw" />
                 </InputGroup>
             </VStack>
@@ -177,23 +167,14 @@ export default function Search() {
                 <InputGroup w="90%" >
                     <InputLeftAddon children='Min: ' fontSize="1.3vw" p="5%" h="2.5vw" />
                     <Input type='number' placeholder=' - - - ' bg="rgba(240, 240, 240, 0.6)" min={0}
-                        h="2.5vw" value={searchForm.minWeight}
-                        onChange={e => {
-                            setSearchForm(prev => ({
-                                ...prev, minWeight: e.target.value
-                            }))
-                        }} />
+                        value={minWeight} onChange={e => setMinWeight(e.target.value)} h="2.5vw" />
                     <InputRightAddon children='kg' fontSize="1.3vw" p="5%" h="2.5vw" />
                 </InputGroup>
                 <InputGroup w="90%" borderBottom="1px inset rgb(116, 185, 178)">
                     <InputLeftAddon children='Max: ' fontSize="1.3vw" p="5%" h="2.5vw" />
                     <Input type='number' placeholder=' - - - ' bg="rgba(240, 240, 240, 0.6)"
-                        value={searchForm.maxWeight} h="2.5vw" min={0} max={200}
-                        onChange={e => {
-                            setSearchForm(prev => ({
-                                ...prev, maxWeight: e.target.value
-                            }))
-                        }} />
+                        value={maxWeight} h="2.5vw" min={0} max={200}
+                        onChange={e => setMaxWeight(e.target.value)} />
                     <InputRightAddon children='kg' fontSize="1.3vw" p="5%" h="2.5vw" />
                 </InputGroup>
             </VStack>
@@ -229,12 +210,7 @@ export default function Search() {
 
                 <Select placeholder='Select pet type' maxW='90%' fontSize="1.3vw" mb="2%" mt="5%"
                     bg="rgba(240, 240, 240, 0.6)"
-                    value={searchForm.type}
-                    onChange={e => {
-                        setSearchForm(prev => ({
-                            ...prev, type: e.target.value
-                        }))
-                    }}>
+                    value={typeSelected} onChange={e => setTypeSelected(e.target.value)}>
                     {typeList.map(type =>
                         <option value={type} key={uuid()}>{type}</option>
                     )}
@@ -250,6 +226,7 @@ export default function Search() {
                     </Button>
                     <Button colorScheme='teal' fontSize="1.3vw" w="40%"
                         onClick={clearSearch} >
+                        {/* onClick={() => { clearSearch(); clearSearch(); }} > */}
                         Clear
                     </Button>
                 </Flex>
