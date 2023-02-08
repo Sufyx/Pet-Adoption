@@ -55,7 +55,8 @@ export default function AdminActionBtn({ adminAction, petName, petId }) {
 
   return (
     <>
-      <Button my="6%" borderRadius="10px" h="4vw" fontSize="1.1vw" colorScheme='red' border="2px inset firebrick"
+      <Button my="6%" borderRadius="10px" fontSize="1.1vw"
+        colorScheme='red' border="2px inset firebrick" h="4vw"
         onClick={adminActionClick} _hover={{ bg: 'whitesmoke', color: 'red.500' }}>
         {adminAction} {petName}
       </Button>
