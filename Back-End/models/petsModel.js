@@ -106,7 +106,6 @@ async function returnPetModel(petId, userId) {
 }
 
 async function deleteSavedPetModel(petId, userId) {
-
     try {
         const userUpdate = await removeSavedPetFromUserModel(userId, petId);
         Pet.updateOne({ _id: ObjectId(petId) }, { $pull: { savedAtUsers: userId } });
@@ -197,6 +196,6 @@ async function deletePetModel(petId) {
 
 module.exports = {
     getPetsBySearchParamsModel, getPetModel, addPetModel,
-    returnPetModel, deletePetModel, editPetModel, deleteSavedPetModel,
-    savePetModel, getPetsByUserIdModel
+    returnPetModel, deletePetModel, deleteSavedPetModel,
+    savePetModel, getPetsByUserIdModel, editPetModel
 };

@@ -69,7 +69,6 @@ export default function UserSettings() {
         tempObj[key] = userDetails[key];
       }
     }
-    console.log("tempObj: ", tempObj);
     setFormInputs({ ...tempObj });
   }
 
@@ -96,7 +95,6 @@ export default function UserSettings() {
 
 
   async function saveClick() {
-    console.log("saveClick formInputs ", formInputs);
     if (formInputs.email) {
       if (!isEmailValid(formInputs.email)) {
         setEmailError("Invalid email");
@@ -123,7 +121,6 @@ export default function UserSettings() {
       setSpinnerUp(true);
       const { token } = await localforage.getItem('loggedUser');
       const userId = query.get("userId");
-      console.log("try formInputs ", formInputs);
       const res = await axios.put(`${baseUrl}/users/${userId}`, formInputs,
         { headers: { authorization: `Bearer ${token}` } });
       if (userLogged._id === userId) {
