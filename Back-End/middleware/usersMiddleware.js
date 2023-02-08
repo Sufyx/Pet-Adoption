@@ -4,10 +4,9 @@
 */
 
 
-const { getUserByEmailModel } = require("../models/usersModel");
+const { getUserByEmailModel, getUserByIdModel } = require("../models/usersModel");
 const bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken');
-const { getUserByIdModel } = require("../models/usersModel");
 require("dotenv").config();
 
 
@@ -105,11 +104,15 @@ async function verifyUserAccess(req, res, next) {
 
 async function updateUserMiddleware(req, res, next) {
   const { email, password, passwordConfirm } = req.body;
+  const { userId } = req.params;
   if (email) {
-    const user = await getUserByEmailModel(email);
-    if (user) {
-      res.status(400).send("This email is taken");
-      return;
+    const newMail = await getUserByEmailModel(email);
+    const userMail = await getUserByIdModel(userId);
+    if (newMail) {
+      if (newMail.email !== userMail.email) {
+        res.status(400).send("This email is taken");
+        return;
+      }
     }
   }
   if (password || passwordConfirm) {

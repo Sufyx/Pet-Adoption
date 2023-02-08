@@ -27,8 +27,7 @@ const updateSchema = {
     password: { type: "string", maxLength: 50 },
     passwordConfirm: { type: "string", maxLength: 50 },
     phone: { type: "string", maxLength: 40 },
-    bio: { type: "string", maxLength: 300 },
-    userId: { type: "string" }
+    bio: { type: "string", maxLength: 300 }
   },
   additionalProperties: false
 }

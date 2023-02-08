@@ -27,7 +27,14 @@ export default function UserSettings() {
   const [passwordError, setPasswordError] = useState('');
   const [nameError, setNameError] = useState('');
   const [phoneError, setPhoneError] = useState('');
-  const [formInputs, setFormInputs] = useState({});
+  const [formInputs, setFormInputs] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    passwordConfirm: '',
+    phone: ''
+  });
 
 
   useEffect(() => {
@@ -41,20 +48,30 @@ export default function UserSettings() {
   async function fetchUser() {
     const userId = query.get("userId");
     if (userLogged._id === userId) {
-      setFormInputs(prev => ({ ...prev, ...userLogged }));
+      // setFormInputs(prev => ({ ...prev, ...userLogged }));
+      updateForm(userLogged);
       return;
     }
     try {
-      // const { token } = JSON.parse(localStorage.getItem('loggedUser'));
       const { token } = await localforage.getItem('loggedUser');
       const res = await axios.get(`${baseUrl}/users/${userId}`,
         { headers: { authorization: `Bearer ${token}` } });
-
-      setFormInputs(prev => ({ ...prev, ...res.data.user }));
-      console.log("on mount formInputs ", formInputs);
+      // setFormInputs(prev => ({ ...prev, ...res.data.user }));
+      updateForm(res.data.user);
     } catch (err) {
       console.error("Caught: " + err.message);
     }
+  }
+
+  function updateForm(userDetails) {
+    const tempObj = {...formInputs};
+    for (const key in tempObj) {
+      if (userDetails.hasOwnProperty(key)) {
+        tempObj[key] = userDetails[key];
+      }
+    }
+    console.log("tempObj: " + tempObj);
+    setFormInputs({...tempObj});
   }
 
 
@@ -103,9 +120,12 @@ export default function UserSettings() {
       }
     }
     try {
-      // const { token } = JSON.parse(localStorage.getItem('loggedUser'));
       const { token } = await localforage.getItem('loggedUser');
       const userId = query.get("userId");
+      // const safeForm = {...formInputs};
+      // delete safeForm._id;
+      // delete safeForm.isAdmin;
+      console.log("formInputs ", formInputs);
       const res = await axios.put(`${baseUrl}/users/${userId}`, formInputs,
         { headers: { authorization: `Bearer ${token}` } });
       if (userLogged._id === userId) {
