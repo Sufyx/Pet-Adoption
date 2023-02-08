@@ -63,6 +63,16 @@ export default function PetsTable({ toggleSpinner }) {
         }
     }
 
+    function sortTable(param) {
+        console.log("sorting by ", param);
+        const sorted = allPets.sort((a, b) => {
+            const x = a[param];
+            const y = b[param];
+            return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+        });
+        setAllPets([...sorted]);
+    }
+
 
     async function seePetProfile(pet) {
         navigate(`/pet?petId=${pet._id}`);
@@ -74,14 +84,14 @@ export default function PetsTable({ toggleSpinner }) {
                 <Table variant='striped' colorScheme='teal'>
                     <TableCaption>Pets Database</TableCaption>
                     <Thead>
-                        <Tr fontWeight='bold'>
-                            <Th>Name</Th>
-                            <Th>Type</Th>
-                            <Th>Breed</Th>
-                            <Th>Height</Th>
-                            <Th>Weight</Th>
-                            <Th>Status</Th>
-                            <Th>Owner</Th>
+                        <Tr fontWeight='bold' className="cursorPointer">
+                            <Th onClick={() => sortTable('name')}>Name</Th>
+                            <Th onClick={() => sortTable('type')}>Type</Th>
+                            <Th onClick={() => sortTable('breed')}>Breed</Th>
+                            <Th onClick={() => sortTable('height')}>Height</Th>
+                            <Th onClick={() => sortTable('weight')}>Weight</Th>
+                            <Th onClick={() => sortTable('adoptionStatus')}>Status</Th>
+                            <Th onClick={() => sortTable('ownerName')}>Owner</Th>
                         </Tr>
                     </Thead>
                     <Tbody>
@@ -97,10 +107,10 @@ export default function PetsTable({ toggleSpinner }) {
                                     {`${pet.breed}`}
                                 </Td>
                                 <Td onClick={() => seePetProfile(pet)}>
-                                    {`${pet.height}`}
+                                    {pet.height ? `${pet.height}` : ''}
                                 </Td>
                                 <Td onClick={() => seePetProfile(pet)}>
-                                    {`${pet.height}`}
+                                    {pet.weight ? `${pet.weight}` : ''}
                                 </Td>
                                 <Td onClick={() => seePetProfile(pet)}
                                     fontWeight='semibold' textShadow='-0.4px -0.4px black'
@@ -108,7 +118,9 @@ export default function PetsTable({ toggleSpinner }) {
                                         "green.500" : "purple.600"} >
                                     {`${pet.adoptionStatus}`}
                                 </Td>
-                                <Td onClick={() => seePetProfile(pet)}>{`${pet.ownerName}`}</Td>
+                                <Td onClick={() => seePetProfile(pet)}>
+                                    {`${pet.ownerName}`}
+                                </Td>
                             </Tr>
                         )}
                     </Tbody>
