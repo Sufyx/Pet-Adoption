@@ -38,7 +38,6 @@ export default function PetActionBtn({
     if (petAction !== "Save") {
       petActionStr = `${petAction}ed`;
     }
-    // const { token } = JSON.parse(localStorage.getItem('loggedUser'));
     const { token } = await localforage.getItem('loggedUser');
     const res = await axios.post(`${baseUrl}/pet/${petId}/${petAction.toLowerCase()}`,
       { petAction: petActionStr },
@@ -89,7 +88,6 @@ export default function PetActionBtn({
 
   async function petUnsave() {
     setSpinnerUp(true);
-    // const { token } = JSON.parse(localStorage.getItem('loggedUser'));
     const { token } = await localforage.getItem('loggedUser');
     const res = await axios.delete(`${baseUrl}/pet/${petId}/save`,
       { headers: { authorization: `Bearer ${token}` } });
