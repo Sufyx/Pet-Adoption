@@ -10,7 +10,7 @@ import axios from 'axios';
 
 
 export default function PetActionBtn({
-  petAction, petName, petId, 
+  petAction, petName, petId,
   updateIsOwnedByUser, updateIsSavedByUser }) {
 
   const baseUrl = process.env.REACT_APP_SERVER_URL;
@@ -35,76 +35,108 @@ export default function PetActionBtn({
 
 
   async function petStatusAction() {
-    setSpinnerUp(true);
-    let petActionStr = petAction;
-    if (petAction !== "Save") {
-      petActionStr = `${petAction}ed`;
-    }
-    const { token } = await localforage.getItem('loggedUser');
-    const res = await axios.post(
-      `${baseUrl}/pet/${petId}/${petAction.toLowerCase()}`,
-      { petAction: petActionStr },
-      { headers: { authorization: `Bearer ${token}` }, });
-
-    if (res.data) {
-      if (petAction === "Save") {
-        updateIsSavedByUser(true);
-        toast({
-          title: `${petName} has been saved`,
-          description: `You may see them in your profile at any time`,
-          status: 'info',
-          duration: 4000,
-          isClosable: true,
-        });
-      } else {
-        updateIsOwnedByUser(true);
-        toast({
-          title: `Awesome!`,
-          description: `Thank you for ${petAction.toLowerCase()}ing ${petName} `,
-          status: 'success',
-          duration: 4000,
-          isClosable: true,
-        });
+    try {
+      setSpinnerUp(true);
+      let petActionStr = petAction;
+      if (petAction !== "Save") {
+        petActionStr = `${petAction}ed`;
       }
+      const { token } = await localforage.getItem('loggedUser');
+      const res = await axios.post(
+        `${baseUrl}/pet/${petId}/${petAction.toLowerCase()}`,
+        { petAction: petActionStr },
+        { headers: { authorization: `Bearer ${token}` }, });
+
+      if (res.data) {
+        if (petAction === "Save") {
+          updateIsSavedByUser(true);
+          toast({
+            title: `${petName} has been saved`,
+            description: `You may see them in your profile at any time`,
+            status: 'info',
+            duration: 4000,
+            isClosable: true,
+          });
+        } else {
+          updateIsOwnedByUser(true);
+          toast({
+            title: `Awesome!`,
+            description: `Thank you for ${petAction.toLowerCase()}ing ${petName} `,
+            status: 'success',
+            duration: 4000,
+            isClosable: true,
+          });
+        }
+      }
+      setSpinnerUp(false);
+    } catch (err) {
+      setSpinnerUp(false);
+      toast({
+        title: 'Something went wrong',
+        status: 'error',
+        duration: 4000,
+        isClosable: true,
+      });
+      console.error("Pet action error: ", err.message);
     }
-    setSpinnerUp(false);
   }
 
 
   async function petReturn() {
-    setSpinnerUp(true);
-    const { token } = await localforage.getItem('loggedUser');
-    const res = await axios.post(`${baseUrl}/pet/${petId}/return`,
+    try {
+      setSpinnerUp(true);
+      const { token } = await localforage.getItem('loggedUser');
+      const res = await axios.post(`${baseUrl}/pet/${petId}/return`,
       { holder: "holder" }, { headers: { authorization: `Bearer ${token}` } });
-
-    if (res.data) {
-      updateIsOwnedByUser(false);
+      if (res.data) {
+        updateIsOwnedByUser(false);
+        toast({
+          title: `${petName} has been returned :(`,
+          status: 'info',
+          duration: 4000,
+          isClosable: true,
+        });
+      }
+      setSpinnerUp(false);
+    } catch (err) {
+      setSpinnerUp(false);
       toast({
-        title: `${petName} has been returned :(`,
-        status: 'info',
+        title: 'Something went wrong',
+        status: 'error',
         duration: 4000,
         isClosable: true,
       });
+      console.error("Pet return error: ", err.message);
     }
-    setSpinnerUp(false);
   }
 
   async function petUnsave() {
-    setSpinnerUp(true);
-    const { token } = await localforage.getItem('loggedUser');
-    const res = await axios.delete(`${baseUrl}/pet/${petId}/save`,
+    try {
+      setSpinnerUp(true);
+      const { token } = await localforage.getItem('loggedUser');
+      const res = await axios.delete(`${baseUrl}/pet/${petId}/save`,
       { headers: { authorization: `Bearer ${token}` } });
-
-    if (res.data) {
-      updateIsSavedByUser(false);
+      
+      if (res.data) {
+        updateIsSavedByUser(false);
+        toast({
+          title: `${petName} has been removed from your saved pets`,
+          status: 'info',
+          duration: 4000,
+          isClosable: true,
+        });
+      }
+      setSpinnerUp(false);
+    } catch (err) {
+      setSpinnerUp(false);
       toast({
-        title: `${petName} has been removed from your saved pets`,
-        status: 'info',
+        title: 'Something went wrong',
+        status: 'error',
         duration: 4000,
         isClosable: true,
       });
+      console.error("Pet unsave error: ", err.message);
     }
-    setSpinnerUp(false);
   }
 
   const spinner =

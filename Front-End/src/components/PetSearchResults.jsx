@@ -6,14 +6,14 @@
 
 import PetCard from './PetCard';
 import { React, useState, useEffect } from 'react';
-import { Box, Grid, GridItem } from '@chakra-ui/react';
+import { Box, Grid, GridItem, useToast } from '@chakra-ui/react';
 import axios from 'axios';
 
 
 export default function PetSearchResults({ searchParams, toggleSpinner }) {
     const baseUrl = process.env.REACT_APP_SERVER_URL;
     const [searchRes, setSearchRes] = useState([]);
-
+    const toast = useToast();
 
     useEffect(() => {
         fetchPets();
@@ -28,7 +28,13 @@ export default function PetSearchResults({ searchParams, toggleSpinner }) {
             setSearchRes(res.data);
             toggleSpinner(false);
         } catch (err) {
-            console.error("Caught: " + err.message);
+            toast({
+                title: 'Something went wrong',
+                status: 'error',
+                duration: 4000,
+                isClosable: true,
+            });
+            console.error("Search results error: " + err.message);
         }
     }
 

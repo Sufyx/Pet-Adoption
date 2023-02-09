@@ -128,6 +128,12 @@ export default function UserSettings() {
       }
       editSuccessful();
     } catch (err) {
+      toast({
+        title: 'Something went wrong',
+        status: 'error',
+        duration: 4000,
+        isClosable: true,
+      });
       setSpinnerUp(false);
       console.error("Settings update error: ", err);
     }
