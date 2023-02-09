@@ -18,7 +18,7 @@ async function getPetModel(petId) {
         const matchingPet = await Pet.findOne({ _id: ObjectId(petId) });
         return matchingPet;
     } catch (err) {
-        console.error("Caught: ", err.message);
+        console.error("Pets model getPetModel: ", err.message);
     }
 }
 
@@ -57,11 +57,10 @@ async function getPetsBySearchParamsModel(searchParams) {
         }
     }
     try {
-        // const matchingPets = await Pet.find(searchBy).limit(48);
         const matchingPets = await Pet.find(searchBy);
         return matchingPets;
     } catch (err) {
-        console.error("Caught: ", err.message);
+        console.error("Pets model getPetsBySearchParamsModel: ", err.message);
     }
 }
 
@@ -85,7 +84,7 @@ async function savePetModel(petId, userId, petAction) {
         const userUpdate = await addPetToUserModel(userId, petId, petAction);
         return { pet: savedPet, user: userUpdate };
     } catch (err) {
-        console.error("Caught: ", err.message);
+        console.error("Pets model savePetModel: ", err.message);
     }
 }
 
@@ -101,7 +100,7 @@ async function returnPetModel(petId, userId) {
         await updateNewsFeed("Returned", thisPet, userId);
         return { pet: returnedPet, user: userUpdate };
     } catch (err) {
-        console.error("Caught: ", err.message);
+        console.error("Pets model returnPetModel: ", err.message);
     }
 }
 
@@ -111,7 +110,7 @@ async function deleteSavedPetModel(petId, userId) {
         Pet.updateOne({ _id: ObjectId(petId) }, { $pull: { savedAtUsers: userId } });
         return userUpdate;
     } catch (err) {
-        console.error("Caught: ", err.message);
+        console.error("Pets model deleteSavedPetModel: ", err.message);
     }
 }
 
@@ -142,7 +141,7 @@ async function getPetsByUserIdModel(userId) {
         };
         return petList;
     } catch (err) {
-        console.error("Caught: ", err.message);
+        console.error("Pets model getPetsByUserIdModel: ", err.message);
     }
 }
 
@@ -154,7 +153,7 @@ async function addPetModel(petToAdd) {
         await updateNewsFeed("Added", newPet, "0");
         return newPet._id;
     } catch (err) {
-        console.error("Caught: ", err.message);
+        console.error("Pets model addPetModel: ", err.message);
     }
 }
 
@@ -171,7 +170,7 @@ async function editPetModel(petId, editParams) {
         }
         return petEditRes;
     } catch (err) {
-        console.error("Caught: ", err.message);
+        console.error("Pets model editPetModel: ", err.message);
     }
 }
 
@@ -190,7 +189,7 @@ async function deletePetModel(petId) {
         await updateNewsFeed("Deleted", pet, "0");
         return true;
     } catch (err) {
-        console.error("Caught: ", err.message);
+        console.error("Pets model deletePetModel: ", err.message);
     }
 }
 

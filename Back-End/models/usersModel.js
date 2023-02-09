@@ -13,7 +13,7 @@ async function getUserByEmailModel(email) {
     const user = await User.findOne({ email: email });
     return user;
   } catch (err) {
-    console.error("Caught: ", err.message);
+    console.error("Users model getUserByEmailModel: ", err.message);
   }
 }
 
@@ -23,7 +23,7 @@ async function getUserByIdModel(userId) {
     user.password = undefined;
     return user;
   } catch (err) {
-    console.error("Caught: ", err.message);
+    console.error("Users model getUserByIdModel: ", err.message);
   }
 }
 
@@ -35,7 +35,7 @@ async function signUpModel(userToAdd) {
     const userId = newUser._id;
     return userId;
   } catch (err) {
-    console.error("Caught: ", err.message);
+    console.error("Users model signUpModel: ", err.message);
   }
 }
 
@@ -53,7 +53,7 @@ async function addPetToUserModel(userId, petId, petAction) {
     }
     return (updatedUser);
   } catch (err) {
-    console.error("Caught: ", err.message);
+    console.error("Users model addPetToUserModel: ", err.message);
   }
 }
 
@@ -66,7 +66,7 @@ async function removeSavedPetFromUserModel(userId, petId) {
       { $pull: { savedPets: petId } });
     return updatedUser;
   } catch (err) {
-    console.error("Caught: ", err.message);
+    console.error("Users model removeSavedPetFromUserModel: ", err.message);
   }
 }
 
@@ -79,7 +79,7 @@ async function removePetFromUserModel(userId, petId) {
       { $pull: { userPets: petId } });
     return updatedUser;
   } catch (err) {
-    console.error("Caught: ", err.message);
+    console.error("Users model removePetFromUserModel: ", err.message);
   }
 }
 
@@ -97,7 +97,7 @@ async function updateUserModel(settings, userId) {
     const updatedUser = await getUserByIdModel(userId);
     return updatedUser;
   } catch (err) {
-    console.error("Caught: ", err.message);
+    console.error("Users model updateUserModel: ", err.message);
   }
 }
 
@@ -108,7 +108,7 @@ async function changeAdminStatusModel(userId, status) {
       { isAdmin: status });
     return res;
   } catch (err) {
-    console.error("Caught: ", err.message);
+    console.error("Users model changeAdminStatusModel: ", err.message);
   }
 }
 
@@ -125,7 +125,7 @@ async function getAllUsersModel() {
     });
     return users;
   } catch (err) {
-    console.error("Caught: ", err.message);
+    console.error("Users model getAllUsersModel: ", err.message);
   }
 }
 
@@ -141,7 +141,7 @@ async function removePetFromAllUsers(usersArr, petId) {
         { $pull: { savedPets: petId } });
     });
   } catch (err) {
-    console.error("Caught: ", err.message);
+    console.error("Users model removePetFromAllUsers: ", err.message);
   }
 }
 
@@ -180,7 +180,7 @@ async function updateNewsFeed(type, pet, userId) {
         { $pop: { userPets: -1 } });
     }
   } catch (err) {
-    console.error("Caught: ", err.message);
+    console.error("Users model updateNewsFeed: ", err.message);
   }
 }
 
@@ -190,14 +190,14 @@ async function getNewsFeedModel() {
     const news = [...user.userPets];
     return news;
   } catch (err) {
-    console.error("Caught: ", err.message);
+    console.error("Users model getNewsFeedModel: ", err.message);
   }
 }
 
 
 module.exports = {
-  getUserByEmailModel, signUpModel, addPetToUserModel,
-  removePetFromUserModel, getUserByIdModel, removeSavedPetFromUserModel,
+  getUserByEmailModel, signUpModel, removeSavedPetFromUserModel,
+  removePetFromUserModel, getUserByIdModel, addPetToUserModel,
   updateUserModel, getAllUsersModel, changeAdminStatusModel,
   removePetFromAllUsers, updateNewsFeed, getNewsFeedModel
 };
