@@ -58,7 +58,7 @@ export default function UserSettings() {
         { headers: { authorization: `Bearer ${token}` } });
       updateForm(res.data.user);
     } catch (err) {
-      console.error("Caught: " + err.message);
+      console.error("User settings fetch error: " + err.message);
     }
   }
 

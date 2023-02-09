@@ -21,12 +21,11 @@ export default function PetSearchResults({ searchParams, toggleSpinner }) {
 
 
     async function fetchPets() {
+        toggleSpinner(true);
         try {
-            toggleSpinner(true);
             const res = await axios.get(`${baseUrl}/pet`,
                 { params: { searchParams: searchParams } });
             setSearchRes(res.data);
-            toggleSpinner(false);
         } catch (err) {
             toast({
                 title: 'Something went wrong',
@@ -34,8 +33,9 @@ export default function PetSearchResults({ searchParams, toggleSpinner }) {
                 duration: 4000,
                 isClosable: true,
             });
-            console.error("Search results error: " + err.message);
+            console.error("Search results fetch error: " + err.message);
         }
+        toggleSpinner(false);
     }
 
 

@@ -51,33 +51,37 @@ export default function PetPage() {
 
 
     async function isPetOwnedByUser() {
-        const { token } = await localforage.getItem('loggedUser');
-        const res = await axios.get(`${baseUrl}/pet/user/${userLogged._id}`,
-            { headers: { authorization: `Bearer ${token}` } });
-        if (!res.data.petList) {
-            setIsOwnedByUser(false);
-            setIsSavedByUser(false);
-            return;
-        }
-        let petFound = false;
-        if (res.data.petList.userPets) {
-            res.data.petList.userPets.forEach(pet => {
-                if (pet._id === query.get("petId")) {
-                    petFound = true;
-                }
-            });
-        }
-        setIsOwnedByUser(petFound);
+        try {
+            const { token } = await localforage.getItem('loggedUser');
+            const res = await axios.get(`${baseUrl}/pet/user/${userLogged._id}`,
+                { headers: { authorization: `Bearer ${token}` } });
+            if (!res.data.petList) {
+                setIsOwnedByUser(false);
+                setIsSavedByUser(false);
+                return;
+            }
+            let petFound = false;
+            if (res.data.petList.userPets) {
+                res.data.petList.userPets.forEach(pet => {
+                    if (pet._id === query.get("petId")) {
+                        petFound = true;
+                    }
+                });
+            }
+            setIsOwnedByUser(petFound);
 
-        petFound = false;
-        if (res.data.petList.savedPets) {
-            res.data.petList.savedPets.forEach(pet => {
-                if (pet._id === query.get("petId")) {
-                    petFound = true;
-                }
-            });
+            petFound = false;
+            if (res.data.petList.savedPets) {
+                res.data.petList.savedPets.forEach(pet => {
+                    if (pet._id === query.get("petId")) {
+                        petFound = true;
+                    }
+                });
+            }
+            setIsSavedByUser(petFound);
+        } catch (err) {
+            console.error("Pet-page owner check error: " + err.message);
         }
-        setIsSavedByUser(petFound);
     }
 
 
@@ -93,7 +97,7 @@ export default function PetPage() {
             setPet({ ...res.data });
         } catch (err) {
             navigate("/search");
-            console.error("Error in Pet-Page: " + err);
+            console.error("Error in Pet-Page: " + err.message);
         }
 
     }
@@ -194,8 +198,8 @@ export default function PetPage() {
                 </Flex>
             </Flex>
             <Button leftIcon={<ArrowBackIcon />} onClick={() => { navigate("/search"); }}
-                colorScheme='blue' variant='solid' w='fit-content' m='1% 3%' p='1%' 
-                fontSize='1.5vw' border="2px ridge rgb(35, 85, 129)" 
+                colorScheme='blue' variant='solid' w='fit-content' m='1% 3%' p='1%'
+                fontSize='1.5vw' border="2px ridge rgb(35, 85, 129)"
                 _hover={{ bg: 'whitesmoke', color: 'blue.500' }}>
                 Back to search
             </Button>

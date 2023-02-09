@@ -34,8 +34,8 @@ export default function PetsTable({ toggleSpinner }) {
 
 
     async function fetchPets() {
+        toggleSpinner(true);
         try {
-            toggleSpinner(true);
             const res = await axios.get(`${baseUrl}/pet`,
                 { params: { searchParams: {} } });
             const petsData = [...res.data];
@@ -60,10 +60,10 @@ export default function PetsTable({ toggleSpinner }) {
                 }
             }
             setAllPets([...petsData]);
-            toggleSpinner(false);
         } catch (err) {
-            console.error("Caught: " + err.message);
+            console.error("Pets table fetch error: ", err.message);
         }
+        toggleSpinner(false);
     }
 
     function sortTable(param) {

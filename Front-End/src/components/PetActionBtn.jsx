@@ -35,8 +35,8 @@ export default function PetActionBtn({
 
 
   async function petStatusAction() {
+    setSpinnerUp(true);
     try {
-      setSpinnerUp(true);
       let petActionStr = petAction;
       if (petAction !== "Save") {
         petActionStr = `${petAction}ed`;
@@ -68,9 +68,7 @@ export default function PetActionBtn({
           });
         }
       }
-      setSpinnerUp(false);
     } catch (err) {
-      setSpinnerUp(false);
       toast({
         title: 'Something went wrong',
         status: 'error',
@@ -79,12 +77,13 @@ export default function PetActionBtn({
       });
       console.error("Pet action error: ", err.message);
     }
+    setSpinnerUp(false);
   }
 
 
   async function petReturn() {
+    setSpinnerUp(true);
     try {
-      setSpinnerUp(true);
       const { token } = await localforage.getItem('loggedUser');
       const res = await axios.post(`${baseUrl}/pet/${petId}/return`,
       { holder: "holder" }, { headers: { authorization: `Bearer ${token}` } });
@@ -97,9 +96,7 @@ export default function PetActionBtn({
           isClosable: true,
         });
       }
-      setSpinnerUp(false);
     } catch (err) {
-      setSpinnerUp(false);
       toast({
         title: 'Something went wrong',
         status: 'error',
@@ -108,11 +105,12 @@ export default function PetActionBtn({
       });
       console.error("Pet return error: ", err.message);
     }
+    setSpinnerUp(false);
   }
 
   async function petUnsave() {
+    setSpinnerUp(true);
     try {
-      setSpinnerUp(true);
       const { token } = await localforage.getItem('loggedUser');
       const res = await axios.delete(`${baseUrl}/pet/${petId}/save`,
       { headers: { authorization: `Bearer ${token}` } });
@@ -126,9 +124,7 @@ export default function PetActionBtn({
           isClosable: true,
         });
       }
-      setSpinnerUp(false);
     } catch (err) {
-      setSpinnerUp(false);
       toast({
         title: 'Something went wrong',
         status: 'error',
@@ -137,6 +133,7 @@ export default function PetActionBtn({
       });
       console.error("Pet unsave error: ", err.message);
     }
+    setSpinnerUp(false);
   }
 
   const spinner =

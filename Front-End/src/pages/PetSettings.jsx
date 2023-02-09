@@ -60,15 +60,19 @@ export default function PetSettings({ newPet }) {
 
 
     async function fillSettings() {
-        const { token } = await localforage.getItem('loggedUser');
-        const res = await axios.get(`${baseUrl}/pet/${query.get("petId")}`,
+        try {
+            const { token } = await localforage.getItem('loggedUser');
+            const res = await axios.get(`${baseUrl}/pet/${query.get("petId")}`,
             { headers: { authorization: `Bearer ${token}` } });
-        if (res.data) {
-            const pet = res.data;
-            setFormInputs(prev => ({
-                ...prev, ...pet
-            }));
-        }
+            if (res.data) {
+                const pet = res.data;
+                setFormInputs(prev => ({
+                    ...prev, ...pet
+                }));
+            }
+        } catch (err) {
+            console.error("Pet edit settings fill error: ", err.message);
+          }
     }
 
 
@@ -152,7 +156,7 @@ export default function PetSettings({ newPet }) {
                 isClosable: true,
               });
             setSpinnerUp(false);
-            console.error("Caught :", err);
+            console.error("Pet edit save error :", err.message);
         }
     }
 

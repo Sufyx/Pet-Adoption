@@ -19,20 +19,24 @@ export default function NewsFeed() {
 
 
     async function fetchNewsFeed() {
-        const res = await axios.get(`${baseUrl}/users/news`);
-        if (res.data) {
-            const dataArray = res.data.news;
-            const newsArray = [];
-            for (let i = 0; i < dataArray.length; i++) {
-                const timeStamp = dataArray[i].slice(0, dataArray[i].indexOf('[#]'));
-                const newsLine = dataArray[i].slice(dataArray[i].indexOf('[#]') + 3,
+        try {
+            const res = await axios.get(`${baseUrl}/users/news`);
+            if (res.data) {
+                const dataArray = res.data.news;
+                const newsArray = [];
+                for (let i = 0; i < dataArray.length; i++) {
+                    const timeStamp = dataArray[i].slice(0, dataArray[i].indexOf('[#]'));
+                    const newsLine = dataArray[i].slice(dataArray[i].indexOf('[#]') + 3,
                     dataArray[i].length);
-                newsArray.push({
-                    timeStamp: timeStamp,
-                    newsLine: newsLine
-                });
+                    newsArray.push({
+                        timeStamp: timeStamp,
+                        newsLine: newsLine
+                    });
+                }
+                setNewsArray(newsArray.reverse());
             }
-            setNewsArray(newsArray.reverse());
+        }  catch (err) {
+            console.error("News feed fetch error: " + err.message);
         }
     }
 

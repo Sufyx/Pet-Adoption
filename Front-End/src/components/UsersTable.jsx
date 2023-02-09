@@ -35,16 +35,16 @@ export default function UsersPage({ toggleSpinner }) {
 
 
     async function fetchUsers() {
+        toggleSpinner(true);
         try {
-            toggleSpinner(true);
             const { token } = await localforage.getItem('loggedUser');
             const res = await axios.get(`${baseUrl}/users`,
                 { headers: { authorization: `Bearer ${token}` } });
             setAllUsers([...res.data.users]);
-            toggleSpinner(false);
         } catch (err) {
-            console.error("Caught: " + err.message);
+            console.error("Users table fetch error: ", err.message);
         }
+        toggleSpinner(false);
     }
 
 
@@ -82,7 +82,7 @@ export default function UsersPage({ toggleSpinner }) {
                 { headers: { authorization: `Bearer ${token}` } });
             fetchUsers();
         } catch (err) {
-            console.error("Caught: " + err.message);
+            console.error("Change admin status error: " + err.message);
         }
     }
 

@@ -112,9 +112,8 @@ export default function LogModal() {
             setPhoneError("Invalid phone number");
             return;
         }
-
+        setSpinnerUp(true);
         try {
-            setSpinnerUp(true);
             const res = await axios.post(`${baseUrl}/users/signup`, formInputs);
             if (res.data) {
                 logUser(res.data);
@@ -126,12 +125,11 @@ export default function LogModal() {
                     duration: 4000,
                     isClosable: true,
                 });
-                setSpinnerUp(false);
-                return;
             }
         } catch (err) {
             console.error("Signup error: ", err);
         }
+        setSpinnerUp(false);
     }
 
     async function logUser(data) {

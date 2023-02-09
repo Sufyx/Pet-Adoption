@@ -48,7 +48,7 @@ export default function AdminActionBtn({ adminAction, petName, petId }) {
         { headers: { authorization: `Bearer ${token}` } });
       navigate("/search");
     } catch (err) {
-      console.error("Caught: " + err.message);
+      console.error("Delete pet error: " + err.message);
     }
   }
 

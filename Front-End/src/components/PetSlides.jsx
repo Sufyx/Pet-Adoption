@@ -40,22 +40,25 @@ export default function PetSlides() {
     }
 
     async function fetchSlides() {
-        const res = await axios.get(`${baseUrl}/pet`,
+        try {
+            const res = await axios.get(`${baseUrl}/pet`,
             { params: { searchParams: {} } });
-        const petsData = [...res.data];
-        const slides = [];
-        for (let i = 0; i < petsData.length; i++) {
-            if (petsData[i].picture) {
-                slides.push({
-                    pic: petsData[i].picture,
-                    caption: petsData[i].name,
-                    petId: petsData[i]._id
-                });
+            const petsData = [...res.data];
+            const slides = [];
+            for (let i = 0; i < petsData.length; i++) {
+                if (petsData[i].picture) {
+                    slides.push({
+                        pic: petsData[i].picture,
+                        caption: petsData[i].name,
+                        petId: petsData[i]._id
+                    });
+                }
             }
+            slides.sort((a, b) => 0.5 - Math.random());
+            setPetPics(slides);
+        }  catch (err) {
+            console.error("Slides fetch error: " + err.message);
         }
-
-        slides.sort((a, b) => 0.5 - Math.random());
-        setPetPics(slides);
     }
 
     function activateSlides() {
