@@ -40,7 +40,6 @@ export default function UserProfile() {
 
     async function fetchUser() {
         try {
-            // const { token } = JSON.parse(localStorage.getItem('loggedUser'));
             const { token } = await localforage.getItem('loggedUser');
             const res = await axios.get(`${baseUrl}/users/${userId}`,
                 { headers: { authorization: `Bearer ${token}` } });
@@ -53,18 +52,21 @@ export default function UserProfile() {
                 setUserBio(`${user.firstName}'s bio.`);
             }
         } catch (err) {
-            console.error("Caught: " + err.message);
+            console.error("Profile fetch error: " + err.message);
         }
     }
 
 
     async function saveBio() {
-        // const { token } = JSON.parse(localStorage.getItem('loggedUser'));
-        const { token } = await localforage.getItem('loggedUser');
-        const res = await axios.put(`${baseUrl}/users/${userId}`, { bio: editVal },
+        try {
+            const { token } = await localforage.getItem('loggedUser');
+            const res = await axios.put(`${baseUrl}/users/${userId}`, { bio: editVal },
             { headers: { authorization: `Bearer ${token}` } });
-        setUserBio(res.data.updatedUser.bio);
-        closeEdit();
+            setUserBio(res.data.updatedUser.bio);
+            closeEdit();
+        } catch (err) {
+            console.error("Profile bio edit error: ", err.message);
+        }
     }
 
 
@@ -72,17 +74,14 @@ export default function UserProfile() {
         navigate(`/mypets?userId=${userId}&firstName=${fullUser.firstName}`);
     }
 
-
     async function goToSettings() {
         navigate(`/usersettings?userId=${userId}`);
     }
-
 
     async function closeEdit() {
         setEditVal('');
         setIsEdit(false);
     }
-
 
     async function toggleEdit() {
         setIsEdit(true);

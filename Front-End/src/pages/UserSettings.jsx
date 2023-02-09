@@ -117,8 +117,8 @@ export default function UserSettings() {
         return;
       }
     }
+    setSpinnerUp(true);
     try {
-      setSpinnerUp(true);
       const { token } = await localforage.getItem('loggedUser');
       const userId = query.get("userId");
       const res = await axios.put(`${baseUrl}/users/${userId}`, formInputs,
@@ -134,9 +134,9 @@ export default function UserSettings() {
         duration: 4000,
         isClosable: true,
       });
-      setSpinnerUp(false);
       console.error("Settings update error: ", err);
     }
+    setSpinnerUp(false);
   }
 
 

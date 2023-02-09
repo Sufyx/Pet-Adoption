@@ -32,15 +32,20 @@ export default function Dashboard() {
 
 
     async function verifyAdmin() {
-        const { token } = await localforage.getItem('loggedUser');
-        const res = await axios.get(`${baseUrl}/users/${userLogged._id}`,
+        try{
+            const { token } = await localforage.getItem('loggedUser');
+            const res = await axios.get(`${baseUrl}/users/${userLogged._id}`,
             { headers: { authorization: `Bearer ${token}` } });
-        const user = res.data.user;
-        if (!user.isAdmin) {
-            navigate("/home");
+            const user = res.data.user;
+            if (!user.isAdmin) {
+                navigate("/home");
+            }
+        }  catch (err) {
+            console.error("Admin verification error: ", err.message);
         }
     }
 
+    
     function toggleSpinner(spinnerUp) {
         setSpinnerUp(spinnerUp);
     }

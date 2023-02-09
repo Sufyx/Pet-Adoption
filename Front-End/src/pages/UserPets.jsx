@@ -45,8 +45,8 @@ export default function UserPets() {
 
 
     async function fetchPets() {
+        setSpinnerUp(true);
         try {
-            setSpinnerUp(true);
             const { token } = await localforage.getItem('loggedUser');
             const res = await axios.get(`${baseUrl}/pet/user/${userId}`,
                 { headers: { authorization: `Bearer ${token}` } });
@@ -59,10 +59,10 @@ export default function UserPets() {
                     setPetList(res.data.petList.savedPets);
                 }
             }
-            setSpinnerUp(false);
         } catch (err) {
-            console.error("Caught: " + err.message);
+            console.error("User pets fetch error: " + err.message);
         }
+        setSpinnerUp(false);
     }
 
 

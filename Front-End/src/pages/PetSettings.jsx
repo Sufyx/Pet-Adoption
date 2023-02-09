@@ -63,7 +63,7 @@ export default function PetSettings({ newPet }) {
         try {
             const { token } = await localforage.getItem('loggedUser');
             const res = await axios.get(`${baseUrl}/pet/${query.get("petId")}`,
-            { headers: { authorization: `Bearer ${token}` } });
+                { headers: { authorization: `Bearer ${token}` } });
             if (res.data) {
                 const pet = res.data;
                 setFormInputs(prev => ({
@@ -72,7 +72,7 @@ export default function PetSettings({ newPet }) {
             }
         } catch (err) {
             console.error("Pet edit settings fill error: ", err.message);
-          }
+        }
     }
 
 
@@ -117,6 +117,7 @@ export default function PetSettings({ newPet }) {
             if (!validatePet()) return;
         }
 
+        setSpinnerUp(true);
         try {
             const petData = new FormData();
             for (let key in formInputs) {
@@ -131,7 +132,6 @@ export default function PetSettings({ newPet }) {
             if (petImage) {
                 petData.append("picture", petImage);
             }
-            setSpinnerUp(true);
             const { token } = await localforage.getItem('loggedUser');
             if (newPet) {
                 const res = await axios.post(`${baseUrl}/pet`,
@@ -147,17 +147,16 @@ export default function PetSettings({ newPet }) {
                 }
             }
             clearForm();
-            setSpinnerUp(false);
         } catch (err) {
             toast({
                 title: 'Something went wrong',
                 status: 'error',
                 duration: 4000,
                 isClosable: true,
-              });
-            setSpinnerUp(false);
+            });
             console.error("Pet edit save error :", err.message);
         }
+        setSpinnerUp(false);
     }
 
 

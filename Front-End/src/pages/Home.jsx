@@ -23,14 +23,18 @@ export default function Home() {
     // const data = JSON.parse(localStorage.getItem('loggedUser'));
     reLogUser();
   }, []);
-  
+
   async function reLogUser() {
-    const data = await localforage.getItem('loggedUser');
-    if (!data) return;
-    const res = await axios.get(`${baseUrl}/users/logged`,
-      { headers: { authorization: `Bearer ${data.token}` } });
-    if (res.data) {
-      updateUser(res.data.user);
+    try {
+      const data = await localforage.getItem('loggedUser');
+      if (!data) return;
+      const res = await axios.get(`${baseUrl}/users/logged`,
+        { headers: { authorization: `Bearer ${data.token}` } });
+      if (res.data) {
+        updateUser(res.data.user);
+      }
+    } catch (err) {
+      console.error("Home re-log error: ", err.message);
     }
   }
 
@@ -75,7 +79,7 @@ export default function Home() {
                 and start your (digital) pet family <br />
                 :) <br /><br />
                 <span className='boldText'>
-                  * This website is free-hosted, 
+                  * This website is free-hosted,
                   please allow a minute for the server to load before engaging *
                 </span>
               </ Text >
