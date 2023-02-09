@@ -32,7 +32,7 @@ export default function PetSettings({ newPet }) {
     const [formInputs, setFormInputs] = useState({
         type: '',
         name: '',
-        adoptionStatus: '',
+        // adoptionStatus: 'Available',
         height: '',
         weight: '',
         color: '',
@@ -56,12 +56,10 @@ export default function PetSettings({ newPet }) {
 
     useEffect(() => {
         setErrorMessage('');
-    }, [formInputs.breed, formInputs.name,
-    formInputs.adoptionStatus, formInputs.type]);
+    }, [formInputs.breed, formInputs.name, formInputs.type]);
 
 
     async function fillSettings() {
-        // const { token } = JSON.parse(localStorage.getItem('loggedUser'));
         const { token } = await localforage.getItem('loggedUser');
         const res = await axios.get(`${baseUrl}/pet/${query.get("petId")}`,
             { headers: { authorization: `Bearer ${token}` } });
@@ -97,9 +95,9 @@ export default function PetSettings({ newPet }) {
         if (!formInputs.type) {
             setErrorMessage("Please enter a pet type");
             return false;
-        } else if (!formInputs.adoptionStatus) {
-            setErrorMessage("Please enter a pet status");
-            return false;
+        // } else if (!formInputs.adoptionStatus) {
+        //     setErrorMessage("Please enter a pet status");
+        //     return false;
         } else if (!formInputs.name) {
             setErrorMessage("Please enter a pet name");
             return false;
@@ -126,11 +124,13 @@ export default function PetSettings({ newPet }) {
                 }
             }
             petData.append("hypoallergenic", formInputs.hypoallergenic);
+            if (newPet) {
+                petData.append("adoptionStatus", "Available");
+            }
             if (petImage) {
                 petData.append("picture", petImage);
             }
             setSpinnerUp(true);
-            // const { token } = JSON.parse(localStorage.getItem('loggedUser'));
             const { token } = await localforage.getItem('loggedUser');
             if (newPet) {
                 const res = await axios.post(`${baseUrl}/pet`,
@@ -158,7 +158,7 @@ export default function PetSettings({ newPet }) {
         setFormInputs({
             type: '',
             name: '',
-            adoptionStatus: '',
+            // adoptionStatus: 'Available',
             height: '',
             weight: '',
             color: '',
@@ -199,24 +199,6 @@ export default function PetSettings({ newPet }) {
                         {typeList.map(type =>
                             <option value={type} key={uuid()}>{type}</option>
                         )}
-                    </Select>
-                </InputGroup>
-                <hr />
-
-                <InputGroup alignItems="center" w="90%"
-                    m="auto" my="1%" boxShadow='dark-lg' borderRadius="5px">
-                    <InputLeftAddon children='Status: ' w="15%" fontSize="1.2vw"
-                        fontWeight='semibold' bg="rgb(57, 164, 164)" color="whitesmoke" />
-                    <Select placeholder='Select adoption status' maxW='90%' fontSize="1.1vw"
-                        p="0" my="0" value={formInputs.adoptionStatus}
-                        onChange={e => {
-                            setFormInputs(prev => ({
-                                ...prev, adoptionStatus: e.target.value
-                            }))
-                        }}>
-                        <option value='Adopted' >Adopted</option>
-                        <option value='Fostered' >Fostered</option>
-                        <option value='Available' >Available</option>
                     </Select>
                 </InputGroup>
                 <hr />
