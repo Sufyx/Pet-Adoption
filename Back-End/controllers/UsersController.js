@@ -34,7 +34,7 @@ async function signUp(req, res) {
             { expiresIn: "5h" });
         res.send({ token: token, user: newUser });
     } catch (err) {
-        console.error("Caught: ", err.message);
+        console.error("User controller signUp: ", err.message);
         res.status(500).send(err);
     }
 }
@@ -50,7 +50,7 @@ async function login(req, res) {
             { expiresIn: "5h" });
         res.send({ token: token, user: user });
     } catch (err) {
-        console.error("Caught: ", err.message);
+        console.error("User controller login: ", err.message);
         res.status(500).send(err);
     }
 }
@@ -59,7 +59,7 @@ async function logout(req, res) {
     try {
         res.send({ ok: true, message: 'Backend logged out' });
     } catch (err) {
-        console.error("Caught: ", err.message);
+        console.error("User controller logout: ", err.message);
         res.status(500).send(err);
     }
 }
@@ -70,7 +70,7 @@ async function getUserById(req, res) {
         const user = await getUserByIdModel(userId);
         res.send({ ok: true, user: user });
     } catch (err) {
-        console.error("Caught: ", err.message);
+        console.error("User controller getUserById: ", err.message);
         res.status(500).send(err);
     }
 }
@@ -84,7 +84,7 @@ async function getFullUserById(req, res) {
         user.savedPets = [...petList.savedPets];
         res.send({ ok: true, user: user });
     } catch (err) {
-        console.error("Caught: ", err.message);
+        console.error("User controller getFullUserById: ", err.message);
         res.status(500).send(err);
     }
 }
@@ -97,7 +97,7 @@ async function updateUser(req, res) {
         const updatedUser = await updateUserModel(settings, userId);
         res.send({ ok: true, updatedUser });
     } catch (err) {
-        console.error("Caught: ", err.message);
+        console.error("User controller updateUser: ", err.message);
         res.status(500).send(err);
     }
 }
@@ -107,7 +107,7 @@ async function getAllUsers(req, res) {
         const users = await getAllUsersModel();
         res.send({ ok: true, users });
     } catch (err) {
-        console.error("Caught: ", err.message);
+        console.error("User controller getAllUsers: ", err.message);
         res.status(500).send(err);
     }
 }
@@ -118,7 +118,7 @@ async function stayLoggedIn(req, res) {
         const user = await getUserByIdModel(userId);
         res.send({ ok: true, user });
     } catch (err) {
-        console.error("Caught: ", err.message);
+        console.error("User controller stayLoggedIn: ", err.message);
         res.status(500).send(err);
     }
 }
@@ -131,7 +131,7 @@ async function changeAdminStatus(req, res) {
         const resp = await changeAdminStatusModel(userId, status);
         res.send({ ok: true, resp });
     } catch (err) {
-        console.error("Caught: ", err.message);
+        console.error("User controller changeAdminStatus: ", err.message);
         res.status(500).send(err);
     }
 }
@@ -142,14 +142,14 @@ async function getNewsFeed(req, res) {
         const news = await getNewsFeedModel();
         res.send({ ok: true, news });
     } catch (err) {
-        console.error("Caught: ", err.message);
+        console.error("User controller getNewsFeed: ", err.message);
         res.status(500).send(err);
     }
 }
 
 
 module.exports = {
-    signUp, login, logout, getUserById, changeAdminStatus,
-    updateUser, getAllUsers, getFullUserById, 
-    stayLoggedIn, getNewsFeed
+    signUp, login, logout, getUserById, 
+    changeAdminStatus, updateUser, getAllUsers, 
+    getFullUserById, stayLoggedIn, getNewsFeed
 };

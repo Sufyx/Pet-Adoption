@@ -16,7 +16,7 @@ async function getPet(req, res) {
         const foundPet = await getPetModel(petId);
         res.send(foundPet);
     } catch (err) {
-        console.error("Caught: ", err.message);
+        console.error("Pets controller getPet: ", err.message);
         res.status(500).send(err);
     }
 }
@@ -28,7 +28,7 @@ async function getPetsBySearchParams(req, res) {
         const allPets = await getPetsBySearchParamsModel(params);
         res.send(allPets);
     } catch (err) {
-        console.error("Caught: ", err.message);
+        console.error("Pets controller getPetsBySearchParams: ", err.message);
         res.status(500).send(err);
     }
 }
@@ -41,7 +41,7 @@ async function savePet(req, res) {
         await savePetModel(petId, userId, petAction);
         res.send({ ok: true, petId: petId, message: `pet ${petAction}ed :)` });
     } catch (err) {
-        console.error("Caught: ", err.message);
+        console.error("Pets controller savePet: ", err.message);
         res.status(500).send(err);
     }
 }
@@ -53,7 +53,7 @@ async function returnPet(req, res) {
         await returnPetModel(petId, userId);
         res.send({ ok: true, petId: petId, message: `pet returned :(` });
     } catch (err) {
-        console.error("Caught: ", err.message);
+        console.error("Pets controller returnPet: ", err.message);
         res.status(500).send(err);
     }
 }
@@ -65,7 +65,7 @@ async function deleteSavedPet(req, res) {
         await deleteSavedPetModel(petId, userId);
         res.send({ ok: true, petId: petId, message: `pet unsaved` });
     } catch (err) {
-        console.error("Caught: ", err.message);
+        console.error("Pets controller deleteSavedPet: ", err.message);
         res.status(500).send(err);
     }
 }
@@ -93,7 +93,7 @@ async function addPet(req, res) {
         res.send(addedPetId);
         return;
     } catch (err) {
-        console.error("Caught: ", err.message);
+        console.error("Pets controller addPet: ", err.message);
         res.status(500).send(err);
     }
 }
@@ -103,11 +103,10 @@ async function editPet(req, res) {
     try {
         const { petId } = req.params;
         const petData = { ...req.body }
-        //if pet was changed to available, update owners
         const editedPet = await editPetModel(petId, petData);
         res.send(editedPet);
     } catch (err) {
-        console.error("Caught: ", err.message);
+        console.error("Pets controller editPet: ", err.message);
         res.status(500).send(err);
     }
 }
@@ -122,7 +121,7 @@ async function deletePet(req, res) {
             return;
         }
     } catch (err) {
-        console.error("Caught: ", err.message);
+        console.error("Pets controller deletePet: ", err.message);
         res.status(500).send(err);
     }
 }
@@ -134,7 +133,7 @@ async function getPetsByUserId(req, res) {
         const petList = await getPetsByUserIdModel(userId);
         res.send({ ok: true, petList });
     } catch (err) {
-        console.error("Caught: ", err.message);
+        console.error("Pets controller getPetsByUserId: ", err.message);
         res.status(500).send(err);
     }
 }
