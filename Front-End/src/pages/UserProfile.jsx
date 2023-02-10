@@ -133,13 +133,15 @@ export default function UserProfile() {
         <div className='userProfileContainer'>
             <Stack minH='80%' direction={{ base: 'column', md: 'row' }} mt="5%" >
                 <Flex flexDir='column' justify='space-between' align='center' w="48%"
-                    pr="3%" pb="5%" borderRight="2px inset rgba(116, 185, 178, 0.4)">
+                    pr="3%" pb="5%" borderRight="2px inset rgba(116, 185, 178, 0.4)" >
                     <Flex flexDir='column' align='center' w={'full'} maxW={'lg'}>
                         <Heading fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }} >
                             <Text as={'span'} position={'relative'}
                                 _after={{
                                     content: "''", width: 'full', position: 'absolute',
-                                    height: useBreakpointValue({ base: '20%', md: '30%' }),
+                                    height: useBreakpointValue({ 
+                                        base: '20%', 
+                                        md: '30%' }),
                                     bottom: 1, left: 0, bg: 'teal.400', zIndex: -1,
                                 }}>
                                 {`${fullUser.firstName} ${fullUser.lastName}`}
@@ -169,9 +171,10 @@ export default function UserProfile() {
                             </Flex>
                         </Flex>
                     </Flex>
-                    <Button rounded={'full'} bg={'teal.500'} color={'whitesmoke'}
-                        _hover={{ bg: 'whitesmoke', color: 'teal.500' }} py="8%" w="60%"
-                        border="2px outset teal" onClick={goToPets} fontSize="2.2vw" >
+                    <Button rounded={'full'} color={'whitesmoke'}
+                        _hover={{ bg: 'whitesmoke', color: 'teal.500' }}
+                        py="8%" border="2px outset teal" fontSize="2.2vw"
+                        w="60%" bg={'teal.500'} onClick={goToPets} >
                         {`${fullUser.firstName}'s pets`}
                     </Button>
                 </Flex>
@@ -180,7 +183,7 @@ export default function UserProfile() {
                     <Flex flexDir='column' w="98%">
                         <Flex justify='space-between'>
                             <Text color={'teal.800'} as={'span'}
-                                fontSize="2vw" fontWeight='bold'>
+                                fontSize="2vw" fontWeight='bold' >
                                 &nbsp; Bio:
                             </Text>{' '}
                             {isEdit ? '' : editIcon}
@@ -188,9 +191,9 @@ export default function UserProfile() {
                         {isEdit ? editBio : profileBio}
                     </Flex>
                     <Button rounded={'full'} color={'teal.800'}
-                        _hover={{ bg: 'teal.600', color: 'whitesmoke' }} p="8%"
-                        fontWeight='bold' fontSize="2vw" border="2px outset teal"
-                        onClick={goToSettings} >
+                        _hover={{ bg: 'teal.600', color: 'whitesmoke' }}
+                        p="8%" fontWeight='bold' fontSize="2vw"
+                        border="2px outset teal" onClick={goToSettings} >
                         Edit settings
                     </Button>
                 </Flex>
