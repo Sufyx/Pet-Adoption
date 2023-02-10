@@ -132,8 +132,8 @@ html, body, .searchPageContainer, .App {
 }
 .slideHeader, .slideCaption {
   position: absolute;
-  left: 8vw;
-  font-size: 2vw;
+  left: 35%;
+  font-size: 1.7vw;
 }
 .slideHeader {
   top: 2vh;

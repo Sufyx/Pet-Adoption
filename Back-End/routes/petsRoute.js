@@ -9,10 +9,10 @@ const PetsController = require("../controllers/petsController");
 
 const { newPetSchema, updatePetSchema } = require("../schemas/allSchemas");
 const { validateBody } = require("../middleware/validateBody");
-const { 
-    checkAuth, checkAdmin, verifyUserAccess 
+const {
+    checkAuth, checkAdmin, verifyUserAccess
 } = require("../middleware/usersMiddleware");
-const { isPetAvailable, doesUserHavePet} = require("../middleware/petsMiddleware");
+const { isPetAvailable, doesUserHavePet } = require("../middleware/petsMiddleware");
 const { upload, uploadToCloudinary } = require("../middleware/fileUpload");
 
 //guest routes
@@ -30,8 +30,8 @@ router.delete("/:petId/save", checkAuth, PetsController.deleteSavedPet);
 //admin routes
 router.put("/:petId", checkAuth, checkAdmin, validateBody(updatePetSchema),
     upload.single("picture"), uploadToCloudinary, PetsController.editPet);
-router.post("/", checkAuth, checkAdmin, validateBody(newPetSchema), upload.single("picture"),
-    uploadToCloudinary, PetsController.addPet);
+router.post("/", checkAuth, checkAdmin, validateBody(newPetSchema),
+    upload.single("picture"), uploadToCloudinary, PetsController.addPet);
 router.delete("/:petId", checkAuth, checkAdmin, PetsController.deletePet);
 
 module.exports = router;
