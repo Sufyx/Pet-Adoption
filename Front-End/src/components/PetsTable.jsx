@@ -36,42 +36,17 @@ export default function PetsTable({ toggleSpinner }) {
     async function fetchPets() {
         toggleSpinner(true);
         try {
-            const res = await axios.get(`${baseUrl}/pet`,
-                { params: { searchParams: {} } });
-            const petsData = [...res.data];
             const { token } = await localforage.getItem('loggedUser');
-            const promises = [];
-            for (let i = 0; i < petsData.length; i++) {
-                if (petsData[i].owner) {
-                    promises.push(axios.get(`${baseUrl}/users/${petsData[i].owner}`,
-                        { headers: { authorization: `Bearer ${token}` }}));
-                } else {
-                    promises.push(' ');
-                }
-            }
-            const resAll = await Promise.all(promises);
-            const dataAll = resAll.map((res) => res.data);
-            for (let i = 0; i < dataAll.length; i++) {
-                if (dataAll[i]) {
-                    const ownerUser = dataAll[i].user;
-                    petsData[i].ownerName = `${ownerUser.firstName} ${ownerUser.lastName}`;
-                } else {
-                    petsData[i].ownerName = "";
-                }
-            }
-            setAllPets([...petsData]);
-
-            // const { token } = await localforage.getItem('loggedUser');
-            // const rez = await axios.get(`${baseUrl}/pet/getPetsTable`,
-            //     { headers: { authorization: `Bearer ${token}` }});
-            // const petsTable = [...rez.data.petList];
-            // setAllPets([...petsTable]);
-
+            const rez = await axios.get(`${baseUrl}/pet/getPetsTable`,
+                { headers: { authorization: `Bearer ${token}` }});
+            const petsTable = [...rez.data.petList];
+            setAllPets([...petsTable]);
         } catch (err) {
             console.error("Pets table fetch error: ", err.message);
         }
         toggleSpinner(false);
     }
+    
 
     function sortTable(param) {
         if (sortBy === param) {

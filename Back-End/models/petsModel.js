@@ -195,20 +195,37 @@ async function deletePetModel(petId) {
 
 
 async function getPetsOwnersModel() {
+    console.log("-----------------------------------------------------");
     try {
         const allPets = await getPetsBySearchParamsModel({});
-        const petsWithOwners = [...allPets];
+        const petsData = [];
+        const promises = [];
         for (let i = 0; i < allPets.length; i++) {
-            petsWithOwners[i] = {...allPets[i]._doc};
-            if (allPets[i].owner) {
-                const owner = await getUserByIdModel(allPets[i].owner);
-                ownerName = `${owner.firstName} ${owner.lastName}`;
-                petsWithOwners[i].ownerName = ownerName;
+            petsData[i] = {...allPets[i]._doc, ownerName: ''};
+            if (petsData[i].owner) {
+                // if (i % 10 === 0) {console.log("petsData[", i, "] = ", petsData[i]);}
+                promises.push(getUserByIdModel(petsData[i].owner));
+                // const owner = await getUserByIdModel(allPets[i].owner);
+                // ownerName = `${owner.firstName} ${owner.lastName}`;
+                // petsWithOwners[i].ownerName = ownerName;
             } else {
-                petsWithOwners[i].ownerName = '';
+                promises.push('');
+                // petsWithOwners[i].ownerName = '';
             }
         }
-        return petsWithOwners;
+        const dataAll = await Promise.all(promises);
+        // const dataAll = resAll.map((res) => res);
+        for (let i = 0; i < dataAll.length; i++) {
+            if (dataAll[i]) {
+                if (i % 10 === 0) {console.log("dataAll[", i, "] = ", dataAll[i]);}
+                // const ownerUser = dataAll[i].user;
+                petsData[i].ownerName = `${dataAll[i].firstName} ${dataAll[i].lastName}`;
+            } else {
+                petsData[i].ownerName = "";
+            }
+        }
+        // console.log(petsData[0]);
+        return petsData;
     } catch (err) {
         console.error("Pets model getPetsOwnersModel: ", err.message);
     }
