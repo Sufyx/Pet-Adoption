@@ -3,9 +3,9 @@
  * Asaf Gilboa
 */
 const {
-    getPetsBySearchParamsModel, addPetModel,
-    deletePetModel, getPetModel, getPetsByUserIdModel,
-    editPetModel, savePetModel, returnPetModel, deleteSavedPetModel
+    getPetsBySearchParamsModel, addPetModel, deletePetModel, 
+    getPetModel, getPetsByUserIdModel, editPetModel, savePetModel, 
+    returnPetModel, deleteSavedPetModel, getPetsOwnersModel
 } = require('../models/petsModel');
 
 
@@ -139,8 +139,20 @@ async function getPetsByUserId(req, res) {
 }
 
 
+async function getPetsOwners(req, res) {
+    try {
+        const petList = await getPetsOwnersModel();
+        res.send({ ok: true, petList });
+    } catch (err) {
+        console.error("Pets controller getPetsOwners: ", err.message);
+        res.status(500).send(err);
+    }
+}
+
+
 
 module.exports = {
     getPetsBySearchParams, getPet, savePet, returnPet,
-    addPet, editPet, deletePet, deleteSavedPet, getPetsByUserId
+    addPet, editPet, deletePet, deleteSavedPet, 
+    getPetsByUserId, getPetsOwners
 };

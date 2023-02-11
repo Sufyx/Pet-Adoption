@@ -193,8 +193,30 @@ async function deletePetModel(petId) {
     }
 }
 
+
+async function getPetsOwnersModel() {
+    try {
+        const allPets = await getPetsBySearchParamsModel({});
+        const petsWithOwners = [...allPets];
+        for (let i = 0; i < allPets.length; i++) {
+            petsWithOwners[i] = {...allPets[i]._doc};
+            if (allPets[i].owner) {
+                const owner = await getUserByIdModel(allPets[i].owner);
+                ownerName = `${owner.firstName} ${owner.lastName}`;
+                petsWithOwners[i].ownerName = ownerName;
+            } else {
+                petsWithOwners[i].ownerName = '';
+            }
+        }
+        return petsWithOwners;
+    } catch (err) {
+        console.error("Pets model getPetsOwnersModel: ", err.message);
+    }
+}
+
+
 module.exports = {
-    getPetsBySearchParamsModel, getPetModel, addPetModel,
-    returnPetModel, deletePetModel, deleteSavedPetModel,
-    savePetModel, getPetsByUserIdModel, editPetModel
+    getPetsBySearchParamsModel, getPetModel, addPetModel, returnPetModel,
+    deletePetModel, deleteSavedPetModel, savePetModel,
+    getPetsByUserIdModel, editPetModel, getPetsOwnersModel
 };

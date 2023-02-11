@@ -20,7 +20,7 @@ router.get("/", PetsController.getPetsBySearchParams);
 
 //user routes
 router.get("/user/:userId", checkAuth, verifyUserAccess, PetsController.getPetsByUserId);
-router.get("/:petId", checkAuth, PetsController.getPet);
+router.get("/:petId/get", checkAuth, PetsController.getPet);
 router.post("/:petId/adopt", checkAuth, isPetAvailable, PetsController.savePet);
 router.post("/:petId/foster", checkAuth, isPetAvailable, PetsController.savePet);
 router.post("/:petId/return", checkAuth, doesUserHavePet, PetsController.returnPet);
@@ -28,6 +28,7 @@ router.post("/:petId/save", checkAuth, PetsController.savePet);
 router.delete("/:petId/save", checkAuth, PetsController.deleteSavedPet);
 
 //admin routes
+router.get("/getPetsTable", checkAuth, checkAdmin, PetsController.getPetsOwners);
 router.put("/:petId", checkAuth, checkAdmin, validateBody(updatePetSchema),
     upload.single("picture"), uploadToCloudinary, PetsController.editPet);
 router.post("/", checkAuth, checkAdmin, validateBody(newPetSchema),

@@ -44,7 +44,7 @@ export default function PetsTable({ toggleSpinner }) {
             for (let i = 0; i < petsData.length; i++) {
                 if (petsData[i].owner) {
                     promises.push(axios.get(`${baseUrl}/users/${petsData[i].owner}`,
-                        { headers: { authorization: `Bearer ${token}` } }));
+                        { headers: { authorization: `Bearer ${token}` }}));
                 } else {
                     promises.push(' ');
                 }
@@ -60,6 +60,13 @@ export default function PetsTable({ toggleSpinner }) {
                 }
             }
             setAllPets([...petsData]);
+
+            // const { token } = await localforage.getItem('loggedUser');
+            // const rez = await axios.get(`${baseUrl}/pet/getPetsTable`,
+            //     { headers: { authorization: `Bearer ${token}` }});
+            // const petsTable = [...rez.data.petList];
+            // setAllPets([...petsTable]);
+
         } catch (err) {
             console.error("Pets table fetch error: ", err.message);
         }

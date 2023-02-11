@@ -62,7 +62,7 @@ export default function PetSettings({ newPet }) {
     async function fillSettings() {
         try {
             const { token } = await localforage.getItem('loggedUser');
-            const res = await axios.get(`${baseUrl}/pet/${query.get("petId")}`,
+            const res = await axios.get(`${baseUrl}/pet/${query.get("petId")}/get`,
                 { headers: { authorization: `Bearer ${token}` } });
             if (res.data) {
                 const pet = res.data;

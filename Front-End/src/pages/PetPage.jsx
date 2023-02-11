@@ -89,7 +89,7 @@ export default function PetPage() {
         try {
             setPetId(query.get("petId"));
             const { token } = await localforage.getItem('loggedUser');
-            const res = await axios.get(`${baseUrl}/pet/${query.get("petId")}`,
+            const res = await axios.get(`${baseUrl}/pet/${query.get("petId")}/get`,
                 { headers: { authorization: `Bearer ${token}` } });
             if (!res.data) {
                 throw new Error("Pet not found");
