@@ -1,7 +1,5 @@
 /**
- * ITC Full-Stack Bootcamp
  * Pet Adoption Project
- * 10/08/2022
  * Asaf Gilboa
 */
 
@@ -18,7 +16,6 @@ import PetSettings from './pages/PetSettings';
 import UserPets from './pages/UserPets';
 import Dashboard from './pages/Dashboard';
 import UsersContext from './context/UsersContext';
-// import localforage from 'localforage';
 
 
 function App() {
@@ -34,7 +31,7 @@ function App() {
     maxHeight: '',
     minWeight: '',
     maxWeight: ''
-});
+  });
 
   useEffect(() => {
     navigate("/home");
@@ -60,8 +57,8 @@ function App() {
   return (
     <div className="App">
       <UsersContext.Provider value={{
-        userLogged, updateUser, 
-        loginTrigger, loginHook, 
+        userLogged, updateUser,
+        loginTrigger, loginHook,
         updateSearch, lastSearch
       }} >
         <NavBar />
@@ -78,6 +75,7 @@ function App() {
       </UsersContext.Provider >
     </div>
   );
+
 }
 
 export default App;

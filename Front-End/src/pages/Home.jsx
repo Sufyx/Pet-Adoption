@@ -20,7 +20,6 @@ export default function Home() {
   const { updateUser } = useContext(UsersContext);
 
   useEffect(() => {
-    // const data = JSON.parse(localStorage.getItem('loggedUser'));
     reLogUser();
   }, []);
 

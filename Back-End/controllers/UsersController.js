@@ -15,17 +15,7 @@ require("dotenv").config();
 
 async function signUp(req, res) {
     try {
-        const { email, password, firstName, lastName, phone } = req.body;
-        const newUser = {
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            password: password,
-            phone: phone,
-            isAdmin: false,
-            userPets: [],
-            savedPets: []
-        };
+        const newUser = {...req.body};
         const userId = await signUpModel(newUser);
         newUser["userId"] = userId;
         const token = jwt.sign(
@@ -45,8 +35,8 @@ async function login(req, res) {
         const user = await getUserByEmailModel(email);
         const payload = { id: user._id };
         const token = jwt.sign(
-            payload, 
-            process.env.TOKEN_KEY, 
+            payload,
+            process.env.TOKEN_KEY,
             { expiresIn: "5h" });
         res.send({ token: token, user: user });
     } catch (err) {
@@ -57,7 +47,7 @@ async function login(req, res) {
 
 async function logout(req, res) {
     try {
-        res.send({ ok: true, message: 'Backend logged out' });
+        res.send({ ok: true, message: 'User logged out' });
     } catch (err) {
         console.error("User controller logout: ", err.message);
         res.status(500).send(err);

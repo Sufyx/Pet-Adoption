@@ -73,23 +73,7 @@ async function deleteSavedPet(req, res) {
 
 async function addPet(req, res) {
     try {
-        const petData = { ...req.body }
-        const newPet = {
-            type: petData.type,
-            name: petData.name,
-            adoptionStatus: petData.adoptionStatus,
-            picture: (petData.picture ? petData.picture : ''),
-            height: (petData.height ? Number(petData.height) : ''),
-            weight: (petData.weight ? Number(petData.weight) : ''),
-            color: (petData.color ? petData.color : ''),
-            bio: (petData.bio ? petData.bio : ''),
-            hypoallergenic: (petData.hypoallergenic ? petData.hypoallergenic : false),
-            dietary: (petData.dietary ? petData.dietary : []),
-            breed: petData.breed,
-            owner: '',
-            savedAtUsers: []
-        };
-        const addedPetId = await addPetModel(newPet);
+        const addedPetId = await addPetModel(req.body);
         res.send(addedPetId);
         return;
     } catch (err) {
